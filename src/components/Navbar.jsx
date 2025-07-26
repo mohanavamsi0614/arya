@@ -1,0 +1,91 @@
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+
+function Navbar({ variant = 'overlay' }) {
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const location = useLocation();
+
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const toggleOverlay = () => {
+    setOverlayOpen(!overlayOpen);
+  };
+
+  // Close overlay when clicking outside or on mobile
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && overlayOpen) {
+        setOverlayOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [overlayOpen]);
+
+  // Different navbar styles based on variant
+  const navbarClass = variant === 'overlay' ? 'navbar navbar-overlay' : 'navbar navbar-fixed';
+
+  return (
+    <>
+      <nav className={navbarClass}>
+        <div className="nav-left">
+          <button 
+            className={`menu-btn ${overlayOpen ? 'active' : ''}`} 
+            onClick={toggleOverlay}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+          </button>
+          <span className="logo">ARYA</span>
+          
+          {/* Desktop Navigation Links - Hidden on Mobile */}
+          <ul className="nav-links desktop-only">
+            <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>HOME</Link></li>
+            <li><Link to="/menu" className={location.pathname === '/menu' ? 'active' : ''}>MENU</Link></li>
+            <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>ABOUT</Link></li>
+          </ul>
+        </div>
+        
+        {/* Book Table Button */}
+        <a href="#" className="book" onClick={(e) => e.preventDefault()}>
+          <span className="book-text-full">BOOK A TABLE</span>
+          <span className="book-text-short">BOOK A TABLE</span>
+        </a>
+      </nav>
+
+      {/* Fullscreen Navigation Overlay */}
+      <div className={`overlay ${overlayOpen ? 'active' : ''}`} id="fullscreenNav">
+        <button className="close-btn" onClick={toggleOverlay} aria-label="Close menu">×</button>
+        <div className="overlay-content">
+          <Link to="/" onClick={toggleOverlay} className={location.pathname === '/' ? 'active' : ''}>
+            HOME
+          </Link>
+          <Link to="/menu" onClick={toggleOverlay} className={location.pathname === '/menu' ? 'active' : ''}>
+            MENU
+          </Link>
+          <Link to="/about" onClick={toggleOverlay} className={location.pathname === '/about' ? 'active' : ''}>
+            ABOUT
+          </Link>
+          <Link to="/gallery" onClick={toggleOverlay}>GALLERY</Link>
+          <Link to="/contact" onClick={toggleOverlay}>CONTACT</Link>
+          <a href="#" onClick={(e) => { e.preventDefault(); toggleOverlay(); }}>RESERVATION</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); toggleOverlay(); }}>LOYALTY</a>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default Navbar;
