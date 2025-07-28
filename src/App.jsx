@@ -3,13 +3,15 @@ import Home from './Home';
 import Menu from './Menu';
 import './App.css';
 import Book from './Book';
+import Auth from './Auth';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/menu" element={<Menu />} />
-      <Route path='/reservation' element={<Book />} />
+      <Route path="/" element={localStorage.getItem("user") ? <Home /> : <Auth />} />
+      <Route path="/menu" element={localStorage.getItem("user") ? <Menu /> : <Auth />} />
+      <Route path='/reservation' element={localStorage.getItem("user") ? <Book /> : <Auth />} />
+      <Route path="/auth" element={<Auth />} />
     </Routes>
   );
 }

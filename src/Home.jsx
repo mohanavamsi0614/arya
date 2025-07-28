@@ -2,10 +2,14 @@ import Layout from './components/Layout';
 import Navbar from './components/Navbar';
 import { useNavigate } from 'react-router-dom';
 import { FaInstagram, FaFacebookF, FaTwitter,FaArrowRight  } from "react-icons/fa";
+import { useEffect } from 'react';
 
 
 function Home() {
     const navigate = useNavigate();
+    useEffect(()=>{
+      window.scrollTo(0, 0);
+    },[])
 
   return (
     <Layout pageType="home">
