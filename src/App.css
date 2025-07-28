@@ -3188,6 +3188,13 @@ max-height: 100vh;
   /* background-color: rgba(24, 24, 24, 0.5); */
 }
 
+.reservation-footer-text{
+  font-size: 14px;
+  color: rgb(239, 231, 210);
+  text-transform: uppercase;
+  font-family: Satoshi, "Satoshi Placeholder", sans-serif;
+}
+
 .reservation-container {
   display: flex;
   flex-direction: column;
@@ -3201,7 +3208,7 @@ max-height: 100vh;
   border: 1px solid #444;
   border-radius: 16px;
   padding: 24px;
-  text-align: center;
+  text-align: center  ;
 }
 
 .reservation-header {
