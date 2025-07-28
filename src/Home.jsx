@@ -1,7 +1,12 @@
 import Layout from './components/Layout';
 import Navbar from './components/Navbar';
+import { useNavigate } from 'react-router-dom';
+import { FaInstagram, FaFacebookF, FaTwitter,FaArrowRight  } from "react-icons/fa";
+
 
 function Home() {
+    const navigate = useNavigate();
+
   return (
     <Layout pageType="home">
       <div className="framer-app">
@@ -47,15 +52,15 @@ function Home() {
             </div>
             <div className="social-section">
               <div className="social-links">
-                <a href="#" className="social-icon">
-                  <div className="social-icon-inner"></div>
-                </a>
-                <a href="#" className="social-icon">
-                  <div className="social-icon-inner"></div>
-                </a>
-                <a href="#" className="social-icon">
-                  <div className="social-icon-inner"></div>
-                </a>
+                  <a href="https://instagram.com" className="social-icon" target="_blank">
+                    <FaInstagram />
+                  </a>
+                  <a href="https://facebook.com" className="social-icon" target="_blank">
+                    <FaFacebookF />
+                  </a>
+                  <a href="https://twitter.com" className="social-icon" target="_blank">
+                    <FaTwitter />
+                  </a>
               </div>
             </div>
           </div>
@@ -63,15 +68,18 @@ function Home() {
 
         {/* Right Side - Navigation Cards */}
         <div className="cards-side">
-          <div className="nav-card">
+          <div         onClick={() => navigate('/menu')}
+ className="nav-card">
             <div className="card-image">
-              <img src="/media/EKJJBnLQzSzsS1Sp8JrOMfZgqw.webp" alt="Menu" />
+              <img href='/menu' src="/media/EKJJBnLQzSzsS1Sp8JrOMfZgqw.webp" alt="Menu" />
             </div>
             <div className="card-info">
               <div className="card-title-section">
                 <h6 className="card-title">Menu</h6>
                 <div className="card-arrow-container">
-                  <div className="card-arrow-icon"></div>
+                  <div className="card-arrow-icon">
+                    <FaArrowRight />
+                  </div>
                 </div>
               </div>
             </div>
@@ -84,8 +92,10 @@ function Home() {
             <div className="card-info">
               <div className="card-title-section">
                 <h6 className="card-title">Reservation</h6>
-                <div className="card-arrow-container">
-                  <div className="card-arrow-icon"></div>
+                              <div className="card-arrow-container">
+                  <div className="card-arrow-icon">
+                    <FaArrowRight />
+                  </div>
                 </div>
               </div>
             </div>
@@ -99,7 +109,9 @@ function Home() {
               <div className="card-title-section">
                 <h6 className="card-title">Our Restaurant</h6>
                 <div className="card-arrow-container">
-                  <div className="card-arrow-icon"></div>
+                  <div className="card-arrow-icon">
+                    <FaArrowRight />
+                  </div>
                 </div>
               </div>
             </div>

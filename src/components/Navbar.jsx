@@ -48,13 +48,13 @@ function Navbar({ variant = 'overlay' }) {
           >
             <span></span>
           </button>
-          <span className="logo">ARYA</span>
+          {/* <span className="logo">ARYA</span> */}
+          <Link to="/" className="logo no-underline">ARYA</Link>
           
           {/* Desktop Navigation Links - Hidden on Mobile */}
           <ul className="nav-links desktop-only">
-            <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>HOME</Link></li>
             <li><Link to="/menu" className={location.pathname === '/menu' ? 'active' : ''}>MENU</Link></li>
-            <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>ABOUT</Link></li>
+            <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>ABOUT</Link></li>
           </ul>
         </div>
         
@@ -66,24 +66,36 @@ function Navbar({ variant = 'overlay' }) {
       </nav>
 
       {/* Fullscreen Navigation Overlay */}
-      <div className={`overlay ${overlayOpen ? 'active' : ''}`} id="fullscreenNav">
-        <button className="close-btn" onClick={toggleOverlay} aria-label="Close menu">×</button>
-        <div className="overlay-content">
-          <Link to="/" onClick={toggleOverlay} className={location.pathname === '/' ? 'active' : ''}>
-            HOME
-          </Link>
-          <Link to="/menu" onClick={toggleOverlay} className={location.pathname === '/menu' ? 'active' : ''}>
-            MENU
-          </Link>
-          <Link to="/about" onClick={toggleOverlay} className={location.pathname === '/about' ? 'active' : ''}>
-            ABOUT
-          </Link>
-          <Link to="/gallery" onClick={toggleOverlay}>GALLERY</Link>
-          <Link to="/contact" onClick={toggleOverlay}>CONTACT</Link>
-          <a href="#" onClick={(e) => { e.preventDefault(); toggleOverlay(); }}>RESERVATION</a>
-          <a href="#" onClick={(e) => { e.preventDefault(); toggleOverlay(); }}>LOYALTY</a>
-        </div>
-      </div>
+      {/* <div className='overlay-container'> */}
+          <div className={`overlay ${overlayOpen ? 'active' : ''}`} id="fullscreenNav">
+            <button className="close-btn" onClick={toggleOverlay} aria-label="Close menu">×</button>
+            <div className="overlay-content">
+              <div class="icon-wrapper">
+                <div class="diamond"></div>
+                <div class="line"></div>
+                <div class="diamond"></div>
+              </div>
+              <Link to="/menu" onClick={toggleOverlay} className={location.pathname === '/menu' ? 'active' : ''}>
+                MENU
+              </Link>
+              <Link to="/" onClick={toggleOverlay} className={location.pathname === '/reservation' ? 'active' : ''}>
+                RESERVATION
+              </Link>
+              <Link to="/" onClick={toggleOverlay} className={location.pathname === '/about' ? 'active' : ''}>
+                ABOUT
+              </Link>
+             <Link to="/" onClick={toggleOverlay}>CONTACT</Link>
+             <Link to="/" onClick={toggleOverlay}>BLOG</Link>
+              <div class="icon-wrapper">
+                <div class="diamond"></div>
+                <div class="line"></div>
+                <div class="diamond"></div>
+              </div>
+              {/* <a href="#" onClick={(e) => { e.preventDefault(); toggleOverlay(); }}>RESERVATION</a> */}
+              {/* <a href="#" onClick={(e) => { e.preventDefault(); toggleOverlay(); }}>LOYALTY</a> */}
+            </div>
+          </div>
+      {/* </div> */}
     </>
   );
 }

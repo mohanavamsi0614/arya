@@ -1,5 +1,5 @@
 {
-  "Indo-Chineese-Starters": [
+  "Indo-Chinese-Starters": [
     {
       "name": "Gobi 65",
       "price": "£7.50",
@@ -74,19 +74,19 @@
       "name": "Yakitori Hoshi Harmony (Chicken Teriyaki Skewer)",
       "price": "£7.29",
       "description": "Japanese-style chicken skewers glazed with sweet soya teriyaki—delicate, smoky, and beautifully presented for a touch of celestial balance.",
-      "image": "Qitchen _ Menu_files/yakitori.png"
+      "image": "Qitchen _ Menu_files/chicken teriyaki.jpeg"
     },
     {
       "name": "Soya Chaap Teriyaki",
       "price": "£5.99",
       "description": "Plant-based chaap skewers marinated in sweet teriyaki glaze and grilled—juicy, smoky, and perfect for fusion food lovers.",
-      "image": "Qitchen _ Menu_files/soya_chaap.png"
+      "image": "Qitchen _ Menu_files/Soya chaap teriyaki.jpeg"
     },
     {
       "name": "Ebi Tenkaze (King Prawn Tempura)",
       "price": "£9.22",
       "description": "Crispy golden king prawns in delicate tempura batter—light, airy, and served with dipping sauce for a perfect umami crunch.",
-      "image": "Qitchen _ Menu_files/prawn_tempura.png"
+      "image": "Qitchen _ Menu_files/prawn tempuras .jpeg"
     },
     {
       "name": "Yasai Ryu Bloom (Vegetable Tempura)",
@@ -100,55 +100,55 @@
       "name": "Mix Veg Platter",
       "price": "£12.99",
       "description": "An assortment of grilled and fried vegetable delights, offering a medley of textures and spices on one vibrant sharing platter.",
-      "image": "Qitchen_Menu_files/mix_veg_platter.png"
+      "image": "Qitchen _ Menu_files/mix_veg_platter.png"
     },
     {
       "name": "Large Skewer of Paneer Tikka Starter",
       "price": "£6.99",
       "description": "Chargrilled paneer cubes marinated in spiced yogurt, skewered and roasted to perfection—smoky, tangy, and incredibly satisfying.",
-      "image": "Qitchen_Menu_files/paneer_tikka_skewer.png"
+      "image": "Qitchen _ Menu_files/item1.png"
     },
     {
       "name": "Paneer Sizzler Platter",
       "price": "£15.99",
       "description": "Sizzling hot paneer cubes served on a smoky platter with grilled vegetables and spicy sauces—bold, aromatic, and deliciously dramatic.",
-      "image": "Qitchen_Menu_files/paneer_sizzler.png"
+      "image": "Qitchen _ Menu_files/paneer_sizzler.png"
     },
     {
       "name": "Onion Bhaji",
       "price": "£6.99",
       "description": "Crispy onion fritters seasoned with spices, deep-fried to golden brown perfection—crunchy, savory, and a timeless Indian snack favorite.",
-      "image": "Qitchen_Menu_files/onion_bhaji.png"
+      "image": "Qitchen _ Menu_files/onion_bhaji.png"
     },
     {
       "name": "Navaratna Agni Platter (Meat Mix Grill Platter)",
       "price": "£18.82",
       "description": "A royal selection of grilled meats marinated in fiery spices—bold, smoky, and perfect for carnivores craving intense Indian flavors.",
-      "image": "Qitchen_Menu_files/meat_mix_grill.png"
+      "image": "Qitchen _ Menu_files/meat_mix_grill.png"
     },
     {
       "name": "Jhinga Surya Prakash",
       "price": "£10.29",
       "description": "Grilled jumbo prawns marinated in sun-kissed Indian spices—juicy, charred, and bursting with ocean freshness and vibrant heat.",
-      "image": "Qitchen_Menu_files/jhinga_surya.png"
+      "image": "Qitchen _ Menu_files/jhinga_surya.png"
     },
     {
       "name": "Seafood Mix Grill Platter (Pre-Order, As per availability)",
       "price": "£24.99",
       "description": "A curated selection of seasonal seafood grilled with aromatic herbs and spices—exclusive, succulent, and tailored to perfection.",
-      "image": "Qitchen_Menu_files/seafood_mix_grill.png"
+      "image": "Qitchen _ Menu_files/seafood_mix_grill.png"
     },
     {
       "name": "4PCS Chicken Tikka Starter",
       "price": "£9.99",
       "description": "Tender chicken pieces marinated in spiced yogurt and grilled till smoky and juicy—a classic, crowd-pleasing Indian appetizer.",
-      "image": "Qitchen_Menu_files/chicken_tikka_starter.png"
+      "image": "Qitchen _ Menu_files/chicken_tikka_starter.png"
     },
     {
       "name": "Mughal Sandesha (Seekh Kebab)",
       "price": "£8.75",
       "description": "Minced meat skewers infused with royal Mughlai spices, grilled for a juicy, smoky finish—an aromatic message from the Mughal kitchens.",
-      "image": "Qitchen_Menu_files/seekh_kebab.png"
+      "image": "Qitchen _ Menu_files/seekh kebabs.jpeg"
     }
   ],
   "Special-Soya-Chaap": [
@@ -156,25 +156,25 @@
       "name": "Soya Tikka Bhuna",
       "price": "£8.99",
       "description": "Marinated soya chunks grilled and tossed in thick bhuna masala—rich, smoky, and full of bold North Indian flavors.",
-      "image": "Qitchen_Menu_files/soya_tikka_bhuna.png"
+      "image": "Qitchen _ Menu_files/Soya tikka bhuna.jpeg"
     },
     {
       "name": "Soya Malai Chaap",
       "price": "£9.99",
       "description": "Creamy, tender soya chaap marinated in malai, cashew, and mild spices—grilled for a soft, luscious melt-in-mouth experience.",
-      "image": "Qitchen_Menu_files/soya_malai_chaap.png"
+      "image": "Qitchen _ Menu_files/soya_malai_chaap.png"
     },
     {
       "name": "Soya Lemon Chaap",
       "price": "£8.99",
       "description": "Zesty soya chaap marinated in lemon juice and aromatic spices—grilled to perfection with a refreshing citrusy punch.",
-      "image": "Qitchen_Menu_files/soya_lemon_chaap.png"
+      "image": "Qitchen _ Menu_files/lemon chaap.jpeg"
     },
     {
       "name": "Soya Afghani Chaap",
       "price": "£8.99",
       "description": "Mildly spiced, creamy soya chaap infused with Afghani flavors—smoky, rich, and irresistibly soft with every bite.",
-      "image": "Qitchen_Menu_files/soya_afghani_chaap.png"
+      "image": "Qitchen _ Menu_files/soya_afghani_chaap.png"
     }
   ],
   "Wraps": [
@@ -182,37 +182,37 @@
       "name": "Chicken Tikka Wrap",
       "price": "£8.99",
       "description": "Smoky chicken tikka wrapped in soft paratha with onions, mint chutney, and sauces—a bold, flavorful handheld meal.",
-      "image": "Qitchen_Menu_files/chicken_tikka_wrap.png"
+      "image": "Qitchen _ Menu_files/chicken tikka wrap.jpeg"
     },
     {
       "name": "Omelet Paratha Wrap",
       "price": "£8.99",
       "description": "Fluffy masala omelet tucked inside flaky paratha with chutney and salad—simple, protein-packed, and perfect for anytime hunger.",
-      "image": "Qitchen_Menu_files/omelet_paratha_wrap.png"
+      "image": "Qitchen _ Menu_files/omlette paratha wrap.jpeg"
     },
     {
       "name": "Chicken Wrap",
       "price": "£7.99",
       "description": "Tender spiced chicken, crunchy veggies, and tangy sauces rolled in warm flatbread—a delicious, satisfying bite on the go.",
-      "image": "Qitchen_Menu_files/chicken_wrap.png"
+      "image": "Qitchen _ Menu_files/chicken wrap.jpeg"
     },
     {
       "name": "Paneer Tikka Wrap",
       "price": "£7.99",
       "description": "Grilled paneer tikka, onions, and chutneys wrapped in soft roti—smoky, tangy, and vegetarian comfort in every bite.",
-      "image": "Qitchen_Menu_files/paneer_tikka_wrap.png"
+      "image": "Qitchen _ Menu_files/paneer thikka wrap.jpeg"
     },
     {
       "name": "Paneer Wrap",
       "price": "£6.99",
       "description": "Soft paneer cubes tossed in mild spices, wrapped with veggies and sauces—creamy, satisfying, and full of flavor.",
-      "image": "Qitchen_Menu_files/paneer_wrap.png"
+      "image": "Qitchen _ Menu_files/paneer_wrap.png"
     },
     {
       "name": "Vegetable Wrap",
       "price": "£5.99",
       "description": "A medley of sautéed spiced veggies rolled in flatbread with chutney and salad—light, crunchy, and bursting with freshness.",
-      "image": "Qitchen_Menu_files/vegetable_wrap.png"
+      "image": "Qitchen _ Menu_files/vegetable wrap.jpeg"
     }
   ],
   "Burgers": [
@@ -220,13 +220,13 @@
       "name": "Chicken Burger with Fries",
       "price": "£6.99",
       "description": "Crispy chicken patty layered with lettuce, cheese, and sauces in a toasted bun—served with golden fries for perfection.",
-      "image": "Qitchen_Menu_files/chicken_burger_fries.png"
+      "image": "Qitchen _ Menu_Files/Chicken burger with fries.jpeg"
     },
     {
       "name": "Beef Burger with Fries",
       "price": "£7.99",
       "description": "Juicy grilled beef patty stacked with cheddar, onions, and signature sauce—served with crispy fries for a hearty, indulgent meal.",
-      "image": "Qitchen_Menu_files/beef_burger_fries.png"
+      "image": "Qitchen _ Menu_files/Beef burger with fries.jpeg"
     }
   ],
   "Breads": [
@@ -234,55 +234,55 @@
       "name": "Plain Tawa Roti",
       "price": "£1.49",
       "description": "Soft whole wheat flatbread cooked on a tawa—light, wholesome, and the perfect everyday companion to any curry or sabzi.",
-      "image": "Qitchen_Menu_files/plain_tawa_roti.png"
+      "image": "Qitchen _ Menu_files/tawa roti.jpeg"
     },
     {
       "name": "Garlic Naan",
       "price": "£3.99",
       "description": "Leavened tandoori bread infused with minced garlic and herbs—fluffy, aromatic, and deliciously garlicky with every bite.",
-      "image": "Qitchen_Menu_files/garlic_naan.png"
+      "image": "Qitchen _ Menu_files/garlic naan.jpeg"
     },
     {
       "name": "Veg Manchurian",
       "price": "$5",
       "description": "Fried vegetable balls in a savory Indo-Chinese sauce, blending garlic, soya, and spices into a rich, saucy delight.",
-      "image": "Qitchen_Menu_files/veg_manchurian.png"
+      "image": "Qitchen _ Menu_files/veg_manchurian.png"
     },
     {
       "name": "Butter Naan",
       "price": "£3.49",
       "description": "Classic soft naan brushed generously with melted butter—rich, fluffy, and perfect for scooping up flavorful gravies and sauces.",
-      "image": "Qitchen_Menu_files/butter_naan.png"
+      "image": "Qitchen _ Menu_files/butter naan.jpeg"
     },
     {
       "name": "Chilli Naan",
       "price": "£4.99",
       "description": "Spicy naan sprinkled with chopped green chilies—fiery, soft, and a bold twist to traditional tandoori bread lovers.",
-      "image": "Qitchen_Menu_files/chilli_naan.png"
+      "image": "Qitchen _ Menu_files/chilli_naan.png"
     },
     {
       "name": "Paneer Paratha",
       "price": "£3.00",
       "description": "Stuffed whole wheat flatbread with spiced grated paneer—crispy outside, soft inside, and bursting with savory, cheesy flavor.",
-      "image": "Qitchen_Menu_files/paneer_paratha.png"
+      "image": "Qitchen _ Menu_files/paneer paratha.jpeg"
     },
     {
       "name": "Plain Naan",
       "price": "£4.99",
       "description": "Traditional tandoori flatbread with a soft, pillowy texture—ideal for pairing with any rich curry or kebab dish.",
-      "image": "Qitchen_Menu_files/plain_naan.png"
+      "image": "Qitchen _ Menu_files/plain_naan.png"
     },
     {
       "name": "Aloo Paratha",
       "price": "£6.99",
       "description": "Whole wheat paratha stuffed with spiced mashed potatoes—crispy, hearty, and comforting, often served with yogurt or pickle.",
-      "image": "Qitchen_Menu_files/aloo_paratha.png"
+      "image": "Qitchen _ Menu_files/aloo paratha.jpeg"
     },
     {
       "name": "Tandoori Roti",
       "price": "£3.00",
       "description": "Whole wheat bread baked in a clay oven—chewy, slightly charred, and a healthy, rustic complement to any Indian meal.",
-      "image": "Qitchen_Menu_files/tandoori_roti.png"
+      "image": "Qitchen _ Menu_files/tandoori_roti.png"
     }
   ],
   "Rice": [
@@ -290,31 +290,31 @@
       "name": "Kashmiri Rice",
       "price": "£6.99",
       "description": "Fragrant rice cooked with saffron, dry fruits, and mild spices—sweet, aromatic, and a royal touch to any meal.",
-      "image": "Qitchen_Menu_files/kashmiri_rice.png"
+      "image": "Qitchen _ Menu_files/kashmiri rice.jpeg"
     },
     {
       "name": "Mushroom Rice",
       "price": "£5.99",
       "description": "Basmati rice tossed with sautéed mushrooms, herbs, and spices—earthy, savory, and perfect as a flavorful standalone or side.",
-      "image": "Qitchen_Menu_files/mushroom_rice.png"
+      "image": "Qitchen _ Menu_files/mushroom rice.jpeg"
     },
     {
       "name": "Pilao Rice",
       "price": "£6.99",
       "description": "Aromatic basmati rice cooked with whole spices and vegetables—lightly spiced, colorful, and a perfect accompaniment to rich curries.",
-      "image": "Qitchen_Menu_files/pilao_rice.png"
+      "image": "Qitchen _ Menu_files/pulao rice.jpeg"
     },
     {
       "name": "Plain Rice",
       "price": "£3.49",
       "description": "Steamed basmati rice—fluffy, neutral, and ideal for pairing with dals, curries, or spicy gravies.",
-      "image": "Qitchen_Menu_files/plain_rice.png"
+      "image": "Qitchen _ Menu_files/plain rice.jpeg"
     },
     {
       "name": "Jeera Rice",
       "price": "£3.99",
       "description": "Steamed rice tempered with roasted cumin seeds and ghee—simple, fragrant, and an evergreen North Indian favorite.",
-      "image": "Qitchen_Menu_files/jeera_rice.png"
+      "image": "Qitchen _ Menu_files/jeera rice.jpeg"
     }
   ],
   "Sides": [
@@ -322,55 +322,55 @@
       "name": "Mango Sauce",
       "price": "£0.99",
       "description": "Sweet and tangy mango-based sauce—smooth, fruity, and a perfect dip for starters or to balance spicy dishes.",
-      "image": "Qitchen_Menu_files/mango_sauce.png"
+      "image": "Qitchen _ Menu_files/mango_sauce.png"
     },
     {
       "name": "Pickle",
       "price": "£0.99",
       "description": "Traditional Indian pickle bursting with bold spices—salty, sour, and fiery; the perfect punch to elevate any meal.",
-      "image": "Qitchen_Menu_files/pickle.png"
+      "image": "Qitchen _ Menu_files/pickle.png"
     },
     {
       "name": "Prawn Cracker (Thai, Normal)",
       "price": "£4.99 / £3.99",
       "description": "Crispy, airy crackers with prawn flavor—light and savory, perfect for snacking or pairing with Asian sauces.",
-      "image": "Qitchen_Menu_files/prawn_cracker.png"
+      "image": "Qitchen _ Menu_files/prawn_cracker.png"
     },
     {
       "name": "Mint Sauce",
       "price": "£0.99",
       "description": "Refreshing green sauce made with mint, coriander, and yogurt—cool, herby, and an ideal dip for grilled or fried starters.",
-      "image": "Qitchen_Menu_files/mint_sauce.png"
+      "image": "Qitchen _ Menu_files/mint_sauce.png"
     },
     {
       "name": "Poppadom",
       "price": "£1.49",
       "description": "Crisp, wafer-thin lentil crackers—light, crunchy, and perfect with chutneys or as a pre-meal nibble.",
-      "image": "Qitchen_Menu_files/poppadom.png"
+      "image": "Qitchen _ Menu_files/poppadom.png"
     },
     {
       "name": "Raita",
       "price": "£1.49",
       "description": "Cooling yogurt blend with grated cucumber, spices, and herbs—creamy, refreshing, and perfect for balancing spicy dishes.",
-      "image": "Qitchen_Menu_files/raita.png"
+      "image": "Qitchen _ Menu_files/raita.png"
     },
     {
       "name": "Thai Chilli Sauce",
       "price": "£0.99",
       "description": "Sweet, spicy, and garlicky Thai-style dipping sauce—ideal with spring rolls, skewers, or crispy appetizers.",
-      "image": "Qitchen_Menu_files/thai_chilli_sauce.png"
+      "image": "Qitchen _ Menu_files/thai_chilli_sauce.png"
     },
     {
       "name": "Chutney Tray (Mint, Tamarind, Mango)",
       "price": "£1.99",
       "description": "A trio of classic Indian chutneys—cool mint, tangy tamarind, and sweet mango—each bursting with bold, balanced flavors.",
-      "image": "Qitchen_Menu_files/chutney_tray.png"
+      "image": "Qitchen _ Menu_files/chutney_tray.png"
     },
     {
       "name": "Poppadom Masala",
       "price": "£2.49",
       "description": "Crispy poppadoms topped with chopped onions, tomatoes, chaat masala, and herbs—crunchy, spicy, and bursting with street-style flavor.",
-      "image": "Qitchen_Menu_files/poppadom_masala.png"
+      "image": "Qitchen _ Menu_files/poppadom_masala.png"
     }
   ],
   "Innovation-Starters-Chinese": [
@@ -378,55 +378,55 @@
       "name": "Chicken Spring Roll",
       "price": "£5.99",
       "description": "Crispy golden rolls filled with spiced shredded chicken and vegetables—perfectly crunchy, flavorful, and served with a sweet chili dip.",
-      "image": "Qitchen_Menu_files/chicken_spring_roll.png"
+      "image": "Qitchen _ Menu_files/chicken_spring_roll.png"
     },
     {
       "name": "Vegetable Spring Roll",
       "price": "£5.99",
       "description": "Crisp-fried rolls packed with seasoned vegetables—light, crunchy, and served with tangy dipping sauce for a classic starter experience.",
-      "image": "Qitchen_Menu_files/veg_spring_roll.png"
+      "image": "Qitchen _ Menu_files/veg_spring_roll.png"
     },
     {
       "name": "Hong Yun Long Roll (Duck Spring Roll)",
       "price": "£4.11",
       "description": "Delicate spring rolls stuffed with tender duck and hoisin-glazed vegetables—crispy outside, rich and savory inside.",
-      "image": "Qitchen_Menu_files/duck_spring_roll.png"
+      "image": "Qitchen _ Menu_files/duck_spring_roll.png"
     },
     {
       "name": "Chicken Dumpling",
       "price": "£5.99",
       "description": "Juicy chicken-filled dumplings steamed or pan-fried—soft, savory, and served with soya or chili dipping sauce for perfect balance.",
-      "image": "Qitchen_Menu_files/chicken_dumpling.png"
+      "image": "Qitchen _ Menu_files/chicken_dumpling.png"
     },
     {
       "name": "Hai Xian Wu Xing (Prawn Dumpling)",
       "price": "£5.49",
       "description": "Delicate dumplings filled with succulent prawns and herbs—steamed to perfection with a light, ocean-fresh taste.",
-      "image": "Qitchen_Menu_files/prawn_dumpling.png"
+      "image": "Qitchen _ Menu_files/prawn_dumpling.png"
     },
     {
       "name": "Ji Sha 5-Fire (Chicken Satay)",
       "price": "£4.22",
       "description": "Grilled skewers of marinated chicken with peanut satay sauce—smoky, spicy, and rich with Southeast Asian flavor.",
-      "image": "Qitchen_Menu_files/chicken_satay.png"
+      "image": "Qitchen _ Menu_files/chicken_satay.png"
     },
     {
       "name": "Vegetable Dumpling",
       "price": "£5.99",
       "description": "Soft dumplings filled with seasoned vegetables and herbs—steamed or pan-fried, offering a satisfying, plant-based bite.",
-      "image": "Qitchen_Menu_files/veg_dumpling.png"
+      "image": "Qitchen _ Menu_files/veg_dumpling.png"
     },
     {
       "name": "Angel Egg",
       "price": "£5.99",
       "description": "Asian-style deviled eggs with creamy, spiced yolk filling—elegant, flavorful, and ideal as a fusion-style finger food.",
-      "image": "Qitchen_Menu_files/angel_egg.png"
+      "image": "Qitchen _ Menu_files/angel eggs.png"
     },
     {
       "name": "Chinese Chicken Wings",
       "price": "£5.99",
       "description": "Crispy wings coated in sticky soya-garlic glaze—sweet, salty, and perfectly caramelized with bold Asian flavors.",
-      "image": "Qitchen_Menu_files/chinese_chicken_wings.png"
+      "image": "Qitchen _ Menu_files/chinese_chicken_wings.png"
     }
   ],
   "Japanese-Teriyaki": [
@@ -434,25 +434,25 @@
       "name": "Tofu Teriyaki",
       "price": "$6",
       "description": "Golden-seared tofu glazed in sweet soya teriyaki sauce - tender, flavorful, and perfect for a light, plant-based Japanese-style dish.",
-      "image": "Qitchen_Menu_files/tofu_teriyaki.png"
+      "image": "Qitchen _ Menu_files/tofu teriyaki.jpeg"
     },
     {
       "name": "Paneer Teriyaki",
       "price": "$7",
       "description": "Soft paneer cubes grilled and coated in teriyaki glaze - an Indo-Japanese fusion of creamy texture and rich, umami flavor.",
-      "image": "Qitchen_Menu_files/paneer_teriyaki.png"
+      "image": "Qitchen _ Menu_files/paneer teriyaki.jpeg"
     },
     {
       "name": "Hotate Ryu Unami (Scallop Teriyaki)",
       "price": "$9",
       "description": "Juicy seared scallops glazed in silky teriyaki sauce - delicate, ocean-fresh, and bursting with umami in every elegant bite.",
-      "image": "Qitchen_Menu_files/scallop_teriyaki.png"
+      "image": "Qitchen _ Menu_files/scallops teriyaki.jpeg"
     },
     {
       "name": "Chicken Teriyaki",
       "price": "$8",
       "description": "Grilled chicken glazed with sweet and savory teriyaki - tender, caramelized, and a timeless favorite from Japanese cuisine.",
-      "image": "Qitchen_Menu_files/chicken_teriyaki.png"
+      "image": "Qitchen _ Menu_files/chicken teriyaki.jpeg"
     }
   ],
   "Japanese-Ramen": [
@@ -460,7 +460,7 @@
       "name": "Ramen Kiku No Kaze (Chicken Ramen)",
       "price": "£12.22",
       "description": "Fragrant broth with tender chicken, noodles, boiled egg, and fresh toppings—comforting, steamy, and rich with Japanese soul and flavor.",
-      "image": "Qitchen_Menu_files/chicken_ramen.png"
+      "image": "Qitchen _ Menu_files/chicken ramen.png"
     }
   ],
   "Vegetarian-Delights": [
@@ -468,91 +468,91 @@
       "name": "Malai Kofta",
       "price": "$8",
       "description": "Soft cottage cheese dumplings in a creamy cashew-tomato gravy—rich, indulgent, and a royal North Indian vegetarian delight.",
-      "image": "Qitchen_Menu_files/malai_kofta.png"
+      "image": "Qitchen _ Menu_files/malai kofta curry.png"
     },
     {
       "name": "Matar Paneer",
       "price": "$7",
       "description": "Paneer cubes simmered with green peas in a spiced tomato-onion gravy—comforting, mildly spiced, and perfect with naan or rice.",
-      "image": "Qitchen_Menu_files/matar_paneer.png"
+      "image": "Qitchen _ Menu_files/matar paneer.png"
     },
     {
       "name": "Makhni Palak",
       "price": "$7",
       "description": "Smooth spinach purée cooked with creamy makhni sauce—rich, buttery, and full of earthy spinach flavor with a hint of sweetness.",
-      "image": "Qitchen_Menu_files/makhni_palak.png"
+      "image": "Qitchen _ Menu_files/makhni_palak.png"
     },
     {
       "name": "Palak Paneer",
       "price": "$7",
       "description": "Soft paneer cubes in a vibrant spinach gravy—wholesome, lightly spiced, and a timeless North Indian favorite.",
-      "image": "Qitchen_Menu_files/palak_paneer.png"
+      "image": "Qitchen _ Menu_files/palak paneer.png"
     },
     {
       "name": "Lasuni Paneer",
       "price": "$7",
       "description": "Paneer cooked in a spicy garlic-infused tomato gravy—bold, aromatic, and bursting with flavor for garlic lovers.",
-      "image": "Qitchen_Menu_files/lasuni_paneer.png"
+      "image": "Qitchen _ Menu_files/lasuni_paneer.png"
     },
     {
       "name": "Shahi Paneer",
       "price": "£10.99",
       "description": "Paneer cubes in a royal, creamy gravy made with nuts and aromatic spices—mild, rich, and utterly luxurious.",
-      "image": "Qitchen_Menu_files/shahi_paneer.png"
+      "image": "Qitchen _ Menu_files/shahi_paneer.png"
     },
     {
       "name": "Aloo Gobi",
       "price": "£9.99",
       "description": "Potatoes and cauliflower sautéed with turmeric, spices, and herbs—dry-style, rustic, and a staple in Indian home kitchens.",
-      "image": "Qitchen_Menu_files/aloo_gobi.png"
+      "image": "Qitchen _ Menu_files/aloo gobi.png"
     },
     {
       "name": "Paneer Amrit Handi",
       "price": "£12.99 / £12.29",
       "description": "Paneer in a slow-cooked, rich, spiced handi-style gravy—deep flavors, thick texture, and perfect with roti or kulcha.",
-      "image": "Qitchen_Menu_files/paneer_amrit_handi.png"
+      "image": "Qitchen _ Menu_files/paneer_amrit_handi.png"
     },
     {
       "name": "Corn Palak",
       "price": "£9.99 / £10.99",
       "description": "Sweet corn kernels simmered in creamy spinach gravy—lightly spiced, wholesome, and a comforting twist on traditional palak dishes.",
-      "image": "Qitchen_Menu_files/corn_palak.png"
+      "image": "Qitchen _ Menu_files/corn palak.png"
     },
     {
       "name": "Bhindi Do Pyaza",
       "price": "£10.99",
       "description": "Okra cooked with double onions and aromatic spices—flavorful, slightly tangy, and a popular dry-style sabzi.",
-      "image": "Qitchen_Menu_files/bhindi_do_pyaza.png"
+      "image": "Qitchen _ Menu_files/bhindi_do_pyaza.png"
     },
     {
       "name": "Veg Kolhapuri",
       "price": "$7",
       "description": "Mixed vegetables in a fiery Kolhapuri masala gravy—spicy, bold, and rich with roasted coconut and red chilies.",
-      "image": "Qitchen_Menu_files/veg_kolhapuri.png"
+      "image": "Qitchen _ Menu_files/veg_kolhapuri.png"
     },
     {
       "name": "Aloo Palak",
       "price": "$6",
       "description": "Potatoes simmered in spiced spinach purée—simple, rustic, and a nourishing curry full of green goodness.",
-      "image": "Qitchen_Menu_files/aloo_palak.png"
+      "image": "Qitchen _ Menu_files/aloo_palak.png"
     },
     {
       "name": "Achari Bhindi",
       "price": "$6",
       "description": "Okra cooked with pickling spices—tangy, spicy, and uniquely flavorful with hints of mustard, fennel, and nigella seeds.",
-      "image": "Qitchen_Menu_files/achari_bhindi.png"
+      "image": "Qitchen _ Menu_files/achari_bhindi.png"
     },
     {
       "name": "Mushroom Lababdar",
       "price": "£10.99",
       "description": "Button mushrooms in a creamy, tomato-onion based lababdar gravy—rich, mildly sweet, and velvety in texture.",
-      "image": "Qitchen_Menu_files/mushroom_lababdar.png"
+      "image": "Qitchen _ Menu_files/mushroom lababdar.png"
     },
     {
       "name": "Dal Tadka",
       "price": "£10.99",
       "description": "Yellow lentils tempered with ghee, garlic, and whole spices—comforting, aromatic, and a must-have with steamed rice or jeera rice.",
-      "image": "Qitchen_Menu_files/dal_tadka.png"
+      "image": "Qitchen _ Menu_files/dal tadka.png"
     }
   ],
   "Non-Veg-Biryani": [
@@ -560,25 +560,25 @@
       "name": "Jhinga Darbar Biryani (Prawn Biryani)",
       "price": "£15.75",
       "description": "Succulent prawns layered with aromatic basmati rice, saffron, and spices—royal, fragrant, and bursting with coastal flavors.",
-      "image": "Qitchen_Menu_files/prawn_biryani.png"
+      "image": "Qitchen _ Menu_files/prawn_biryani.png"
     },
     {
       "name": "Chicken Biryani",
       "price": "£12.99",
       "description": "Tender chicken cooked in spiced yogurt masala, layered with basmati rice and herbs—slow-cooked for rich, authentic Hyderabadi flavor.",
-      "image": "Qitchen_Menu_files/chicken_biryani.png"
+      "image": "Qitchen _ Menu_files/chicken_biryani.png"
     },
     {
       "name": "Chef's Special Prawn Biryani",
       "price": "£15.99",
       "description": "Signature biryani with juicy prawns, saffron, fried onions, and chef's secret masala—elegant, indulgent, and full of depth.",
-      "image": "Qitchen_Menu_files/chefs_prawn_biryani.png"
+      "image": "Qitchen _ Menu_files/chefs_prawn_biryani.png"
     },
     {
       "name": "Murgh Abhijeet (Chef's Special Chicken)",
       "price": "£14.30",
       "description": "Chef-crafted chicken curry in a rich, creamy, slow-simmered gravy—bold, luxurious, and a true showcase of culinary mastery.",
-      "image": "Qitchen_Menu_files/murgh_abhijeet.png"
+      "image": "Qitchen _ Menu_files/murgh_abhijeet.png"
     }
   ],
   "Veg-Biryani": [
@@ -586,19 +586,19 @@
       "name": "Paneer Biryani",
       "price": "£11.99",
       "description": "Fragrant basmati rice layered with marinated paneer, saffron, and spices—rich, aromatic, and a perfect vegetarian biryani experience.",
-      "image": "Qitchen_Menu_files/paneer_biryani.png"
+      "image": "Qitchen _ Menu_files/paneer_biryani.png"
     },
     {
       "name": "Veg Biryani",
       "price": "£10.99",
       "description": "Seasonal vegetables cooked with herbs, spices, and basmati rice—light, colorful, and packed with traditional biryani aroma and flavor.",
-      "image": "Qitchen_Menu_files/veg_biryani.png"
+      "image": "Qitchen _ Menu_files/vegetarian shahi darbar biryani.png"
     },
     {
       "name": "Darbar Shahi Biryani",
       "price": "£12.99",
       "description": "A royal vegetarian biryani with nuts, saffron, paneer, and dried fruits—luxurious, mildly sweet, and bursting with Mughlai richness.",
-      "image": "Qitchen_Menu_files/darbar_shahi_biryani.png"
+      "image": "Qitchen _ Menu_files/darbar_shahi_biryani.png"
     }
   ],
   "Pad-Thai-Noodles": [
@@ -606,19 +606,19 @@
       "name": "Pad Thai Veg",
       "price": "$8",
       "description": "Stir-fried rice noodles with vegetables, tofu, peanuts, and tamarind sauce—sweet, tangy, and full of Thai street flavor.",
-      "image": "Qitchen_Menu_files/pad_thai_veg.png"
+      "image": "Qitchen _ Menu_files/pad_thai_veg.png"
     },
     {
       "name": "Pad Thai King Prawns",
       "price": "$12",
       "description": "Juicy king prawns tossed with rice noodles, peanuts, egg, and tamarind sauce—fragrant, savory, and perfectly balanced Thai classic.",
-      "image": "Qitchen_Menu_files/pad_thai_king_prawns.png"
+      "image": "Qitchen _ Menu_files/prawn pad thai.jpeg"
     },
     {
       "name": "Pad Thai Chicken",
       "price": "$10",
       "description": "Tender chicken stir-fried with noodles, vegetables, peanuts, and tangy tamarind sauce—a delicious harmony of sweet, spicy, and nutty flavors.",
-      "image": "Qitchen_Menu_files/pad_thai_chicken.png"
+      "image": "Qitchen _ Menu_files/chicken pad thai.jpeg"
     }
   ],
   "Transformation-Mains-Thai": [
@@ -626,97 +626,97 @@
       "name": "Green Thai King Prawn Curry",
       "price": "£11.99",
       "description": "Juicy king prawns in fragrant green curry with coconut milk, Thai herbs, and fresh vegetables for vibrant flavor.",
-      "image": "Qitchen_Menu_files/green_thai_king_prawn_curry.png"
+      "image": "Qitchen _ Menu_files/item1.png"
     },
     {
       "name": "Green Thai Chicken Curry",
       "price": "£10.99",
       "description": "Tender chicken in creamy green curry, spiced with lemongrass, basil, and green chilies, served with seasonal vegetables.",
-      "image": "Qitchen_Menu_files/green_thai_chicken_curry.png"
+      "image": "Qitchen _ Menu_files/chicken green thai curry.jpeg"
     },
     {
       "name": "Green Thai Tofu Curry",
       "price": "£9.99",
       "description": "Soft tofu simmered in coconut green curry with fresh herbs, crunchy veggies, and a light, spicy kick.",
-      "image": "Qitchen_Menu_files/green_thai_tofu_curry.png"
+      "image": "Qitchen _ Menu_files/Tofu green Thai curry.jpeg"
     },
     {
       "name": "Green Thai Paneer Curry",
       "price": "£10.49",
       "description": "Indian paneer cubes in a Thai green curry, blending creaminess and spice with fresh herbs and coconut milk.",
-      "image": "Qitchen_Menu_files/green_thai_paneer_curry.png"
+      "image": "Qitchen _ Menu_files/green_thai_paneer_curry.png"
     },
     {
       "name": "Massaman King Prawn Curry",
       "price": "£11.99",
       "description": "King prawns in rich, nutty Massaman curry with potatoes, coconut, and warm Thai spices for deep, mellow flavor.",
-      "image": "Qitchen_Menu_files/massaman_king_prawn_curry.png"
+      "image": "Qitchen _ Menu_files/massaman_king_prawn_curry.png"
     },
     {
       "name": "Massaman Chicken Curry",
       "price": "£10.99",
       "description": "Slow-cooked chicken in earthy Massaman curry with peanuts, cinnamon, and creamy coconut, delivering complex, warming richness.",
-      "image": "Qitchen_Menu_files/massaman_chicken_curry.png"
+      "image": "Qitchen _ Menu_files/Chicken massaman curry.jpeg"
     },
     {
       "name": "Massaman Tofu Curry",
       "price": "£9.99",
       "description": "Tofu and root vegetables in a thick Massaman sauce, featuring subtle spice, coconut cream, and roasted peanut undertones.",
-      "image": "Qitchen_Menu_files/massaman_tofu_curry.png"
+      "image": "Qitchen _ Menu_files/Tofu massaman curry.jpeg"
     },
     {
       "name": "Massaman Paneer Curry",
       "price": "£10.49",
       "description": "Paneer cubes stewed in Thai Massaman curry, offering rich, peanutty warmth with coconut, tamarind, and fragrant spices.",
-      "image": "Qitchen_Menu_files/massaman_paneer_curry.png"
+      "image": "Qitchen _ Menu_files/massaman_paneer_curry.png"
     },
     {
       "name": "Red Thai King Prawn Curry",
       "price": "£11.99",
       "description": "King prawns in fiery red curry with bell peppers, Thai basil, and creamy coconut for a bold, spicy hit.",
-      "image": "Qitchen_Menu_files/red_thai_king_prawn_curry.png"
+      "image": "Qitchen _ Menu_files/red_thai_king_prawn_curry.png"
     },
     {
       "name": "Red Thai Chicken Curry",
       "price": "£10.99",
       "description": "Chicken cooked in spicy red Thai curry, blended with coconut milk, herbs, and a chili-kissed aromatic sauce.",
-      "image": "Qitchen_Menu_files/red_thai_chicken_curry.png"
+      "image": "Qitchen _ Menu_files/Chicken red Thai curry.jpeg"
     },
     {
       "name": "Red Thai Tofu Curry",
       "price": "£9.99",
       "description": "Tofu in classic red curry with spicy-sweet balance, vibrant vegetables, and aromatic coconut for plant-based satisfaction.",
-      "image": "Qitchen_Menu_files/red_thai_tofu_curry.png"
+      "image": "Qitchen _ Menu_files/Tofu red thai curry.jpeg"
     },
     {
       "name": "Red Thai Paneer Curry",
       "price": "£10.49",
       "description": "Paneer in spicy Thai red curry with chili, coconut, and lemongrass, fusing bold flavors with creamy texture.",
-      "image": "Qitchen_Menu_files/red_thai_paneer_curry.png"
+      "image": "Qitchen _ Menu_files/red_thai_paneer_curry.png"
     },
     {
       "name": "Panang King Prawn Curry",
       "price": "£11.99",
       "description": "King prawns in creamy Panang curry with roasted peanuts, coconut milk, and sweet-spicy Thai flavor harmony.",
-      "image": "Qitchen_Menu_files/panang_king_prawn_curry.png"
+      "image": "Qitchen _ Menu_files/panang_king_prawn_curry.png"
     },
     {
       "name": "Panang Chicken Curry",
       "price": "£10.99",
       "description": "Chicken in thick, mildly spicy Panang sauce, rich with peanuts, kaffir lime, and coconut for indulgent depth.",
-      "image": "Qitchen_Menu_files/panang_chicken_curry.png"
+      "image": "Qitchen _ Menu_files/Chicken panang curry.jpeg"
     },
     {
       "name": "Panang Tofu Curry",
       "price": "£9.99",
       "description": "Tofu cubes in creamy Panang curry, blending peanuts, coconut, and chili for a subtle, comforting Thai dish.",
-      "image": "Qitchen_Menu_files/panang_tofu_curry.png"
+      "image": "Qitchen _ Menu_files/Tofu panang curry.jpeg"
     },
     {
       "name": "Panang Paneer Curry",
       "price": "£10.49",
       "description": "Paneer meets Thai Panang curry—creamy, nutty, and spiced with lemongrass and kaffir lime for unique fusion appeal.",
-      "image": "Qitchen_Menu_files/panang_paneer_curry.png"
+      "image": "Qitchen _ Menu_files/panang_paneer_curry.png"
     }
   ],
   "Non-Veg-Curries": [
@@ -724,121 +724,121 @@
       "name": "Pepper King Prawn",
       "price": "£13.99",
       "description": "Juicy king prawns tossed in crushed pepper, slow-cooked in rich Indian spices for bold, fiery flavor.",
-      "image": "Qitchen_Menu_files/pepper_king_prawn.png"
+      "image": "Qitchen _ Menu_files/pepper_king_prawn.png"
     },
     {
       "name": "Pepper Chicken Tikka",
       "price": "£11.99",
       "description": "Chargrilled chicken tikka infused with black pepper, marinated in yogurt and spices, finished with smoky perfection.",
-      "image": "Qitchen_Menu_files/pepper_chicken_tikka.png"
+      "image": "Qitchen _ Menu_files/item1.png"
     },
     {
       "name": "Pepper Chicken",
       "price": "£10.99",
       "description": "Tender chicken cooked in aromatic pepper masala, bursting with spice, heat, and layered South Indian flavors.",
-      "image": "Qitchen_Menu_files/pepper_chicken.png"
+      "image": "Qitchen _ Menu_files/pepper chicken curry.png"
     },
     {
       "name": "Handi King Prawn",
       "price": "£13.99",
       "description": "Succulent king prawns simmered in traditional handi gravy, with slow-cooked spices and creamy, rustic North Indian richness.",
-      "image": "Qitchen_Menu_files/handi_king_prawn.png"
+      "image": "Qitchen _ Menu_files/handi_king_prawn.png"
     },
     {
       "name": "Handi Chicken Tikka",
       "price": "£11.99",
       "description": "Smoky chicken tikka blended into thick handi-style curry, full of deep flavors and clay-pot style authenticity.",
-      "image": "Qitchen_Menu_files/handi_chicken_tikka.png"
+      "image": "Qitchen _ Menu_files/handi_chicken_tikka.png"
     },
     {
       "name": "Handi Chicken",
       "price": "£10.99",
       "description": "Classic chicken curry cooked in a handi with tomatoes, onions, and whole spices for hearty Indian comfort.",
-      "image": "Qitchen_Menu_files/handi_chicken.png"
+      "image": "Qitchen _ Menu_files/handi_chicken.png"
     },
     {
       "name": "Lemon King Prawn",
       "price": "£13.99",
       "description": "Zesty lemon-spiced king prawns tossed with fresh herbs, creating a tangy, refreshing coastal-style seafood delight.",
-      "image": "Qitchen_Menu_files/lemon_king_prawn.png"
+      "image": "Qitchen _ Menu_files/lemon_king_prawn.png"
     },
     {
       "name": "Lemon Chicken Tikka",
       "price": "£11.99",
       "description": "Chargrilled chicken tikka marinated in lemon juice and herbs, offering a citrusy kick with every bite.",
-      "image": "Qitchen_Menu_files/lemon_chicken_tikka.png"
+      "image": "Qitchen _ Menu_files/lemon_chicken_tikka.png"
     },
     {
       "name": "Lemon Chicken",
       "price": "£10.99",
       "description": "Juicy chicken cooked in lemony gravy, blending mild spices and citrus for a bright, flavorful experience.",
-      "image": "Qitchen_Menu_files/lemon_chicken.png"
+      "image": "Qitchen _ Menu_files/lemon_chicken.png"
     },
     {
       "name": "Achari King Prawn",
       "price": "£13.99",
       "description": "Prawns sautéed in tangy achari masala, inspired by North Indian pickles, bursting with bold, spicy flavors.",
-      "image": "Qitchen_Menu_files/achari_king_prawn.png"
+      "image": "Qitchen _ Menu_files/achari_king_prawn.png"
     },
     {
       "name": "Achari Chicken Tikka",
       "price": "£11.99",
       "description": "Pickle-spiced chicken tikka grilled to perfection, offering smoky notes with an unmistakable achari punch.",
-      "image": "Qitchen_Menu_files/achari_chicken_tikka.png"
+      "image": "Qitchen _ Menu_files/achari_chicken_tikka.png"
     },
     {
       "name": "Achari Chicken",
       "price": "£10.99",
       "description": "Boneless chicken pieces cooked in traditional achari gravy, flavored with mustard, fennel, and tangy pickle spices.",
-      "image": "Qitchen_Menu_files/achari_chicken.png"
+      "image": "Qitchen _ Menu_files/achari_chicken.png"
     },
     {
       "name": "Zanzana King Prawn",
       "price": "£13.99",
       "description": "Royal-style king prawns simmered in creamy, spicy Zanzana sauce with aromatic herbs and a hint of sweetness.",
-      "image": "Qitchen_Menu_files/zanzana_king_prawn.png"
+      "image": "Qitchen _ Menu_files/zanzana_king_prawn.png"
     },
     {
       "name": "Zanzana Chicken Tikka",
       "price": "£11.99",
       "description": "Flame-grilled chicken tikka in a signature Zanzana sauce, rich with spices and subtle creamy undertones.",
-      "image": "Qitchen_Menu_files/zanzana_chicken_tikka.png"
+      "image": "Qitchen _ Menu_files/zanzana_chicken_tikka.png"
     },
     {
       "name": "Zanzana Chicken",
       "price": "£10.99",
       "description": "Succulent chicken cooked in house-special Zanzana gravy with bold spices and mild creaminess for balance.",
-      "image": "Qitchen_Menu_files/zanzana_chicken.png"
+      "image": "Qitchen _ Menu_files/zanzana_chicken.png"
     },
     {
       "name": "Lasuni King Prawn",
       "price": "£13.99",
       "description": "King prawns tossed in garlic-rich masala, slow-cooked in buttery gravy with smoky and aromatic undertones.",
-      "image": "Qitchen_Menu_files/lasuni_king_prawn.png"
+      "image": "Qitchen _ Menu_files/lasuni_king_prawn.png"
     },
     {
       "name": "Lasuni Chicken Tikka",
       "price": "£11.99",
       "description": "Garlic-laced chicken tikka grilled with herbs and spices, delivering bold flavor and smoky char.",
-      "image": "Qitchen_Menu_files/lasuni_chicken_tikka.png"
+      "image": "Qitchen _ Menu_files/lasuni_chicken_tikka.png"
     },
     {
       "name": "Lasuni Chicken",
       "price": "£10.99",
       "description": "Tender chicken cooked in garlic-infused curry, enhanced with butter, cream, and traditional North Indian spices.",
-      "image": "Qitchen_Menu_files/lasuni_chicken.png"
+      "image": "Qitchen _ Menu_files/lasuni_chicken.png"
     },
     {
       "name": "Chicken Palak",
       "price": "£10.99",
       "description": "Chicken simmered in spinach-based gravy, flavored with ginger, garlic, and Indian spices for a wholesome, hearty dish.",
-      "image": "Qitchen_Menu_files/chicken_palak.png"
+      "image": "Qitchen _ Menu_files/chicken_palak.png"
     },
     {
       "name": "Butter Chicken",
       "price": "£11.99",
       "description": "Iconic creamy tomato gravy with grilled chicken pieces, enriched with butter, cream, and mild spices.",
-      "image": "Qitchen_Menu_files/butter_chicken.png"
+      "image": "Qitchen _ Menu_files/butter_chicken.png"
     }
   ],
   "Desserts": [
@@ -846,19 +846,19 @@
       "name": "Gajar Halwa",
       "price": "£4.00",
       "description": "Slow-cooked grated carrots in milk, ghee, and sugar—rich, warm, and garnished with nuts for a classic festive dessert.",
-      "image": "Qitchen_Menu_files/gajar_halwa.png"
+      "image": "Qitchen _ Menu_files/gajar_halwa.png"
     },
     {
       "name": "Special Rabdi Gulab Jamun (1PCS / 2PCS)",
       "price": "£3.49 / £5.99",
       "description": "Soft gulab jamun served with thick, creamy rabdi—decadent, syrup-soaked indulgence with every spoonful of this royal dessert pairing.",
-      "image": "Qitchen_Menu_files/rabdi_gulab_jamun.png"
+      "image": "Qitchen _ Menu_files/rabdi_gulab_jamun.png"
     },
     {
       "name": "Chef's Special Gulab Jamun",
       "price": "£4.00",
       "description": "Deep-fried khoya dumplings soaked in saffron-cardamom syrup—extra soft, melt-in-mouth, and handcrafted for a luxurious dessert experience.",
-      "image": "Qitchen_Menu_files/gulab_jamun.png"
+      "image": "Qitchen _ Menu_files/gulab jamun.png"
     }
   ]
 }
