@@ -1,11 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar({ variant = 'overlay' }) {
+  const nav=useNavigate()
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
 
+  const handleBookClick = () => {
+    if (location.pathname !== '/reservation') {
+      nav('/reservation');
+    } else {
+      setOverlayOpen(!overlayOpen);
+    }
+  };
   // Check if mobile on mount and resize
   useEffect(() => {
     const checkMobile = () => {
@@ -60,8 +69,8 @@ function Navbar({ variant = 'overlay' }) {
         
         {/* Book Table Button */}
         <a href="#" className="book" onClick={(e) => e.preventDefault()}>
-          <span className="book-text-full">BOOK A TABLE</span>
-          <span className="book-text-short">BOOK A TABLE</span>
+            <span className="book-text-full"  onClick={handleBookClick}>BOOK A TABLE</span>
+            <span className="book-text-short" onClick={handleBookClick}>BOOK A TABLE</span>
         </a>
       </nav>
 

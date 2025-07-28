@@ -1,9 +1,20 @@
 import Navbar from "./components/Navbar";
+import { useState, useEffect } from "react";
 
 function Book() {
-  // Get screen width for responsive design
-  const isMobile = window.innerWidth <= 768;
-  const isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   return (
     <div
@@ -15,6 +26,7 @@ function Book() {
         fontFamily: "'Forum', serif",
         color: "#EFE7D2",
         padding: isMobile ? "10px" : "20px",
+        boxSizing: "border-box"
       }}
     >
     <Navbar />
@@ -22,8 +34,8 @@ function Book() {
       <div style={{ 
         width: isMobile ? "100%" : "50%", 
         position: "relative",
-        height: isMobile ? "50vh" : "auto",
-        minHeight: isMobile ? "300px" : "auto"
+        height: isMobile ? "40vh" : "calc(100vh - 40px)",
+        marginBottom: isMobile ? "20px" : "0"
       }}>
         <img
           src="./apLVZGAMneXESKaZkziIssg86a8.webp"
@@ -32,7 +44,7 @@ function Book() {
             width: "100%", 
             height: "100%", 
             objectFit: "cover", 
-            borderRadius: isMobile ? "8px" : "10px" 
+            borderRadius: "10px" 
           }}
         />
         <h1
@@ -40,15 +52,15 @@ function Book() {
             position: "absolute",
             bottom: isMobile ? "15px" : "20px",
             left: isMobile ? "15px" : "20px",
-            fontWeight:"lighter",
+            fontWeight: "lighter",
             color: "rgb(239, 231, 210)",
-            fontSize: isMobile ? "48px" : isTablet ? "80px" : "106px",
-            lineHeight: isMobile ? "1.1" : "1",
-            width: isMobile ? "90%" : "500px"
+            fontSize: isMobile ? "48px" : isTablet ? "72px" : "106px",
+            lineHeight: "1",
+            margin: "0",
+            textShadow: "2px 2px 4px rgba(0,0,0,0.8)"
           }}
         >
-BOOK
-A TABLE        </h1>
+BOOK<br />A TABLE        </h1>
       </div>
 
       {/* Right Form */}
@@ -57,86 +69,175 @@ A TABLE        </h1>
           width: isMobile ? "100%" : "50%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: isMobile ? "flex-start" : "space-around",
+          justifyContent: "center",
+          alignItems: "center",
           border: "1px solid #444",
-          padding: isMobile ? "20px" : "40px",
+          padding: isMobile ? "20px" : isTablet ? "30px" : "40px",
           borderRadius: "10px",
           marginLeft: isMobile ? "0" : "20px",
-          marginTop: isMobile ? "20px" : "0",
-          minHeight: isMobile ? "auto" : "auto"
+          backgroundColor: "rgba(24, 24, 24, 0.5)"
         }}
       >
-        <div style={{ textAlign: "center", marginBottom: isMobile ? "15px" : "20px" }}>
-          <div className="menu-category-decor" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span className="diamond-line left">
-              <span className="diamond-shape" />
-              <span className="line-shape" />
-            </span>
+        <div style={{ 
+          textAlign: "center", 
+          marginBottom: isMobile ? "20px" : "30px",
+          width: "100%",
+          maxWidth: "400px"
+        }}>
+          <div style={{ 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center",
+            marginBottom: "15px"
+          }}>
+            <div style={{
+              width: "30px",
+              height: "1px",
+              backgroundColor: "#444",
+              marginRight: "10px"
+            }}></div>
+            <div style={{
+              width: "6px",
+              height: "6px",
+              border: "1px solid #444",
+              transform: "rotate(45deg)",
+              marginRight: "10px"
+            }}></div>
             <h1 style={{ 
               margin: "0 10px", 
-              fontSize: isMobile ? "24px" : "32px", 
+              fontSize: isMobile ? "24px" : isTablet ? "28px" : "32px", 
               fontWeight: "lighter", 
               color: "rgb(239, 231, 210)" 
             }}>RESERVATION</h1>
-            <span className="diamond-line right">
-              <span className="line-shape" />
-              <span className="diamond-shape" />
-            </span>
+            <div style={{
+              width: "6px",
+              height: "6px",
+              border: "1px solid #444",
+              transform: "rotate(45deg)",
+              marginLeft: "10px"
+            }}></div>
+            <div style={{
+              width: "30px",
+              height: "1px",
+              backgroundColor: "#444",
+              marginLeft: "10px"
+            }}></div>
           </div>
           <p style={{ 
             fontSize: isMobile ? "14px" : "16px", 
             color: "#ccc",
             lineHeight: "1.5",
-            padding: isMobile ? "0 10px" : "0"
+            margin: "0"
           }}>
-            Secure your spot at Qitchen, where exceptional sushi and a <br />
+            Secure your spot at Qitchen, where exceptional sushi and a{" "}
+            {!isMobile && <br />}
             remarkable dining experience await.
           </p>
         </div>
 
         {/* Form */}
-        <div style={{ display: "flex", flexDirection: "column", gap: isMobile ? "12px" : "15px" }}>
+        <div style={{ 
+          display: "flex", 
+          flexDirection: "column", 
+          gap: isMobile ? "15px" : "18px",
+          width: "100%",
+          maxWidth: "400px"
+        }}>
           <input
             placeholder="Your Name"
-            style={inputStyle}
+            style={{
+              padding: isMobile ? "14px 16px" : "12px 16px",
+              borderRadius: "8px",
+              border: "1px solid #444",
+              backgroundColor: "#1c1c1c",
+              color: "rgb(239, 231, 210)",
+              fontSize: isMobile ? "16px" : "14px",
+              outline: "none",
+              width: "100%",
+              boxSizing: "border-box"
+            }}
           />
           <input
             placeholder="Phone Number"
-            style={inputStyle}
+            type="tel"
+            style={{
+              padding: isMobile ? "14px 16px" : "12px 16px",
+              borderRadius: "8px",
+              border: "1px solid #444",
+              backgroundColor: "#1c1c1c",
+              color: "rgb(239, 231, 210)",
+              fontSize: isMobile ? "16px" : "14px",
+              outline: "none",
+              width: "100%",
+              boxSizing: "border-box"
+            }}
           />
           <input
             placeholder="Email"
-            style={inputStyle}
+            type="email"
+            style={{
+              padding: isMobile ? "14px 16px" : "12px 16px",
+              borderRadius: "8px",
+              border: "1px solid #444",
+              backgroundColor: "#1c1c1c",
+              color: "rgb(239, 231, 210)",
+              fontSize: isMobile ? "16px" : "14px",
+              outline: "none",
+              width: "100%",
+              boxSizing: "border-box"
+            }}
           />
           <div style={{ 
             display: "flex", 
             flexDirection: isMobile ? "column" : "row",
-            gap: isMobile ? "12px" : "10px" 
+            gap: isMobile ? "15px" : "10px" 
           }}>
             <input 
               type="number" 
-              placeholder="1-10" 
+              placeholder="Guests (1-10)" 
               min={1} 
               max={10} 
               style={{
-                ...inputStyle,
-                flex: isMobile ? "none" : 1
+                flex: isMobile ? "none" : 1,
+                padding: isMobile ? "14px 16px" : "12px 16px",
+                borderRadius: "8px",
+                border: "1px solid #444",
+                backgroundColor: "#1c1c1c",
+                color: "rgb(239, 231, 210)",
+                fontSize: isMobile ? "16px" : "14px",
+                outline: "none",
+                width: "100%",
+                boxSizing: "border-box"
               }} 
             />
             <input 
               type="date" 
-              placeholder="dd-mm-yyyy" 
               style={{
-                ...inputStyle,
-                flex: isMobile ? "none" : 1
+                flex: isMobile ? "none" : 1,
+                padding: isMobile ? "14px 16px" : "12px 16px",
+                borderRadius: "8px",
+                border: "1px solid #444",
+                backgroundColor: "#1c1c1c",
+                color: "rgb(239, 231, 210)",
+                fontSize: isMobile ? "16px" : "14px",
+                outline: "none",
+                width: "100%",
+                boxSizing: "border-box"
               }} 
             />
             <input 
               type="time" 
-              placeholder="--:--" 
               style={{
-                ...inputStyle,
-                flex: isMobile ? "none" : 1
+                flex: isMobile ? "none" : 1,
+                padding: isMobile ? "14px 16px" : "12px 16px",
+                borderRadius: "8px",
+                border: "1px solid #444",
+                backgroundColor: "#1c1c1c",
+                color: "rgb(239, 231, 210)",
+                fontSize: isMobile ? "16px" : "14px",
+                outline: "none",
+                width: "100%",
+                boxSizing: "border-box"
               }} 
             />
           </div>
@@ -144,7 +245,7 @@ A TABLE        </h1>
             style={{
               backgroundColor: "rgb(239, 231, 210)",
               color: "black",
-              padding: isMobile ? "14px" : "12px",
+              padding: isMobile ? "16px" : "14px",
               borderRadius: "8px",
               border: "none",
               fontWeight: "bold",
@@ -152,7 +253,15 @@ A TABLE        </h1>
               marginTop: "10px",
               cursor: "pointer",
               width: "100%",
-              minHeight: isMobile ? "48px" : "auto"
+              textTransform: "uppercase",
+              letterSpacing: "1px",
+              transition: "all 0.3s ease"
+            }}
+            onMouseOver={(e) => {
+              e.target.style.opacity = "0.9";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.opacity = "1";
             }}
           >
             SUBMIT
@@ -163,18 +272,5 @@ A TABLE        </h1>
     </div>
   );
 }
-
-const inputStyle = {
-  flex: 1,
-  padding: window.innerWidth <= 768 ? "14px" : "12px",
-  width: "100%",
-  borderRadius: "8px",
-  border: "1px solid #444",
-  backgroundColor: "#1c1c1c",
-  color: "rgb(239, 231, 210)",
-  fontSize: window.innerWidth <= 768 ? "16px" : "14px",
-  minHeight: window.innerWidth <= 768 ? "48px" : "auto",
-  boxSizing: "border-box"
-};
 
 export default Book;
