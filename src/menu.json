@@ -39,7 +39,7 @@
     {
       "name": "Chicken 65",
       "price": "£9.00",
-      "description": "Crisp, deep-fried chicken pieces marinated in bold spices,, and green chilies—a legendary South Indian bar snack.",
+      "description": "Crisp, deep-fried chicken pieces marinated in bold spices, and green chilies—a legendary South Indian bar snack.",
       "image": "Qitchen _ Menu_files/item1.png"
     },
     {
@@ -57,7 +57,7 @@
   ],
   "Thai-Starters": [
     {
-      "name": "6PCS Veg Spring Rolls with Thai Saucee",
+      "name": "6PCS Veg Spring Rolls with Thai Sauce",
       "price": "£5.99",
       "description": "Crispy vegetable-filled rolls served with sweet Thai chili sauce—crunchy, light, and packed with flavorful Asian-inspired vegetables.",
       "image": "Qitchen _ Menu_files/spring_rolls.png"
@@ -66,7 +66,7 @@
       "name": "2x Skewer Chicken with Thai Sauce",
       "price": "£6.99",
       "description": "Grilled chicken skewers served with tangy Thai dipping sauce - zesty, tender, and infused with Southeast Asian spice magic.",
-      "image": "Qitchen _ Menu_files/chicken_skewer.png"
+      "image": "Qitchen _ Menu_files/_chicken tikka skewer .jpeg"
     }
   ],
   "Harmony-Starters-Japanese": [
@@ -241,12 +241,6 @@
       "price": "£3.99",
       "description": "Leavened tandoori bread infused with minced garlic and herbs—fluffy, aromatic, and deliciously garlicky with every bite.",
       "image": "Qitchen _ Menu_files/garlic naan.jpeg"
-    },
-    {
-      "name": "Veg Manchurian",
-      "price": "$5",
-      "description": "Fried vegetable balls in a savory Indo-Chinese sauce, blending garlic, soya, and spices into a rich, saucy delight.",
-      "image": "Qitchen _ Menu_files/veg_manchurian.png"
     },
     {
       "name": "Butter Naan",
@@ -432,26 +426,26 @@
   "Japanese-Teriyaki": [
     {
       "name": "Tofu Teriyaki",
-      "price": "$6",
-      "description": "Golden-seared tofu glazed in sweet soya teriyaki sauce - tender, flavorful, and perfect for a light, plant-based Japanese-style dish.",
+      "price": "£13.99",
+      "description": "Lightly battered and deep-fried king prawns, crispy and delicate.",
       "image": "Qitchen _ Menu_files/tofu teriyaki.jpeg"
     },
     {
       "name": "Paneer Teriyaki",
-      "price": "$7",
-      "description": "Soft paneer cubes grilled and coated in teriyaki glaze - an Indo-Japanese fusion of creamy texture and rich, umami flavor.",
+      "price": "£13.99",
+      "description": "Assorted fresh vegetables lightly battered and deep-fried until crisp.",
       "image": "Qitchen _ Menu_files/paneer teriyaki.jpeg"
     },
     {
       "name": "Hotate Ryu Unami (Scallop Teriyaki)",
-      "price": "$9",
-      "description": "Juicy seared scallops glazed in silky teriyaki sauce - delicate, ocean-fresh, and bursting with umami in every elegant bite.",
+      "price": "£20.11",
+      "description": "Seared scallops with dragon teriyaki glaze",
       "image": "Qitchen _ Menu_files/scallops teriyaki.jpeg"
     },
     {
       "name": "Chicken Teriyaki",
-      "price": "$8",
-      "description": "Grilled chicken glazed with sweet and savory teriyaki - tender, caramelized, and a timeless favorite from Japanese cuisine.",
+      "price": "£14.30",
+      "description": "Chicken teppanyaki with radiance sauce",
       "image": "Qitchen _ Menu_files/chicken teriyaki.jpeg"
     }
   ],
@@ -466,31 +460,31 @@
   "Vegetarian-Delights": [
     {
       "name": "Malai Kofta",
-      "price": "$8",
+      "price": "£12.99",
       "description": "Soft cottage cheese dumplings in a creamy cashew-tomato gravy—rich, indulgent, and a royal North Indian vegetarian delight.",
       "image": "Qitchen _ Menu_files/malai kofta curry.png"
     },
     {
       "name": "Matar Paneer",
-      "price": "$7",
+      "price": "£10.99",
       "description": "Paneer cubes simmered with green peas in a spiced tomato-onion gravy—comforting, mildly spiced, and perfect with naan or rice.",
       "image": "Qitchen _ Menu_files/matar paneer.png"
     },
     {
       "name": "Makhni Palak",
-      "price": "$7",
+      "price": "£10.99",
       "description": "Smooth spinach purée cooked with creamy makhni sauce—rich, buttery, and full of earthy spinach flavor with a hint of sweetness.",
       "image": "Qitchen _ Menu_files/makhni_palak.png"
     },
     {
       "name": "Palak Paneer",
-      "price": "$7",
+      "price": "£10.99",
       "description": "Soft paneer cubes in a vibrant spinach gravy—wholesome, lightly spiced, and a timeless North Indian favorite.",
       "image": "Qitchen _ Menu_files/palak paneer.png"
     },
     {
       "name": "Lasuni Paneer",
-      "price": "$7",
+      "price": "£11.99",
       "description": "Paneer cooked in a spicy garlic-infused tomato gravy—bold, aromatic, and bursting with flavor for garlic lovers.",
       "image": "Qitchen _ Menu_files/lasuni_paneer.png"
     },
@@ -508,42 +502,42 @@
     },
     {
       "name": "Paneer Amrit Handi",
-      "price": "£12.99 / £12.29",
+      "price": "£12.29",
       "description": "Paneer in a slow-cooked, rich, spiced handi-style gravy—deep flavors, thick texture, and perfect with roti or kulcha.",
       "image": "Qitchen _ Menu_files/paneer_amrit_handi.png"
     },
     {
       "name": "Corn Palak",
-      "price": "£9.99 / £10.99",
+      "price": "£9.99",
       "description": "Sweet corn kernels simmered in creamy spinach gravy—lightly spiced, wholesome, and a comforting twist on traditional palak dishes.",
       "image": "Qitchen _ Menu_files/corn palak.png"
     },
     {
-      "name": "Bhindi Do Pyaza",
+      "name": "Bhindi 2 Pyaza",
       "price": "£10.99",
-      "description": "Okra cooked with double onions and aromatic spices—flavorful, slightly tangy, and a popular dry-style sabzi.",
+      "description": "Okra stir-fried with a generous amount of onions and aromatic spices, semi-dry.",
       "image": "Qitchen _ Menu_files/bhindi_do_pyaza.png"
     },
     {
       "name": "Veg Kolhapuri",
-      "price": "$7",
-      "description": "Mixed vegetables in a fiery Kolhapuri masala gravy—spicy, bold, and rich with roasted coconut and red chilies.",
+      "price": "£11.99",
+      "description": "Mixed vegetables cooked in a fiery Kolhapuri masala gravy—spicy, bold, and rich with roasted coconut and red chilies.",
       "image": "Qitchen _ Menu_files/veg_kolhapuri.png"
     },
     {
       "name": "Aloo Palak",
-      "price": "$6",
+      "price": "£8.99",
       "description": "Potatoes simmered in spiced spinach purée—simple, rustic, and a nourishing curry full of green goodness.",
       "image": "Qitchen _ Menu_files/aloo_palak.png"
     },
     {
       "name": "Achari Bhindi",
-      "price": "$6",
+      "price": "£10.99",
       "description": "Okra cooked with pickling spices—tangy, spicy, and uniquely flavorful with hints of mustard, fennel, and nigella seeds.",
       "image": "Qitchen _ Menu_files/Achari Bhindi.png"
     },
     {
-      "name": "Mushroom Lababdar",
+      "name": "Mushroom lababdar",
       "price": "£10.99",
       "description": "Button mushrooms in a creamy, tomato-onion based lababdar gravy—rich, mildly sweet, and velvety in texture.",
       "image": "Qitchen _ Menu_files/mushroom lababdar.png"
@@ -563,9 +557,9 @@
       "image": "Qitchen _ Menu_files/prawn_biryani.png"
     },
     {
-      "name": "Chicken Biryani",
+      "name": "Chicken biryani",
       "price": "£12.99",
-      "description": "Tender chicken cooked in spiced yogurt masala, layered with basmati rice and herbs—slow-cooked for rich, authentic Hyderabadi flavor.",
+      "description": "Fragrant basmati rice cooked with tender chicken pieces, layered with aromatic spices and herbs.",
       "image": "Qitchen _ Menu_files/chicken_biryani.png"
     },
     {
@@ -595,7 +589,7 @@
       "image": "Qitchen _ Menu_files/vegetarian shahi darbar biryani.png"
     },
     {
-      "name": "Darbar Shahi Biryani",
+      "name": "Darbar Shahi biryani",
       "price": "£12.99",
       "description": "A royal vegetarian biryani with nuts, saffron, paneer, and dried fruits—luxurious, mildly sweet, and bursting with Mughlai richness.",
       "image": "Qitchen _ Menu_files/darbar_shahi_biryani.png"
@@ -604,117 +598,117 @@
   "Pad-Thai-Noodles": [
     {
       "name": "Pad Thai Veg",
-      "price": "$8",
+      "price": "£13.99",
       "description": "Stir-fried rice noodles with vegetables, tofu, peanuts, and tamarind sauce—sweet, tangy, and full of Thai street flavor.",
       "image": "Qitchen _ Menu_files/pad_thai_veg.png"
     },
     {
       "name": "Pad Thai King Prawns",
-      "price": "$12",
+      "price": "£15.99",
       "description": "Juicy king prawns tossed with rice noodles, peanuts, egg, and tamarind sauce—fragrant, savory, and perfectly balanced Thai classic.",
       "image": "Qitchen _ Menu_files/prawn pad thai.jpeg"
     },
     {
       "name": "Pad Thai Chicken",
-      "price": "$10",
+      "price": "£14.99",
       "description": "Tender chicken stir-fried with noodles, vegetables, peanuts, and tangy tamarind sauce—a delicious harmony of sweet, spicy, and nutty flavors.",
       "image": "Qitchen _ Menu_files/chicken pad thai.jpeg"
     }
   ],
   "Transformation-Mains-Thai": [
     {
-      "name": "Green Thai King Prawn Curry",
-      "price": "£11.99",
+      "name": "Green Thai Curry King Prawn",
+      "price": "£14.99",
       "description": "Juicy king prawns in fragrant green curry with coconut milk, Thai herbs, and fresh vegetables for vibrant flavor.",
       "image": "Qitchen _ Menu_files/item1.png"
     },
     {
-      "name": "Green Thai Chicken Curry",
-      "price": "£10.99",
+      "name": "Green Thai Curry Chicken",
+      "price": "£13.99",
       "description": "Tender chicken in creamy green curry, spiced with lemongrass, basil, and green chilies, served with seasonal vegetables.",
       "image": "Qitchen _ Menu_files/chicken green thai curry.jpeg"
     },
     {
-      "name": "Green Thai Tofu Curry",
-      "price": "£9.99",
+      "name": "Green Thai Curry Tofu",
+      "price": "£13.99",
       "description": "Soft tofu simmered in coconut green curry with fresh herbs, crunchy veggies, and a light, spicy kick.",
       "image": "Qitchen _ Menu_files/Tofu green Thai curry.jpeg"
     },
     {
-      "name": "Green Thai Paneer Curry",
-      "price": "£10.49",
+      "name": "Green Thai Curry Paneer",
+      "price": "£13.99",
       "description": "Indian paneer cubes in a Thai green curry, blending creaminess and spice with fresh herbs and coconut milk.",
       "image": "Qitchen _ Menu_files/green_thai_paneer_curry.png"
     },
     {
-      "name": "Massaman King Prawn Curry",
-      "price": "£11.99",
+      "name": "Massaman Curry King Prawn",
+      "price": "£14.99",
       "description": "King prawns in rich, nutty Massaman curry with potatoes, coconut, and warm Thai spices for deep, mellow flavor.",
       "image": "Qitchen _ Menu_files/massaman_king_prawn_curry.png"
     },
     {
-      "name": "Massaman Chicken Curry",
-      "price": "£10.99",
+      "name": "Massaman Curry Chicken",
+      "price": "£13.99",
       "description": "Slow-cooked chicken in earthy Massaman curry with peanuts, cinnamon, and creamy coconut, delivering complex, warming richness.",
       "image": "Qitchen _ Menu_files/Chicken massaman curry.jpeg"
     },
     {
-      "name": "Massaman Tofu Curry",
-      "price": "£9.99",
+      "name": "Massaman Curry Tofu",
+      "price": "£13.99",
       "description": "Tofu and root vegetables in a thick Massaman sauce, featuring subtle spice, coconut cream, and roasted peanut undertones.",
       "image": "Qitchen _ Menu_files/Tofu massaman curry.jpeg"
     },
     {
-      "name": "Massaman Paneer Curry",
-      "price": "£10.49",
+      "name": "Massaman Curry Paneer",
+      "price": "£13.99",
       "description": "Paneer cubes stewed in Thai Massaman curry, offering rich, peanutty warmth with coconut, tamarind, and fragrant spices.",
       "image": "Qitchen _ Menu_files/massaman_paneer_curry.png"
     },
     {
-      "name": "Red Thai King Prawn Curry",
-      "price": "£11.99",
+      "name": "Red Thai Curry King Prawn",
+      "price": "£14.99",
       "description": "King prawns in fiery red curry with bell peppers, Thai basil, and creamy coconut for a bold, spicy hit.",
       "image": "Qitchen _ Menu_files/red_thai_king_prawn_curry.png"
     },
     {
-      "name": "Red Thai Chicken Curry",
-      "price": "£10.99",
+      "name": "Red Thai Curry Chicken",
+      "price": "£13.99",
       "description": "Chicken cooked in spicy red Thai curry, blended with coconut milk, herbs, and a chili-kissed aromatic sauce.",
       "image": "Qitchen _ Menu_files/Chicken red Thai curry.jpeg"
     },
     {
-      "name": "Red Thai Tofu Curry",
-      "price": "£9.99",
+      "name": "Red Thai Curry Tofu",
+      "price": "£13.99",
       "description": "Tofu in classic red curry with spicy-sweet balance, vibrant vegetables, and aromatic coconut for plant-based satisfaction.",
       "image": "Qitchen _ Menu_files/Tofu red thai curry.jpeg"
     },
     {
-      "name": "Red Thai Paneer Curry",
-      "price": "£10.49",
+      "name": "Red Thai Curry Paneer",
+      "price": "£13.99",
       "description": "Paneer in spicy Thai red curry with chili, coconut, and lemongrass, fusing bold flavors with creamy texture.",
       "image": "Qitchen _ Menu_files/red_thai_paneer_curry.png"
     },
     {
-      "name": "Panang King Prawn Curry",
-      "price": "£11.99",
+      "name": "Panang Curry King Prawn",
+      "price": "£14.99",
       "description": "King prawns in creamy Panang curry with roasted peanuts, coconut milk, and sweet-spicy Thai flavor harmony.",
       "image": "Qitchen _ Menu_files/panang_king_prawn_curry.png"
     },
     {
-      "name": "Panang Chicken Curry",
-      "price": "£10.99",
+      "name": "Panang Curry Chicken",
+      "price": "£13.99",
       "description": "Chicken in thick, mildly spicy Panang sauce, rich with peanuts, kaffir lime, and coconut for indulgent depth.",
       "image": "Qitchen _ Menu_files/Chicken panang curry.jpeg"
     },
     {
-      "name": "Panang Tofu Curry",
-      "price": "£9.99",
+      "name": "Panang Curry Tofu",
+      "price": "£13.99",
       "description": "Tofu cubes in creamy Panang curry, blending peanuts, coconut, and chili for a subtle, comforting Thai dish.",
       "image": "Qitchen _ Menu_files/Tofu panang curry.jpeg"
     },
     {
-      "name": "Panang Paneer Curry",
-      "price": "£10.49",
+      "name": "Panang Curry Paneer",
+      "price": "£13.99",
       "description": "Paneer meets Thai Panang curry—creamy, nutty, and spiced with lemongrass and kaffir lime for unique fusion appeal.",
       "image": "Qitchen _ Menu_files/panang_paneer_curry.png"
     }
@@ -722,115 +716,115 @@
   "Non-Veg-Curries": [
     {
       "name": "Pepper King Prawn",
-      "price": "£13.99",
+      "price": "£14.99",
       "description": "Juicy king prawns tossed in crushed pepper, slow-cooked in rich Indian spices for bold, fiery flavor.",
       "image": "Qitchen _ Menu_files/pepper_king_prawn.png"
     },
     {
       "name": "Pepper Chicken Tikka",
-      "price": "£11.99",
+      "price": "£13.99",
       "description": "Chargrilled chicken tikka infused with black pepper, marinated in yogurt and spices, finished with smoky perfection.",
       "image": "Qitchen _ Menu_files/item1.png"
     },
     {
       "name": "Pepper Chicken",
-      "price": "£10.99",
+      "price": "£12.99",
       "description": "Tender chicken cooked in aromatic pepper masala, bursting with spice, heat, and layered South Indian flavors.",
       "image": "Qitchen _ Menu_files/pepper chicken curry.png"
     },
     {
       "name": "Handi King Prawn",
-      "price": "£13.99",
+      "price": "£14.99",
       "description": "Succulent king prawns simmered in traditional handi gravy, with slow-cooked spices and creamy, rustic North Indian richness.",
       "image": "Qitchen _ Menu_files/handi_king_prawn.png"
     },
     {
       "name": "Handi Chicken Tikka",
-      "price": "£11.99",
+      "price": "£13.99",
       "description": "Smoky chicken tikka blended into thick handi-style curry, full of deep flavors and clay-pot style authenticity.",
       "image": "Qitchen _ Menu_files/handi_chicken_tikka.png"
     },
     {
       "name": "Handi Chicken",
-      "price": "£10.99",
+      "price": "£12.99",
       "description": "Classic chicken curry cooked in a handi with tomatoes, onions, and whole spices for hearty Indian comfort.",
       "image": "Qitchen _ Menu_files/handi_chicken.png"
     },
     {
       "name": "Lemon King Prawn",
-      "price": "£13.99",
+      "price": "£14.99",
       "description": "Zesty lemon-spiced king prawns tossed with fresh herbs, creating a tangy, refreshing coastal-style seafood delight.",
       "image": "Qitchen _ Menu_files/lemon_king_prawn.png"
     },
     {
       "name": "Lemon Chicken Tikka",
-      "price": "£11.99",
+      "price": "£13.99",
       "description": "Chargrilled chicken tikka marinated in lemon juice and herbs, offering a citrusy kick with every bite.",
       "image": "Qitchen _ Menu_files/lemon_chicken_tikka.png"
     },
     {
       "name": "Lemon Chicken",
-      "price": "£10.99",
+      "price": "£12.99",
       "description": "Juicy chicken cooked in lemony gravy, blending mild spices and citrus for a bright, flavorful experience.",
       "image": "Qitchen _ Menu_files/lemon chicken.png"
     },
     {
       "name": "Achari King Prawn",
-      "price": "£13.99",
+      "price": "£14.99",
       "description": "Prawns sautéed in tangy achari masala, inspired by North Indian pickles, bursting with bold, spicy flavors.",
       "image": "Qitchen _ Menu_files/achari prawns.jpeg"
     },
     {
       "name": "Achari Chicken Tikka",
-      "price": "£11.99",
+      "price": "£13.99",
       "description": "Pickle-spiced chicken tikka grilled to perfection, offering smoky notes with an unmistakable achari punch.",
       "image": "Qitchen _ Menu_files/achari_chicken_tikka.png"
     },
     {
       "name": "Achari Chicken",
-      "price": "£10.99",
+      "price": "£12.99",
       "description": "Boneless chicken pieces cooked in traditional achari gravy, flavored with mustard, fennel, and tangy pickle spices.",
       "image": "Qitchen _ Menu_files/Achari chicken.jpeg"
     },
     {
       "name": "Zanzana King Prawn",
-      "price": "£13.99",
+      "price": "£14.99",
       "description": "Royal-style king prawns simmered in creamy, spicy Zanzana sauce with aromatic herbs and a hint of sweetness.",
       "image": "Qitchen _ Menu_files/zanzana_king_prawn.png"
     },
     {
       "name": "Zanzana Chicken Tikka",
-      "price": "£11.99",
+      "price": "£13.99",
       "description": "Flame-grilled chicken tikka in a signature Zanzana sauce, rich with spices and subtle creamy undertones.",
       "image": "Qitchen _ Menu_files/zanzana_chicken_tikka.png"
     },
     {
       "name": "Zanzana Chicken",
-      "price": "£10.99",
+      "price": "£12.99",
       "description": "Succulent chicken cooked in house-special Zanzana gravy with bold spices and mild creaminess for balance.",
       "image": "Qitchen _ Menu_files/zanzana_chicken.png"
     },
     {
       "name": "Lasuni King Prawn",
-      "price": "£13.99",
+      "price": "£14.99",
       "description": "King prawns tossed in garlic-rich masala, slow-cooked in buttery gravy with smoky and aromatic undertones.",
       "image": "Qitchen _ Menu_files/lahsuni prawns.jpeg"
     },
     {
       "name": "Lasuni Chicken Tikka",
-      "price": "£11.99",
+      "price": "£13.99",
       "description": "Garlic-laced chicken tikka grilled with herbs and spices, delivering bold flavor and smoky char.",
       "image": "Qitchen _ Menu_files/lasuni_chicken_tikka.png"
     },
     {
       "name": "Lasuni Chicken",
-      "price": "£10.99",
+      "price": "£12.99",
       "description": "Tender chicken cooked in garlic-infused curry, enhanced with butter, cream, and traditional North Indian spices.",
       "image": "Qitchen _ Menu_files/lasuni_chicken.png"
     },
     {
       "name": "Chicken Palak",
-      "price": "£10.99",
+      "price": "£11.99",
       "description": "Chicken simmered in spinach-based gravy, flavored with ginger, garlic, and Indian spices for a wholesome, hearty dish.",
       "image": "Qitchen _ Menu_files/chicken_palak.png"
     },
@@ -849,16 +843,102 @@
       "image": "Qitchen _ Menu_files/gajar_halwa.png"
     },
     {
-      "name": "Special Rabdi Gulab Jamun (1PCS / 2PCS)",
+      "name": "Special rabdi gulab jamun (1PCS / 2PCS)",
       "price": "£3.49 / £5.99",
-      "description": "Soft gulab jamun served with thick, creamy rabdi—decadent, syrup-soaked indulgence with every spoonful of this royal dessert pairing.",
+      "description": "Soft, syrup-soaked milk solids dumplings, a special sweet treat, available individually or in pairs.",
       "image": "Qitchen _ Menu_files/rabdi_gulab_jamun.png"
     },
     {
-      "name": "Chef's Special Gulab Jamun",
-      "price": "£4.00",
-      "description": "Deep-fried khoya dumplings soaked in saffron-cardamom syrup—extra soft, melt-in-mouth, and handcrafted for a luxurious dessert experience.",
+      "name": "Gulab Jamun",
+      "price": "£4.99",
+      "description": "Classic sweet dumplings, deep-fried and soaked in a fragrant rose-cardamom syrup.",
       "image": "Qitchen _ Menu_files/gulab jamun.png"
+    },
+    {
+      "name": "Chef’s Special",
+      "price": "£4.00",
+      "description": "A unique and exquisite dish crafted by our chef, highlighting daily fresh ingredients.",
+      "image": ""
+    }
+  ],
+  "Japanese-Teppanyaki": [
+    {
+      "name": "Prawn Teppenyaki friedrice",
+      "price": "£19.99",
+      "description": "Succulent prawns grilled expertly on a teppanyaki hot plate with fresh vegetables and sauce.",
+      "image": ""
+    },
+    {
+      "name": "Vegetable Teppenyaki Fried Rice",
+      "price": "£13.99",
+      "description": "Aromatic fried rice with mixed colorful vegetables, wok-tossed teppanyaki style for fresh flavor.",
+      "image": ""
+    },
+    {
+      "name": "Tori Kagayaki",
+      "price": "£15.99",
+      "description": "Flavorful fried rice with tender chicken and crisp vegetables, cooked dynamically on a teppanyaki grill.",
+      "image": ""
+    }
+  ],
+  "Special-Bundles": [
+    {
+      "name": "5-Phase Journey Bundle",
+      "price": "£29.30",
+      "description": "Ji Sha 5-Fire + Long Xia Wu Bao + Dessert \n Chicken skewers with five-spice peanut sauce, king prawns in five-treasure sweet & sour sauce, and a dessert.",
+      "image": "Qitchen _ Menu_files/item1.png"
+    }
+  ],
+  "Chinese-Mains-Chowmein": [
+    {
+      "name": "Chowmein King Prawn",
+      "price": "£14.99",
+      "description": "Stir-fried noodles with crisp vegetables and king prawns, a classic savory Chinese dish.",
+      "image": ""
+    },
+    {
+      "name": "Chowmein Chicken",
+      "price": "£13.99",
+      "description": "Stir-fried noodles with crisp vegetables and chicken, a classic savory Chinese dish.",
+      "image": ""
+    },
+    {
+      "name": "Chowmein Mixed",
+      "price": "£12.99",
+      "description": "Stir-fried noodles with crisp vegetables and mixed protein, a classic savory Chinese dish.",
+      "image": ""
+    },
+    {
+      "name": "Chowmein Vegetarian",
+      "price": "£12.99",
+      "description": "Stir-fried noodles with crisp vegetables, a classic savory Chinese dish.",
+      "image": ""
+    }
+  ],
+  "Chinese-Mains-Fried-Rice": [
+    {
+      "name": "Fried Rice King Prawn",
+      "price": "£11.99",
+      "description": "Wok-tossed rice with mixed vegetables, egg, king prawns, and savory seasonings.",
+      "image": ""
+    },
+    {
+      "name": "Fried Rice Chicken",
+      "price": "£9.99",
+      "description": "Wok-tossed rice with mixed vegetables, egg, chicken, and savory seasonings.",
+      "image": ""
+    },
+    {
+      "name": "Fried Rice Egg",
+      "price": "£7.99",
+      "description": "Wok-tossed rice with mixed vegetables, egg, and savory seasonings.",
+      "image": ""
+    },
+    {
+      "name": "Fried Rice Vegetarian",
+      "price": "£7.99",
+      "description": "Wok-tossed rice with mixed vegetables and savory seasonings.",
+      "image": ""
     }
   ]
 }

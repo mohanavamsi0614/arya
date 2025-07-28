@@ -184,7 +184,7 @@ function Menu() {
                         </div>
                         <span className="price">{item.price}</span>
                       </div>
-                      <p>{item.description}</p>
+                      <p style={{ whiteSpace: 'pre-line' }}>{item.description}</p>
                     </div>
                   </div>
                 );
