@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SignUp from "./Firebase";
 import { useNavigate } from "react-router";
 
-function Auth(){
+function Auth({ onAuthSuccess }){
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
@@ -11,7 +11,7 @@ function Auth(){
     email: '',
     password: ''
   });
-  const nav= useNavigate();
+  const nav = useNavigate();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -52,6 +52,7 @@ function Auth(){
         setMessage('Login successful!');
         console.log('Login successful:', data);
         localStorage.setItem("user", JSON.stringify(data.name));
+        if (onAuthSuccess) onAuthSuccess(); // Trigger App state update
         nav("/");
       } else {
         setMessage(data.message || `Login failed (${response.status})`);
@@ -96,6 +97,7 @@ function Auth(){
         setMessage('Account created successfully!');
         console.log('Signup successful:', data);
         localStorage.setItem("user", JSON.stringify(data.name));
+        if (onAuthSuccess) onAuthSuccess(); // Trigger App state update
         nav("/");
       } else {
         setMessage(data.message || `Signup failed (${response.status})`);
