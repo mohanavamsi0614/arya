@@ -32,7 +32,7 @@ function SignUp() {
                 google: true
             }
             setLoading(true);
-                axios.post("https://arya-server.onrender.com/api/auth", payload)
+                axios.post("http://localhost:5000/api/auth", payload)
                 .then((response) => {
                     console.log(response.data);
                     localStorage.setItem("user", JSON.stringify(response.data.name));
