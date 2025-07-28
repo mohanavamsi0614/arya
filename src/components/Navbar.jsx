@@ -87,7 +87,7 @@ function Navbar({ variant = 'overlay' }) {
               <Link to="/menu" onClick={toggleOverlay} className={location.pathname === '/menu' ? 'active' : ''}>
                 MENU
               </Link>
-              <Link to="/" onClick={toggleOverlay} className={location.pathname === '/reservation' ? 'active' : ''}>
+              <Link to="/reservation" onClick={toggleOverlay} className={location.pathname === '/reservation' ? 'active' : ''}>
                 RESERVATION
               </Link>
               <Link to="/" onClick={toggleOverlay} className={location.pathname === '/about' ? 'active' : ''}>

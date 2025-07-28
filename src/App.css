@@ -3384,6 +3384,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     margin-top: 34px;
   }
 
+  .reservation-footer-text{
+    font-size: 12px;
+  }
+
   .book-right {
     width: 100%;
     margin-left: 0;
