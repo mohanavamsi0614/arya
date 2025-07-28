@@ -51,7 +51,6 @@ function Auth() {
       if (response.ok) {
         setMessage("Login successful!");
         localStorage.setItem("user", JSON.stringify(data.name));
-        if (onAuthSuccess) onAuthSuccess(); // Trigger App state update
         nav("/");
       } else {
         setMessage(data.message || `Login failed (${response.status})`);
@@ -94,7 +93,6 @@ function Auth() {
       if (response.ok) {
         setMessage("Account created successfully!");
         localStorage.setItem("user", JSON.stringify(data.name));
-        if (onAuthSuccess) onAuthSuccess(); // Trigger App state update
         nav("/");
       } else {
         setMessage(data.message || `Signup failed (${response.status})`);
