@@ -118,9 +118,9 @@ function Auth() {
       <div className="auth-form">
         <div className="auth-header">
           <span className="diamond-line left">
-                  <span className="diamond-shape" />
-                  <span className="line-shape" />
-                </span>
+            <span className="diamond-shape" />
+            <span className="line-shape" />
+          </span>
           <h1>{isLogin ? "LOGIN" : "SIGN UP"}</h1>
            <span className="diamond-line right">
                   <span className="line-shape" />
