@@ -70,11 +70,9 @@ function Book() {
           </div>
         </div>
         <div className="reservation-footer">
-          <div>
             <p className="reservation-footer-text">
               By submitting, you agree to our Terms of Service and  Privacy Policy
             </p>
-          </div>
         </div>
       </div>
     </div>
