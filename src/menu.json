@@ -4,7 +4,7 @@
       "name": "Gobi 65",
       "price": "£7.50",
       "description": "Crispy cauliflower florets fried with South Indian spices, and chilies - fiery, tangy, and full of flavor.",
-      "image": "Qitchen _ Menu_files/item1.png"
+      "image": "Qitchen _ Menu_files/gobi 65.png"
     },
     {
       "name": "Paneer 65",
@@ -22,13 +22,13 @@
       "name": "Mushroom 65",
       "price": "£7.99",
       "description": "Juicy mushrooms fried and coated in fiery red spice blend with crunchy, spicy, and irresistibly satisfying.",
-      "image": "Qitchen _ Menu_files/item1.png"
+      "image": "Qitchen _ Menu_files/mushroom 65.png"
     },
     {
       "name": "Chilli Paneer",
       "price": "£8.50",
       "description": "Soft paneer cubes stir-fried with bell peppers, garlic, and spicy soya sauce—a classic Indo-Chinese favorite, both sweet and spicy.",
-      "image": "Qitchen _ Menu_files/item1.png"
+      "image": "Qitchen _ Menu_files/chilli chicken.png"
     },
     {
       "name": "Chilli Chips",
@@ -52,7 +52,7 @@
       "name": "Chilli Chicken",
       "price": "£8.99",
       "description": "Spicy Indo-Chinese chicken with bell peppers, green chilies, and soya-garlic glaze—crunchy, saucy, and full of bold flavor.",
-      "image": "Qitchen _ Menu_files/item1.png"
+      "image": "Qitchen _ Menu_files/chilli chicken.png"
     }
   ],
   "Thai-Starters": [
@@ -498,7 +498,7 @@
       "name": "Shahi Paneer",
       "price": "£10.99",
       "description": "Paneer cubes in a royal, creamy gravy made with nuts and aromatic spices—mild, rich, and utterly luxurious.",
-      "image": "Qitchen _ Menu_files/shahi_paneer.png"
+      "image": "Qitchen _ Menu_files/shahi paneer.png"
     },
     {
       "name": "Aloo Gobi",
@@ -540,7 +540,7 @@
       "name": "Achari Bhindi",
       "price": "$6",
       "description": "Okra cooked with pickling spices—tangy, spicy, and uniquely flavorful with hints of mustard, fennel, and nigella seeds.",
-      "image": "Qitchen _ Menu_files/achari_bhindi.png"
+      "image": "Qitchen _ Menu_files/Achari Bhindi.png"
     },
     {
       "name": "Mushroom Lababdar",
@@ -772,13 +772,13 @@
       "name": "Lemon Chicken",
       "price": "£10.99",
       "description": "Juicy chicken cooked in lemony gravy, blending mild spices and citrus for a bright, flavorful experience.",
-      "image": "Qitchen _ Menu_files/lemon_chicken.png"
+      "image": "Qitchen _ Menu_files/lemon chicken.png"
     },
     {
       "name": "Achari King Prawn",
       "price": "£13.99",
       "description": "Prawns sautéed in tangy achari masala, inspired by North Indian pickles, bursting with bold, spicy flavors.",
-      "image": "Qitchen _ Menu_files/achari_king_prawn.png"
+      "image": "Qitchen _ Menu_files/achari prawns.jpeg"
     },
     {
       "name": "Achari Chicken Tikka",
@@ -790,7 +790,7 @@
       "name": "Achari Chicken",
       "price": "£10.99",
       "description": "Boneless chicken pieces cooked in traditional achari gravy, flavored with mustard, fennel, and tangy pickle spices.",
-      "image": "Qitchen _ Menu_files/achari_chicken.png"
+      "image": "Qitchen _ Menu_files/Achari chicken.jpeg"
     },
     {
       "name": "Zanzana King Prawn",
@@ -814,7 +814,7 @@
       "name": "Lasuni King Prawn",
       "price": "£13.99",
       "description": "King prawns tossed in garlic-rich masala, slow-cooked in buttery gravy with smoky and aromatic undertones.",
-      "image": "Qitchen _ Menu_files/lasuni_king_prawn.png"
+      "image": "Qitchen _ Menu_files/lahsuni prawns.jpeg"
     },
     {
       "name": "Lasuni Chicken Tikka",
