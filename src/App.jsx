@@ -6,26 +6,18 @@ import './App.css';
 import Book from './Book';
 import Auth from './Auth';
 
+function ProtectedRoute({ children }) {
+  const isAuthenticated = !!localStorage.getItem("user");
+  return isAuthenticated ? children : <Navigate to="/auth" />;
+}
+
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("user"));
-
-  // Listen for localStorage changes (e.g., login/logout from another tab)
-  useEffect(() => {
-    const syncAuth = () => setIsAuthenticated(!!localStorage.getItem("user"));
-    window.addEventListener("storage", syncAuth);
-    return () => window.removeEventListener("storage", syncAuth);
-  }, []);
-
-  const handleAuthSuccess = () => {
-    setIsAuthenticated(true);
-  };
-
   return (
     <Routes>
-      <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/auth" />} />
-      <Route path="/menu" element={isAuthenticated ? <Menu /> : <Navigate to="/auth" />} />
-      <Route path="/reservation" element={isAuthenticated ? <Book /> : <Navigate to="/auth" />} />
-      <Route path="/auth" element={<Auth onAuthSuccess={handleAuthSuccess} />} />
+      <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+      <Route path="/menu" element={<ProtectedRoute><Menu /></ProtectedRoute>} />
+      <Route path="/reservation" element={<ProtectedRoute><Book /></ProtectedRoute>} />
+      <Route path="/auth" element={<Auth />} />
     </Routes>
   );
 }
