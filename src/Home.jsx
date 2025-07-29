@@ -2,10 +2,14 @@ import Layout from './components/Layout';
 import Navbar from './components/Navbar';
 import { useNavigate } from 'react-router-dom';
 import { FaInstagram, FaFacebookF, FaTwitter,FaArrowRight  } from "react-icons/fa";
+import { useEffect } from 'react';
 
 
 function Home() {
     const navigate = useNavigate();
+    useEffect(()=>{
+      window.scrollTo(0, 0);
+    },[])
 
   return (
     <Layout pageType="home">
@@ -68,8 +72,9 @@ function Home() {
 
         {/* Right Side - Navigation Cards */}
         <div className="cards-side">
-          <div         onClick={() => navigate('/menu')}
- className="nav-card">
+          <div         
+            onClick={() => navigate('/menu')}  
+            className="nav-card">
             <div className="card-image">
               <img href='/menu' src="/media/EKJJBnLQzSzsS1Sp8JrOMfZgqw.webp" alt="Menu" />
             </div>
@@ -85,7 +90,9 @@ function Home() {
             </div>
           </div>
 
-          <div className="nav-card">
+          <div
+          onClick={() => navigate('/reservation')}
+          className="nav-card">
             <div className="card-image">
               <img src="/media/slPotYXPFXAfEsa1a4GJhZIk.webp" alt="Reservation" />
             </div>
