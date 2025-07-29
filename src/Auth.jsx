@@ -1,16 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import SignUp from "./Firebase";
 import "./App.css"; // Import the CSS
 
-function Auth() {
+function Auth({ onAuthSuccess }) {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
-
   const nav = useNavigate();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -51,6 +50,7 @@ function Auth() {
       if (response.ok) {
         setMessage("Login successful!");
         localStorage.setItem("user", JSON.stringify(data.name));
+        if (onAuthSuccess) onAuthSuccess(); // Update App state
         nav("/");
       } else {
         setMessage(data.message || `Login failed (${response.status})`);
@@ -93,6 +93,7 @@ function Auth() {
       if (response.ok) {
         setMessage("Account created successfully!");
         localStorage.setItem("user", JSON.stringify(data.name));
+        if (onAuthSuccess) onAuthSuccess(); // Update App state
         nav("/");
       } else {
         setMessage(data.message || `Signup failed (${response.status})`);
