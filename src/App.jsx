@@ -5,19 +5,20 @@ import './App.css';
 import Book from './Book';
 import Auth from './Auth';
 
-function App() {
-
+function ProtectedRoute({ children }) {
   const isAuthenticated = !!localStorage.getItem("user");
-  
+  return isAuthenticated ? children : <Navigate to="/auth" />;
+}
+
+function App() {
   return (
     <Routes>
-      <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/auth" />} />
-      <Route path="/menu" element={isAuthenticated ? <Menu /> : <Navigate to="/auth" />} />
-      <Route path="/reservation" element={isAuthenticated ? <Book /> : <Navigate to="/auth" />} />
+      <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+      <Route path="/menu" element={<ProtectedRoute><Menu /></ProtectedRoute>} />
+      <Route path="/reservation" element={<ProtectedRoute><Book /></ProtectedRoute>} />
       <Route path="/auth" element={<Auth />} />
     </Routes>
   );
 }
-
 
 export default App;

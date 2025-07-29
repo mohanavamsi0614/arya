@@ -72,8 +72,9 @@ function Home() {
 
         {/* Right Side - Navigation Cards */}
         <div className="cards-side">
-          <div         onClick={() => navigate('/menu')}
- className="nav-card">
+          <div         
+            onClick={() => navigate('/menu')}  
+            className="nav-card">
             <div className="card-image">
               <img href='/menu' src="/media/EKJJBnLQzSzsS1Sp8JrOMfZgqw.webp" alt="Menu" />
             </div>
@@ -89,7 +90,9 @@ function Home() {
             </div>
           </div>
 
-          <div className="nav-card">
+          <div
+          onClick={() => navigate('/reservation')}
+          className="nav-card">
             <div className="card-image">
               <img src="/media/slPotYXPFXAfEsa1a4GJhZIk.webp" alt="Reservation" />
             </div>
