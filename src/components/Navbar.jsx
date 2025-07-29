@@ -63,7 +63,7 @@ function Navbar({ variant = 'overlay' }) {
           {/* Desktop Navigation Links - Hidden on Mobile */}
           <ul className="nav-links desktop-only">
             <li><Link to="/menu" className={location.pathname === '/menu' ? 'active' : ''}>MENU</Link></li>
-            <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>ABOUT</Link></li>
+            <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>ABOUT</Link></li>
           </ul>
         </div>
         
