@@ -3708,3 +3708,142 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     font-size: 12px;
   }
 }
+
+
+
+
+
+
+
+
+/* Contact page */
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Forum", serif;
+  color: #efe7d2;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contact-image{
+  width: 50%;
+  position: relative;
+  height: calc(100vh - 40px);
+}
+
+.contact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.contact-heading {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-weight: lighter;
+  color: rgb(239, 231, 210);
+  font-size: 106px;
+  line-height: 1;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.contact-footer{
+  border: 1px solid #444;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center  ;
+}
+
+.contact-footer-text{
+  font-size: 14px;
+  color: rgb(239, 231, 210);
+  text-transform: uppercase;
+  font-family: Satoshi, "Satoshi Placeholder", sans-serif;
+}
+
+
+
+
+.contact-opening-hours{
+  border: 1px solid #444;
+  padding: 32px;
+}
+
+.contact-opening-hours-list{
+  font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.contact-opening-hours-list li{
+  display: flex;
+  flex-direction: row;
+}
+
+.contact-opening-hours-heading{
+  font-size: 24px;
+  text-align: center;
+}
+
+.contact-category-decor {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.contact-info{
+  border: 1px solid #444; 
+  width: 100%;
+}
+
+.contact-info-heading{
+  text-align: center;
+  font-size: 24px;
+}
+
+.contact-info p{
+  font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
+}
+
+.contact-details{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  gap: 16px;
+  height: auto;
+}
+
+.contact-details-content1{
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.contact-details-content2{
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+.contact-image-grid img{
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.contact-image-grid{
+  display: grid;
+}
+.contact-image-row1{
+  display: flex;
+}
+.contact-image-row2{
+  display: flex;
+}
