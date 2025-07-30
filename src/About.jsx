@@ -4,11 +4,11 @@ import Navbar from './components/Navbar'; // Assuming Navbar is in this path
 
 const About = () => {
   const [sliderIndices, setSliderIndices] = useState([0, 0]); // For two sliders
-  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  // const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
-  const toggleOverlay = () => {
-    setIsOverlayOpen(!isOverlayOpen);
-  };
+  // const toggleOverlay = () => {
+  //   setIsOverlayOpen(!isOverlayOpen);
+  // };
 
   const nextSlide = (sliderIndex) => {
     setSliderIndices(prev => {
@@ -41,22 +41,17 @@ const About = () => {
   ];
 
   return (
-    <div className={styles.menuContainer}>
-      {/* Left Side: Image with Heading and Navbar */}
-      <div className={styles.menuImage}>
-        {/* Navbar component. Assuming it has a way to trigger the overlay or is a dummy component */}
-        {/* If Navbar needs to trigger toggleOverlay, you'd pass it as a prop like: 
-            <Navbar onToggleOverlay={toggleOverlay} /> 
-            and Navbar would have a button that calls props.onToggleOverlay()
-        */}
-        <Navbar /> 
-        <img src="public/about-left.webp" alt="About Us Background" />
-        <h1 className={styles.menuHeading}>ABOUT</h1>
+    <div className="menu-container">
+      <div className="menu-image">
+        <Navbar/>
+        <img src="./about-left.webp" alt="Main Dish" />
+        <div className='about-heading-container'>
+        <h1 className="about-heading">ABOUT</h1>
+        </div>
 
-        {/* Fullscreen Overlay Navigation (conditionally rendered) */}
-        {isOverlayOpen && (
-          <div className={styles.overlay} id="fullscreenNav">
-            <button className={styles.closeBtn} onClick={toggleOverlay}>×</button>
+        {/* {isOverlayOpen && (
+          <div className="overlay" id="fullscreenNav">
+            <button className="close-btn" onClick={toggleOverlay}>×</button>
             <a href="./index.html">MENU</a>
             <a href="#">RESERVATION</a>
             <a href="./about.html">ABOUT</a>
@@ -64,19 +59,18 @@ const About = () => {
             <a href="./contact.html">CONTACT</a>
             <a href="#">Loyalty</a>
           </div>
-        )}
+        )} */}
       </div>
 
-      {/* Right Side Section: Content Rows */}
-      <div className={styles.rightSideSection}>
-        {/* Row 1: Text and Image Slider */}
-        <div className={`${styles.aboutRow} ${styles.aboutRow1}`}>
-          <div className={styles.aboutText}>
+      <div className="right-side-section">
+        {/* Row 1: Two Columns */}
+        <div className="about-row-1">
+          <div className="about-text">
             <div>
-              <h2>Sushi Artistry Redefined</h2>
+            <h2>Where Asia Meets the Isles</h2>
             </div>
             <div>
-              <p>Where culinary craftsmanship meets modern elegance. Indulge in the finest sushi, expertly curated to elevate your dining experience.</p>
+            <p>Discover a symphony of Asian spices and Western charm, brought together on a single plate. Arya blends tradition with innovation to offer a dining experience that's rooted in culture and crafted for the modern palate.</p>
             </div>
           </div>
           <div className={styles.aboutImageSlider}>
@@ -103,27 +97,27 @@ const About = () => {
         </div>
 
         {/* Row 2: Three Review Cards */}
-        <div className={`${styles.aboutRow} ${styles.aboutRow2}`}>
-          <div className={styles.reviewCard}>
-            <div className={styles.stars}>★★★★★</div>
-            <h3>Trip Advisor</h3>
-            <p>Best Sushi</p>
+        <div className="about-row-2">
+          <div className="review-card">
+            <div className="stars">★★★★★</div>
+            <h3>Insipred Origins</h3>
+            <p>A journey shaped by Eastern roots</p>
           </div>
-          <div className={styles.reviewCard}>
-            <div className={styles.stars}>★★★★★</div>
-            <h3>Michelin Guide</h3>
-            <p>Quality Food</p>
+          <div className="review-card">
+            <div className="stars">★★★★★</div>
+            <h3>Bold Harmony</h3>
+            <p>Fusion flavors with a Western soul</p>
           </div>
-          <div className={styles.reviewCard}>
-            <div className={styles.stars}>★★★★★</div>
-            <h3>Start Dining</h3>
-            <p>Cool Vibe</p>
+          <div className="review-card">
+            <div className="stars">★★★★★</div>
+            <h3>Curated Dining</h3>
+            <p>Every detail, thoughtfully plated</p>
           </div>
         </div>
 
-        {/* Row 3: Image Slider and Text */}
-        <div className={`${styles.aboutRow} ${styles.aboutRow3}`}>
-          <div className={styles.aboutImageSlider}>
+        {/* Row 3: Image + Text */}
+        <div className=" about-row-3">
+          <div className="about-image-slider">
             <button 
               className={`${styles.sliderBtn} ${styles.prev}`} 
               onClick={() => prevSlide(1)}
@@ -146,7 +140,8 @@ const About = () => {
           </div>
           <div className={styles.aboutText}>
             <h2>Our Story</h2>
-            <p>Founded with a passion for culinary excellence, ARYA's journey began in the heart of the city. Over years, it evolved into a haven for sushi.</p>
+            <p>Rooted in the vibrant traditions of Asia and infused with the spirit of modern Britain, Arya is more than just a restaurant - it's a new cultural experience.</p>
+            {/* <p>We're on a journey to blend spices, stories, and setting from the East and West into every plate we serve. Though new, our vision is timeless: to serve soulful dishes that bridge worlds.</p> */}
           </div>
         </div>
 
