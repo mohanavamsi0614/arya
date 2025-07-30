@@ -6,6 +6,7 @@ import './App.css';
 import Book from './Book';
 import Auth from './Auth';
 import About from './About';
+import Contact from './Contact';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("user"));
@@ -28,6 +29,7 @@ function App() {
       <Route path="/reservation" element={isAuthenticated ? <Book /> : <Navigate to="/auth" />} />
       <Route path='/about' element={isAuthenticated ? <About /> : <Navigate to="/auth" />} />
       <Route path="/auth" element={<Auth onAuthSuccess={handleAuthSuccess} />} />
+      <Route path="/contact" element={isAuthenticated ? <Contact /> : <Navigate to="/auth" />} />
     </Routes>
   );
 }

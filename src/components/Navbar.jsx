@@ -93,7 +93,7 @@ function Navbar({ variant = 'overlay' }) {
               <Link to="/about" onClick={toggleOverlay} className={location.pathname === '/about' ? 'active' : ''}>
                 ABOUT
               </Link>
-             <Link to="/" onClick={toggleOverlay}>CONTACT</Link>
+             <Link to="/contact" onClick={toggleOverlay}>CONTACT</Link>
              <Link to="/" onClick={toggleOverlay}>BLOG</Link>
               <div class="icon-wrapper">
                 <div class="diamond"></div>
