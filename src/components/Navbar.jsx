@@ -94,7 +94,7 @@ function Navbar({ variant = 'overlay' }) {
                 ABOUT
               </Link>
              <Link to="/contact" onClick={toggleOverlay}>CONTACT</Link>
-             <Link to="/" onClick={toggleOverlay}>BLOG</Link>
+             <Link to="/blog" onClick={toggleOverlay}>BLOG</Link>
               <div class="icon-wrapper">
                 <div class="diamond"></div>
                 <div class="line"></div>
