@@ -1,10 +1,12 @@
 import "./App.css";
+import Navbar from './components/Navbar';
 
 function Contact() {
   return (
     <div className="contact-container">
       {/* Left Side Image and Heading */}
       <div className="contact-image">
+        <Navbar />
         <img src="media/GFiteaJ9X1ZXtx4cQeiT1DzpA.webp" alt="Main Dish" />
         <h1 className="contact-heading">Contact</h1>
       </div>
@@ -93,19 +95,16 @@ function Contact() {
         <div className="contact-details-content2">
             {/* Map */}
             <div className="contact-map-container">
-                <div>
                     <iframe
                         title="Restaurant Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2761.5490940136636!2d7.445844476353872!3d46.94827173240617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e39241e9f7d3f%3A0xefdccfb62c37e882!2sBern!5e0!3m2!1sen!2sch!4v1626266742895!5m2!1sen!2sch"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2295.3234451748713!2d-2.9111019!3d54.8796901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487d1bb242d0602b%3A0x849546d66e6daa08!2sARYA%20Asian%20restaurant%20%26%20Bar!5e0!3m2!1sen!2sin!4v1753896189691!5m2!1sen!2sin"
                         width="100%"
                         height="200"
                         style={{ border: 0 }}
                         allowFullScreen=""
                         loading="lazy"
                     />
-                </div>
             </div>
-
             {/* Contact Info */}
             <div className="contact-info">
                 <div className="contact-category-decor">
@@ -119,23 +118,42 @@ function Contact() {
                         <span className="diamond-shape" />
                     </span>
                 </div>
-                <p>
+                <div className="contact-info-container">
+                        <div className="contact-info-details">
+                <p className="contact-info-title">
                     ADDRESS
-                    23 Greenfield Avenue,<br />
-                    Prague 120 00
                 </p>
-                <p>
-                    PHONE<br />
+                <p className="contact-info-title-details">
+                        23 Greenfield Avenue,<br />
+                    Prague 120 00
+                    </p>
+                </div>
+
+                <div className="contact-info-details">
+                <p className="contact-info-title">
+                    PHONE
+                </p>
+                <p className="contact-info-title-details">
                     +42 1234 567890
                 </p>
-                <p>
-                    EMAIL<br />
+                </div>
+                <div className="contact-info-details">
+                <p className="contact-info-title">
+                    EMAIL
+                </p>
+                <p className="contact-info-title-details">
                     info@qitchen.com
                 </p>
-                <p>
-                    FOLLOW<br />
+                </div>
+                <div className="contact-info-details">
+                <p className="contact-info-title">
+                    FOLLOW
+                </p>
+                <p className="contact-info-title-details">
                     [Social Media Icons Placeholder]
                 </p>
+                </div>
+                </div>
             </div>
         </div>
         <div className="contact-footer">
