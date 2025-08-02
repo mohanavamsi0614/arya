@@ -3131,6 +3131,13 @@ max-height: 100vh;
   box-sizing: border-box;
 }
 
+.contact-image-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
 .book-left {
   width: 50%;
   position: relative;
@@ -3709,13 +3716,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
 }
 
-
-
-
-
-
-
-
 /* Contact page */
 .contact-container {
   display: flex;
@@ -3739,6 +3739,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+}
+.contact-openin{
+  display:  "flex";
 }
 
 .contact-heading {
