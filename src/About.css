@@ -3,11 +3,13 @@
     box-sizing: border-box;
 }
 
+
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
+
 
 /* ------------------ Right Side Container ------------------ */
 .right-side-section {
@@ -27,6 +29,8 @@ img {
 }
 
 
+
+
 /* ------------------ Common Row Styles ------------------ */
 /* .about-row {
     align-content: flex-start;
@@ -44,6 +48,7 @@ img {
     width: 100%;
 } */
 
+
 .about-text {
     --border-bottom-width: 1px;
     --border-color: var(--token-68c05b50-ca7b-4173-82aa-ed42aea1a9b4, #333330);
@@ -52,6 +57,7 @@ img {
     --border-style: solid;
     --border-top-width: 1px;
 
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -59,34 +65,44 @@ img {
     align-content: center;
     justify-content: space-between;
 
+
     flex: 1 0 0px;
     height: 100%;
     /* width: 1px; */
 
 
+
+
     border-radius: 16px;
     border: 1px solid var(--token-68c05b50-ca7b-4173-82aa-ed42aea1a9b4, #333330);
+
 
     padding: 40px;
     position: relative;
     overflow: hidden;
 
+
     will-change: var(--framer-will-change-effect-override, transform);
+
 
     background-color: transparent;
     color: inherit;
+
 
     scrollbar-width: thin;
     scrollbar-color: #888 transparent;
 }
 
+
 .about-text::-webkit-scrollbar {
     width: 8px;
 }
 
+
 .about-text::-webkit-scrollbar-track {
     background: transparent;
 }
+
 
 .about-text::-webkit-scrollbar-thumb {
     background-color: #888;
@@ -95,13 +111,16 @@ img {
     background-clip: content-box;
 }
 
+
 .about-text::-webkit-scrollbar-thumb:hover {
     background-color: #aaa;
 }
 
+
 .about-row-3 .about-text h2{
     text-align: center;
 }
+
 
 .about-image-slider {
     position: relative;
@@ -114,17 +133,21 @@ img {
 }
 
 
+
+
 .slider-wrapper {
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%;
 }
 
+
 .slider-wrapper img {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
+
 
 /* Slider buttons */
 /* Slider buttons */
@@ -147,13 +170,16 @@ img {
     padding: 0;
 }
 
+
 .slider-btn.prev {
     left: 10px;
 }
 
+
 .slider-btn.next {
     right: 10px;
 }
+
 
 /* ------------------ Row 2: Review Cards ------------------ */
 .about-row-2 {
@@ -163,11 +189,13 @@ img {
     gap: 20px;
 }
 
+
 .about-heading-container {
     position: absolute;
     bottom: 50px;
     left: 70px;
 }
+
 
 .about-heading{
     font-weight: lighter;
@@ -177,6 +205,7 @@ img {
     line-height: 1;
     margin: 0;
 }
+
 
 .review-card {
     flex: 1;
@@ -191,16 +220,19 @@ img {
     /* height: fit-content; */
 }
 
+
 /* .review-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 } */
+
 
 .stars {
     font-size: 18px;
     color: #EFE7D2;
     margin-bottom: 10px;
 }
+
 
 .review-card h3 {
     color: #EFE7D2;
@@ -210,6 +242,7 @@ img {
     font-family: "Forum", sans-serif;
 }
 
+
 .review-card p {
     text-transform: uppercase;
     font-size: 12px;
@@ -218,6 +251,7 @@ img {
     font-family: Satoshi, "Satoshi Placeholder", sans-serif;
 }
 
+
 /* ------------------ Row 3: Image + Text ------------------ */
 .about-row-3 {
     display: flex;
@@ -225,18 +259,23 @@ img {
     align-items: center;
 }
 
+
 .about-row-3 .about-image,
 .about-row-3 .about-text {
     flex: 1;
 }
 
+
 /* ------------------ Image Styles ------------------ */
+
+
 
 
 .about-image {
     border-radius: 12px;
     overflow: hidden;
 }
+
 
 .about-image img {
     width: 100%;
@@ -245,9 +284,11 @@ img {
     transition: transform 0.5s ease;
 }
 
+
 .about-image:hover img {
     transform: scale(1.03);
 }
+
 
 /* ------------------ Text Styles ------------------ */
 .about-text h2 {
@@ -260,7 +301,10 @@ img {
     font-weight: 400;
     /* lighter font weight */
 
+
 }
+
+
 
 
 .about-text h3 {
@@ -271,6 +315,7 @@ img {
     position: relative;
 }
 
+
 .about-text p {
     font-size: 16px;
     line-height: 25.6px;
@@ -280,6 +325,7 @@ img {
     /* Optional: make it lighter */
 }
 
+
 /* ------------------ Footer ------------------ */
  .reservation-footer-text{
   font-size: 14px;
@@ -287,6 +333,7 @@ img {
   text-transform: uppercase;
   font-family: Satoshi, "Satoshi Placeholder", sans-serif;
 }
+
 
 .reservation-footer{
   border: 1px solid #444;
@@ -299,6 +346,9 @@ img {
 
 
 
+
+
+
 /* --------------------- Tablet Devices --------------------- */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .right-side-section {
@@ -307,31 +357,38 @@ img {
         gap: 35px;
     }
 
+
     .about-row-1,
     .about-row-3 {
         flex-direction: column;
     }
 
+
     .review-card {
         min-width: calc(50% - 20px);
         margin-bottom: 20px;
     }
-    
+   
 }
+
+
 
 
 /*--------------------- Mobile Devices ---------------------*/
 @media screen and (max-width: 767px) {
+
 
     .menu-container {
         display: flex;
         flex-direction: column;
     }
 
+
     .menu-image img {
         width: 100%;
         height: auto;
     }
+
 
     .menu-heading {
         font-size: 28px;
@@ -339,10 +396,12 @@ img {
         margin: 10px 0;
     }
 
+
     .right-side-section {
         padding: 16px;
         gap: 20px;
     }
+
 
     .about-row,
     .about-row-1,
@@ -351,20 +410,24 @@ img {
         gap: 20px;
     }
 
+
     .about-text {
         width: 100%;
         padding: 20px;
     }
+
 
     .about-text h2 {
         font-size: 22px;
         text-align: center;
     }
 
+
     .about-text h3 {
         font-size: 18px;
         text-align: center;
     }
+
 
     .about-text p {
         font-size: 14px;
@@ -372,11 +435,13 @@ img {
         text-align: center;
     }
 
+
     .about-image-slider {
         width: 100%;
         height: auto;
         aspect-ratio: 16 / 9;
     }
+
 
     .slider-wrapper img {
         width: 100%;
@@ -384,11 +449,13 @@ img {
         object-fit: cover;
     }
 
+
     .slider-btn {
         width: 28px;
         height: 28px;
         font-size: 14px;
     }
+
 
     .about-row-2 {
         flex-direction: column;
@@ -396,36 +463,44 @@ img {
         gap: 16px;
     }
 
+
     .review-card {
         width: 100%;
         padding: 20px 16px;
     }
 
+
     .review-card h3 {
         font-size: 18px;
     }
+
 
     .review-card p {
         font-size: 12px;
     }
 
+
     .reservation-footer {
         padding: 16px;
     }
+
 
     .reservation-footer-text {
         font-size: 12px;
         line-height: 20px;
     }
 
+
     /* .overlay {
         flex-direction: column;
         gap: 12px;
     }
 
+
     .overlay a {
         font-size: 16px;
     } */
+
 
     /* .close-btn {
         font-size: 28px;
@@ -435,6 +510,8 @@ img {
 }
 
 
+
+
 /*--------------------- Tablet Devices ---------------------*/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .menu-container {
@@ -442,10 +519,12 @@ img {
         flex-direction: column;
     }
 
+
     .menu-image img {
         width: 100%;
         height: auto;
     }
+
 
     .menu-heading {
         font-size: 32px;
@@ -453,10 +532,12 @@ img {
         margin: 20px 0;
     }
 
+
     .right-side-section {
         padding: 24px;
         gap: 32px;
     }
+
 
     .about-row,
     .about-row-1,
@@ -465,20 +546,24 @@ img {
         gap: 24px;
     }
 
+
     .about-text {
         width: 100%;
         padding: 30px;
     }
+
 
     .about-text h2 {
         font-size: 26px;
         text-align: center;
     }
 
+
     .about-text h3 {
         font-size: 22px;
         text-align: center;
     }
+
 
     .about-text p {
         font-size: 15px;
@@ -486,11 +571,13 @@ img {
         text-align: center;
     }
 
+
     .about-image-slider {
         width: 100%;
         height: auto;
         aspect-ratio: 16 / 9;
     }
+
 
     .slider-wrapper img {
         width: 100%;
@@ -498,11 +585,13 @@ img {
         object-fit: cover;
     }
 
+
     .slider-btn {
         width: 30px;
         height: 30px;
         font-size: 14px;
     }
+
 
     .about-row-2 {
         flex-wrap: wrap;
@@ -510,36 +599,44 @@ img {
         gap: 20px;
     }
 
+
     .review-card {
         width: calc(50% - 16px);
         padding: 20px 16px;
     }
 
+
     .review-card h3 {
         font-size: 18px;
     }
+
 
     .review-card p {
         font-size: 13px;
     }
 
+
     .reservation-footer {
         padding: 20px;
     }
+
 
     .reservation-footer-text {
         font-size: 13px;
         line-height: 20px;
     }
 
+
     /* .overlay {
         flex-direction: column;
         gap: 16px;
     }
 
+
     .overlay a {
         font-size: 18px;
     } */
+
 
     /* .close-btn {
         font-size: 30px;
@@ -547,6 +644,7 @@ img {
         right: 16px;
     } */
 }
+
 
 .about-row-1{
     /* align-content: flex-start; */
@@ -564,6 +662,7 @@ img {
     width: 100%;
 }
 
+
 .about-row-2{
     /* align-content: flex-start; */
     /* align-items: flex-start; */
@@ -579,6 +678,7 @@ img {
     position: relative;
     width: 100%;
 }
+
 
 .about-row-3{
     /* align-content: flex-start; */
@@ -596,15 +696,19 @@ img {
     width: 100%;
 }
 
+
     @media screen and (max-width: 767px) {
+
 
     .right-side-section{
         width: 100%;
     }
 
+
     .about-row-1, .about-row-2, .about-row-3 {
         flex-direction: column;
     }
+
 
     .about-row-1{
         flex: none;
@@ -615,15 +719,18 @@ img {
         height: 200px;
     }
 
+
     .about-row-3{
         flex: none;
         height: 500px;
     }
 
+
     .about-row-3 .about-text{
         flex: none;
         height: 180px;
     }
+
 
     .about-heading-container{
         left: 0;
@@ -631,6 +738,7 @@ img {
         bottom: 0;
         text-align: center;
     }
+
 
     .about-heading{
         font-size: 48px;
