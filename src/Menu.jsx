@@ -44,6 +44,7 @@ function Menu() {
           price: item.price,
           image: item.image,
           quantity: 1,
+          description: item.description || "No description available."
         }];
       }
     });
