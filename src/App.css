@@ -4258,3 +4258,328 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     text-align: center;
   }
 }
+
+
+
+/* cart */
+
+.cart-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Forum", serif;
+  color: #efe7d2;
+  padding: 16px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.cart-details{
+  border: 1px solid rgb(51, 51, 48);
+  width: 70%;
+  position: relative;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  /* justify-content: space-around; */
+  flex-direction: column;
+  padding: 160px 60px 60px 60px;
+  gap: 20px;
+}
+
+.cart-items-container{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: auto;
+}
+
+.cart-item{
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+  height: auto;
+  border: 1px solid rgb(51, 51, 48);
+  padding: 26px;
+  border-radius: 8px;
+}
+
+.cart-item img{
+  /* width: 160px; */
+    /* height: 120px; */
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    height: 162px;
+    /* width: 40%; */
+    flex: none;
+    /* aspect-ratio: 1.3333333333333333 / 1; */
+    overflow: hidden;
+    position: relative;
+}
+
+.cart-item-text{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: auto;
+}
+
+
+.cart-item-header{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cart-header{
+  font-size: 1.5rem;
+}
+
+.cart-price{
+  font-size: 1.3rem;
+}
+
+
+.cart-item-image{
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  display: flex;
+}
+
+.cart-item-image img{
+  border-radius: 8px;
+}
+
+.cart-item-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+
+.cart-item-details{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.cart-item-details p{
+  font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
+  font-size: 14px;
+}
+
+
+
+.cart-item-buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.cart-item-buttons button{
+  height: 30px;
+  width: 30px;
+  background-color: rgba(24, 24, 24, .5);
+  border: 1px solid rgb(51, 51, 48);
+  border-radius: 8px;
+  cursor: pointer;
+  color: #EFE7D2;
+}
+
+
+.trashbin{
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(51, 51, 48);
+  background-color: rgba(24, 24, 24, .5);
+}
+
+
+.cart-item-actions{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.bill-container{
+    /* border: 1px solid rgb(51, 51, 48); */
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 64px 80px;
+  border: 1px solid rgb(51, 51, 48);
+  border-radius: 16px;
+  gap: 32px;
+  overflow-y: scroll;
+  /* padding-right: 10px; */
+}
+
+.bill-content{
+  /* border: 1px solid rgb(51, 51, 48); */
+  /* width: 30%; */
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* padding: 64px 80px; */
+  /* border: 1px solid rgb(51, 51, 48); */
+  /* border-radius: 16px; */
+  gap: 32px;
+  /* overflow-y: scroll; */
+  /* padding-right: 10px; */
+  font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
+  font-size: 16px;
+}
+
+.bill-delivery-container{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bill-item-small{
+  font-size: 12px;
+}
+
+.bill-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.bill-header h1{
+  font-size: 32px;
+  font-weight: lighter;
+  color: rgb(239, 231, 210);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.bill-content-container{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+.bill-item{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.bill-estimated-time{
+  font-size: 10px;
+}
+
+.bill-item-small{
+  font-size: 10px;
+}
+
+.bill-checkboxes{
+  display: flex;
+  flex-direction: column;
+}
+
+.bill-item-note{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bill-total{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.bill-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.order {
+  background: rgba(30, 30, 30, 0.28);
+  color: #EFE7D2;
+  border-radius: 8px;
+  font-family: 'Satoshi', 'Satoshi Placeholder', sans-serif;
+  padding: 6px 12px;
+  border: 1px solid #333330;
+  font-weight: 400;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.order:hover {
+  border-color: black; 
+  background: #EFE7D2; 
+  color: black;
+}
+
+
+@media screen and (max-width: 768px) {
+.cart-container{
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .cart-details {
+    width: 100%;
+    padding: 100px 20px 20px;
+    height: auto;
+  }
+
+  .bill-container {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .cart-item {
+    flex-direction: column;
+  }
+
+  .cart-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .cart-item-header {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .cart-item-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .bill-content {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .bill-header h1 {
+    font-size: 32px;
+}
+
+.bill-buttons {
+  justify-content: flex-end;
+}
+}
