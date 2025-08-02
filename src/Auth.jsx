@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import SignUp from "./Firebase";
 import "./App.css"; // Import the CSS
 
@@ -13,6 +13,22 @@ function Auth({ onAuthSuccess }) {
   const nav = useNavigate();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const location = useLocation(); // 👈 get current path
+
+  useEffect(() => {
+    // 🔁 Run this only on /auth to detect Google login
+    if (location.pathname === "/auth") {
+      const interval = setInterval(() => {
+        const user = localStorage.getItem("user");
+        if (user) {
+          onAuthSuccess();
+          clearInterval(interval);
+        }
+      }, 1000);
+
+      return () => clearInterval(interval); // Clean up
+    }
+  }, [location.pathname, onAuthSuccess]);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -26,16 +42,19 @@ function Auth({ onAuthSuccess }) {
     setMessage("");
 
     try {
-      const response = await fetch("https://arya-server.onrender.com/api/auth", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
+      const response = await fetch(
+        "https://arya-server.onrender.com/api/auth",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+          }),
+        }
+      );
 
       let data;
       const contentType = response.headers.get("content-type");
@@ -50,8 +69,10 @@ function Auth({ onAuthSuccess }) {
       if (response.ok) {
         setMessage("Login successful!");
         localStorage.setItem("user", JSON.stringify(data.name));
-        if (onAuthSuccess) onAuthSuccess(); // Update App state
-        nav("/");
+        if (onAuthSuccess) {
+          onAuthSuccess(); // This sets App's `isAuthenticated` to true
+          nav("/"); // Then redirect to home
+        }
       } else {
         setMessage(data.message || `Login failed (${response.status})`);
       }
@@ -67,18 +88,21 @@ function Auth({ onAuthSuccess }) {
     setMessage("");
 
     try {
-      const response = await fetch("https://arya-server.onrender.com/api/auth", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-          new_user: true,
-        }),
-      });
+      const response = await fetch(
+        "https://arya-server.onrender.com/api/auth",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: formData.username,
+            email: formData.email,
+            password: formData.password,
+            new_user: true,
+          }),
+        }
+      );
 
       let data;
       const contentType = response.headers.get("content-type");
@@ -123,10 +147,10 @@ function Auth({ onAuthSuccess }) {
             <span className="line-shape" />
           </span>
           <h1>{isLogin ? "LOGIN" : "SIGN UP"}</h1>
-           <span className="diamond-line right">
-                  <span className="line-shape" />
-                  <span className="diamond-shape" />
-                </span>
+          <span className="diamond-line right">
+            <span className="line-shape" />
+            <span className="diamond-shape" />
+          </span>
         </div>
         <p className="auth-subtext">
           {isLogin
@@ -174,7 +198,11 @@ function Auth({ onAuthSuccess }) {
           />
 
           {message && (
-            <div className={`auth-message ${message.includes("successful") ? "success" : "error"}`}>
+            <div
+              className={`auth-message ${
+                message.includes("successful") ? "success" : "error"
+              }`}
+            >
               {message}
             </div>
           )}
