@@ -5,7 +5,8 @@ import Navbar from "./components/Navbar";
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const [selectedDistance, setSelectedDistance] = useState("");
-  
+  const [orderType, setOrderType] = useState(""); // dinein, collection, homedelivery
+
   useEffect(() => {
     const storedCart = localStorage.getItem('cartItems');
     if (storedCart) {
@@ -13,73 +14,62 @@ function Cart() {
     }
   }, []);
 
-  // Update localStorage whenever cartItems changes
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  // Add item to cart or increase quantity
   const addToCart = (item) => {
-    let eo=[...cartItems]
-    eo=eo.map((i)=>{
-      if(i.name==item.name){
-        return {...i,quantity:i.quantity+1}
-        
+    let eo = [...cartItems];
+    eo = eo.map((i) => {
+      if (i.name == item.name) {
+        return { ...i, quantity: i.quantity + 1 };
+      } else {
+        return i;
       }
-      else{
-        return i
-      }
-    })
-    setCartItems(eo)
-    console.log(eo)
-    localStorage.setItem("cartItems",JSON.stringify(cartItems))
+    });
+    setCartItems(eo);
+    console.log(eo);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
 
-  // Decrease item quantity or remove if quantity becomes 0
   const decrementFromCart = (item) => {
-    let eo=[...cartItems]
-    eo=eo.map((i)=>{
-      if(i.name==item.name){
-        if (i.quantity-1>0){
-        return {...i,quantity:i.quantity-1}
+    let eo = [...cartItems];
+    eo = eo.map((i) => {
+      if (i.name == item.name) {
+        if (i.quantity - 1 > 0) {
+          return { ...i, quantity: i.quantity - 1 };
+        } else {
+          return { ...i, quantity: 0 };
         }
-        else{
-          return {...i,quantity:0}
-        }
+      } else {
+        return i;
       }
-      else{
-        return i
-      }
-    })
-    eo=eo.filter((i)=>{return i.quantity!=0})
-    setCartItems(eo)
-    console.log(eo)
-    localStorage.setItem("cartItems",JSON.stringify(cartItems))
+    });
+    eo = eo.filter((i) => { return i.quantity != 0 });
+    setCartItems(eo);
+    console.log(eo);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
 
-  // Remove item completely from cart
   const removeFromCart = (itemId) => {
     setCartItems(prevItems => prevItems.filter(item => item.name !== itemId));
   };
 
-  // Calculate subtotal
   const getSubtotal = () => {
     return cartItems.reduce((total, item) => {
       return total + (parseFloat(item.price.replace('£', '')) * item.quantity);
     }, 0);
   };
 
-  // Get delivery fee based on selected distance
   const getDeliveryFee = () => {
     switch (selectedDistance) {
       case 'A': return 2;
       case 'B': return 4;
       case 'C': return 7;
-      default: return 3; // Default delivery fee
+      default: return 3;
     }
   };
 
-  // Calculate total
   const getTotal = () => {
     const subtotal = getSubtotal();
     const serviceFee = 0.6;
@@ -87,80 +77,88 @@ function Cart() {
     return subtotal + serviceFee + deliveryFee;
   };
 
-  // Handle distance selection
   const handleDistanceChange = (distance) => {
     setSelectedDistance(distance);
   };
 
-  // Handle order placement
   const handleOrderOnline = () => {
-    if (cartItems.length === 0) {
-      alert('Your cart is empty!');
-      return;
-    }
-    alert(`Order placed online! Total: £${getTotal().toFixed(2)}`);
-    // Here you would integrate with your payment/order system
+    // if (cartItems.length === 0) {
+    //   alert('Your cart is empty!');
+    //   return;
+    // }
+    setOrderType("dinein");
+    // alert(`Order placed online! Total: £${getTotal().toFixed(2)}`);
   };
 
   const handleOrderOnsite = () => {
+    // if (cartItems.length === 0) {
+    //   alert('Your cart is empty!');
+    //   return;
+    // }
+    setOrderType("collection");
+    // alert(`Order placed for onsite pickup! Total: £${getTotal().toFixed(2)}`);
+  };
+
+  const handleHomeDelivery = () => {
+    // if (cartItems.length === 0) {
+    //   alert('Your cart is empty!');
+    //   return;
+    // }
+    setOrderType("homedelivery");
+    // alert(`Order placed for home delivery! Total: £${getTotal().toFixed(2)}`);
+  };
+
+    const handlePaymentClick = () => {
     if (cartItems.length === 0) {
       alert('Your cart is empty!');
       return;
     }
-    alert(`Order placed for onsite pickup! Total: £${getTotal().toFixed(2)}`);
-    // Here you would integrate with your order management system
+    // setOrderType("homedelivery");
+    alert(`Order placed for home delivery! Total: £${getTotal().toFixed(2)}`);
   };
+
   return (
     <div className="cart-container">
       <div className="cart-details">
         <Navbar />
         <div className="cart-items-container">
-            {cartItems.length === 0 ? (
-              <p>Looks Like Your Cart Is Empty</p>
-            ) : (
-              cartItems.map((item,i) => (
-                <div key={i} className="cart-item">
-                  <img src={"./"+item.image || "media/Achari Bhindi.png"} alt={item.name} />
-                  <div className="cart-item-text">
-                    <div className="cart-item-header">
-                      <span className="cart-header">{item.name}</span>
-                      <div className="ckcjc7">
-                        <div className="c1az4bwh"></div>
-                      </div>
-                      <span className="cart-price">{item.price}</span>
+          {cartItems.length === 0 ? (
+            <p>Looks Like Your Cart Is Empty</p>
+          ) : (
+            cartItems.map((item, i) => (
+              <div key={i} className="cart-item">
+                <img src={"./" + item.image || "media/Achari Bhindi.png"} alt={item.name} />
+                <div className="cart-item-text">
+                  <div className="cart-item-header">
+                    <span className="cart-header">{item.name}</span>
+                    <div className="ckcjc7">
+                      <div className="c1az4bwh"></div>
                     </div>
-                    <div className="cart-item-details">
-                      <p>{item.description}</p>
+                    <span className="cart-price">{item.price}</span>
+                  </div>
+                  <div className="cart-item-details">
+                    <p>{item.description}</p>
+                  </div>
+                  <div className="cart-item-actions">
+                    <div className="cart-item-buttons">
+                      <button onClick={() => addToCart(item)}>+</button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => decrementFromCart(item)}>-</button>
                     </div>
-                    <div className="cart-item-actions">
-                      <div className="cart-item-buttons">
-                        <button onClick={() => addToCart(item)}>+</button>
-                        <span>{item.quantity}</span>
-                        <button onClick={() => decrementFromCart(item)}>-</button>
-                      </div>
-                      <div className="trashbin-button">
-                        <button className="trashbin" onClick={() => removeFromCart(item.name)}>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 200 200"
-                            xmlSpace="preserve"
-                          >
-                            <path
-                              fill="#EFE7D2"
-                              d="M119.032 145.698h-37.4c-6.2 0-11.3-5.1-11.3-11.3v-50.7c0-1.1.9-2 2-2h56c1.1 0 2 .9 2 2v50.7c0 6.2-5.1 11.3-11.3 11.3zm-44.7-60v48.7c0 4 3.3 7.3 7.3 7.3h37.3c4 0 7.3-3.3 7.3-7.3v-48.7h-51.9zM138.332 73.598h-76c-1.1 0-2-.9-2-2s.9-2 2-2h76c1.1 0 2 .9 2 2s-.9 2-2 2z"
-                            />
-                            <path
-                              fill="#EFE7D2"
-                              d="M138.332 85.598h-76c-1.1 0-2-.9-2-2s.9-2 2-2h76c1.1 0 2 .9 2 2s-.9 2-2 2zM112.332 73.698h-24c-1.1 0-2-.9-2-2v-6c0-6.6 5.4-12 12-12h4c6.6 0 12 5.4 12 12v6c0 1.1-.9 2-2 2zm-22-4h20v-4c0-4.4-3.6-8-8-8h-4c-4.4 0-8 3.6-8 8v4zM88.732 131.698c-1.1 0-2-.9-2-2v-32c0-1.1.9-2 2-2s2 .9 2 2v32c0 1.1-.9 2-2 2zM100.732 131.698c-1.1 0-2-.9-2-2v-32c0-1.1.9-2 2-2s2 .9 2 2v32c0 1.1-.9 2-2 2zM112.732 131.698c-1.1 0-2-.9-2-2v-32c0-1.1.9-2 2-2s2 .9 2 2v32c0 1.1-.9 2-2 2z"
-                            />
-                          </svg>
-                        </button>
-                      </div>
+                    <div className="trashbin-button">
+                      <button className="trashbin" onClick={() => removeFromCart(item.name)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" xmlSpace="preserve">
+                          <path fill="#EFE7D2" d="M119.032 145.698h-37.4c-6.2 0-11.3-5.1-11.3-11.3v-50.7c0-1.1.9-2 2-2h56c1.1 0 2 .9 2 2v50.7c0 6.2-5.1 11.3-11.3 11.3z..." />
+                          <path fill="#EFE7D2" d="M138.332 85.598h-76c-1.1 0-2-.9-2-2s.9-2 2-2h76c1.1 0 2 .9 2 2s-.9 2-2 2z..." />
+                        </svg>
+                      </button>
                     </div>
                   </div>
                 </div>
-              ))
-            )}        </div>
+              </div>
+            ))
+          )}
+        </div>
       </div>
       <div className="bill-container">
         <div className="bill-header">
@@ -174,9 +172,7 @@ function Cart() {
             <span className="diamond-shape" />
           </span>
         </div>
-        {/* <div className="bill-content-container"> */}
         <div className="bill-content">
-          {/* Dynamic cart items in bill */}
           {cartItems.map((item) => (
             <div key={item.id} className="bill-item">
               <span>{item.name} x{item.quantity}</span>
@@ -186,7 +182,7 @@ function Cart() {
               <span>£{(parseFloat(item.price.replace('£', '')) * item.quantity).toFixed(2)}</span>
             </div>
           ))}
-          
+
           <div className="bill-item">
             <span>Small service fee</span>
             <div className="ckcjc7">
@@ -212,28 +208,28 @@ function Cart() {
 
           <div className="bill-checkboxes">
             <label>
-              <input 
-                type="radio" 
-                name="distance" 
-                value="A" 
+              <input
+                type="radio"
+                name="distance"
+                value="A"
                 checked={selectedDistance === 'A'}
                 onChange={() => handleDistanceChange('A')}
               /> A (£2)
             </label>
             <label>
-              <input 
-                type="radio" 
-                name="distance" 
-                value="B" 
+              <input
+                type="radio"
+                name="distance"
+                value="B"
                 checked={selectedDistance === 'B'}
                 onChange={() => handleDistanceChange('B')}
               /> B (£4)
             </label>
             <label>
-              <input 
-                type="radio" 
-                name="distance" 
-                value="C" 
+              <input
+                type="radio"
+                name="distance"
+                value="C"
                 checked={selectedDistance === 'C'}
                 onChange={() => handleDistanceChange('C')}
               /> C (£7)
@@ -256,15 +252,44 @@ function Cart() {
           </div>
           <div className="bill-buttons">
             <div className="bill-button">
-              <button className="order" onClick={handleOrderOnline}>Order Online</button>
+              <button className="order" onClick={handleOrderOnline}>Dine In</button>
             </div>
             <div className="bill-button">
-              <button className="order" onClick={handleOrderOnsite}>Order Onsite</button>
+              <button className="order" onClick={handleOrderOnsite}>Collection</button>
+            </div>
+            <div className="bill-button">
+              <button className="order" onClick={handleHomeDelivery}>Home Delivery</button>
             </div>
           </div>
-          {/* </div> */}
+
+          {orderType === "dinein" && (
+            <div className="dinein-inputs">
+              <label>Table No:</label>
+              <input type="text" placeholder="Enter Table Number" />
+            </div>
+          )}
+
+          {orderType === "homedelivery" && (
+            <div className="dinein-inputs">
+              <label>Full Name:</label>
+              <input type="text" placeholder="Enter Full Name" />
+              <label>Phone Number:</label>
+              <input type="text" placeholder="Enter Phone Number" />
+              <label>Street Address:</label>
+              <input type="text" placeholder="Enter Street Address" />
+              <label>City/Town:</label>
+              <input type="text" placeholder="Enter City or Town" />
+              <label>Postal Code:</label>
+              <input type="text" placeholder="Enter Postal Code" />
+              <label>Landmark:</label>
+              <input type="text" placeholder="Enter Landmark" />
+            </div>
+          )}
+
+          <div className="proceed-to-payment" onClick={handlePaymentClick}>
+            <button className="proceed-to-payment-button">Proceed to Payment</button>
+          </div>
         </div>
-        {/* </div> */}
       </div>
     </div>
   );
