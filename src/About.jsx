@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
-import styles from './About.module.css'; // Import the CSS module
-import Navbar from './components/Navbar'; // Assuming Navbar is in this path
+import './About.css';
+import Navbar from './components/Navbar';
+
 
 const About = () => {
   const [sliderIndices, setSliderIndices] = useState([0, 0]); // For two sliders
   // const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
+
   // const toggleOverlay = () => {
   //   setIsOverlayOpen(!isOverlayOpen);
   // };
 
+
   const nextSlide = (sliderIndex) => {
     setSliderIndices(prev => {
       const newIndices = [...prev];
-      // Assuming 3 images per slider (indices 0, 1, 2)
-      newIndices[sliderIndex] = Math.min(newIndices[sliderIndex] + 1, 2); 
+      newIndices[sliderIndex] = Math.min(newIndices[sliderIndex] + 1, 2); // Assuming 3 images per slider
       return newIndices;
     });
   };
 
-  // Function to move to the previous slide for a given slider
+
   const prevSlide = (sliderIndex) => {
     setSliderIndices(prev => {
       const newIndices = [...prev];
@@ -28,7 +30,7 @@ const About = () => {
     });
   };
 
-  // Image arrays for the sliders
+
   const sliderImages = [
     "media/slPotYXPFXAfEsa1a4GJhZIk.webp",
     "media/jFLjtiNrSbyMi9cGMowrM7Pc7Bg.webp",
@@ -40,6 +42,7 @@ const About = () => {
     "media/eN3OMUIE7k3yknjR7LKFRc8TlU.avif",
   ];
 
+
   return (
     <div className="menu-container">
       <div className="menu-image">
@@ -48,6 +51,7 @@ const About = () => {
         <div className='about-heading-container'>
         <h1 className="about-heading">ABOUT</h1>
         </div>
+
 
         {/* {isOverlayOpen && (
           <div className="overlay" id="fullscreenNav">
@@ -62,6 +66,7 @@ const About = () => {
         )} */}
       </div>
 
+
       <div className="right-side-section">
         {/* Row 1: Two Columns */}
         <div className="about-row-1">
@@ -73,21 +78,21 @@ const About = () => {
             <p>Discover a symphony of Asian spices and Western charm, brought together on a single plate. Arya blends tradition with innovation to offer a dining experience that's rooted in culture and crafted for the modern palate.</p>
             </div>
           </div>
-          <div className={styles.aboutImageSlider}>
-            <button 
-              className={`${styles.sliderBtn} ${styles.prev}`} 
+          <div className="about-image-slider">
+            <button
+              className="slider-btn prev"
               onClick={() => prevSlide(0)}
               style={{ display: sliderIndices[0] === 0 ? 'none' : 'block' }}
             >
               ❮
             </button>
-            <div className={styles.sliderWrapper} style={{ transform: `translateX(-${sliderIndices[0] * 100}%)` }}>
+            <div className="slider-wrapper" style={{ transform: `translateX(-${sliderIndices[0] * 100}%)` }}>
               {sliderImages.map((img, index) => (
                 <img key={index} src={img} alt={`Dish ${index + 1}`} />
               ))}
             </div>
-            <button 
-              className={`${styles.sliderBtn} ${styles.next}`} 
+            <button
+              className="slider-btn next"
               onClick={() => nextSlide(0)}
               style={{ display: sliderIndices[0] === 2 ? 'none' : 'block' }}
             >
@@ -95,6 +100,7 @@ const About = () => {
             </button>
           </div>
         </div>
+
 
         {/* Row 2: Three Review Cards */}
         <div className="about-row-2">
@@ -115,45 +121,45 @@ const About = () => {
           </div>
         </div>
 
+
         {/* Row 3: Image + Text */}
         <div className=" about-row-3">
           <div className="about-image-slider">
-            <button 
-              className={`${styles.sliderBtn} ${styles.prev}`} 
+            <button
+              className="slider-btn prev"
               onClick={() => prevSlide(1)}
               style={{ display: sliderIndices[1] === 0 ? 'none' : 'block' }}
             >
               ❮
             </button>
-            <div className={styles.sliderWrapper} style={{ transform: `translateX(-${sliderIndices[1] * 100}%)` }}>
+            <div className="slider-wrapper" style={{ transform: `translateX(-${sliderIndices[1] * 100}%)` }}>
               {sliderImagesOur.map((img, index) => (
                 <img key={index} src={img} alt={`Dish ${index + 1}`} />
               ))}
             </div>
-            <button 
-              className={`${styles.sliderBtn} ${styles.next}`} 
+            <button
+              className="slider-btn next"
               onClick={() => nextSlide(1)}
               style={{ display: sliderIndices[1] === 2 ? 'none' : 'block' }}
             >
               ❯
             </button>
           </div>
-          <div className={styles.aboutText}>
+          <div className="about-text">
             <h2>Our Story</h2>
             <p>Rooted in the vibrant traditions of Asia and infused with the spirit of modern Britain, Arya is more than just a restaurant - it's a new cultural experience.</p>
             {/* <p>We're on a journey to blend spices, stories, and setting from the East and West into every plate we serve. Though new, our vision is timeless: to serve soulful dishes that bridge worlds.</p> */}
           </div>
         </div>
-
-        {/* Footer */}
-        <div className={styles.reservationFooter}>
-          <p className={styles.reservationFooterText}>
-            By submitting, you agree to our Terms of Service and &nbsp;Privacy Policy
-          </p>
+        <div className="reservation-footer">
+            <p className="reservation-footer-text">
+              By submitting, you agree to our Terms of Service and  Privacy Policy
+            </p>
         </div>
       </div>
     </div>
   );
 };
+
 
 export default About;

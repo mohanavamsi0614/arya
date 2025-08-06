@@ -23,16 +23,16 @@ function Cart() {
     let eo=[...cartItems]
     eo=eo.map((i)=>{
       if(i.name==item.name){
-        if (i.quantity-1>0){
         return {...i,quantity:i.quantity+1}
-        }
+        
       }
       else{
         return i
       }
     })
     setCartItems(eo)
-    localStorage.setItem("cartItems",cartItems)
+    console.log(eo)
+    localStorage.setItem("cartItems",JSON.stringify(cartItems))
   };
 
   // Decrease item quantity or remove if quantity becomes 0
@@ -43,13 +43,18 @@ function Cart() {
         if (i.quantity-1>0){
         return {...i,quantity:i.quantity-1}
         }
+        else{
+          return {...i,quantity:0}
+        }
       }
       else{
         return i
       }
     })
+    eo=eo.filter((i)=>{return i.quantity!=0})
     setCartItems(eo)
-    localStorage.setItem("cartItems",cartItems)
+    console.log(eo)
+    localStorage.setItem("cartItems",JSON.stringify(cartItems))
   };
 
   // Remove item completely from cart
@@ -113,8 +118,8 @@ function Cart() {
             {cartItems.length === 0 ? (
               <p>Looks Like Your Cart Is Empty</p>
             ) : (
-              cartItems.map((item) => (
-                <div key={item.id} className="cart-item">
+              cartItems.map((item,i) => (
+                <div key={i} className="cart-item">
                   <img src={"./"+item.image || "media/Achari Bhindi.png"} alt={item.name} />
                   <div className="cart-item-text">
                     <div className="cart-item-header">
