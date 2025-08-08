@@ -11,6 +11,7 @@ import About from "./About";
 import Contact from "./Contact";
 import Blog from "./Blog";
 import Cart from "./Cart";
+import Dashboard from "./Dashboard";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -65,6 +66,10 @@ function App() {
       <Route
         path="/cart"
         element={isAuthenticated ? <Cart /> : <Navigate to="/auth" />}
+      />
+      <Route
+        path="/dashboard"
+        element={isAuthenticated ? <Dashboard /> : <Navigate to="/auth" />}
       />
     </Routes>
   );
