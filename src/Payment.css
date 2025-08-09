@@ -1,0 +1,118 @@
+.payment-success,
+.payment-failure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.payment-success {
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+}
+
+.payment-failure {
+  background: linear-gradient(135deg, #fdecea, #ffffff);
+}
+
+.payment-success-card,
+.payment-failure-card {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Success Styles */
+.success-icon {
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+.payment-success-card h1 {
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.payment-success-card p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.success-btn {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.success-btn:hover {
+  background-color: #388e3c;
+}
+
+/* Failure Styles */
+.failure-icon {
+  color: #e53935;
+  margin-bottom: 1rem;
+}
+
+.payment-failure-card h1 {
+  color: #b71c1c;
+  margin-bottom: 0.5rem;
+}
+
+.payment-failure-card p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.failure-btn {
+  background-color: #e53935;
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.failure-btn:hover {
+  background-color: #b71c1c;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .payment-success-card,
+  .payment-failure-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .success-icon,
+  .failure-icon {
+    size: 60px; /* If using lucide-react, pass smaller size in JSX instead */
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .success-btn,
+  .failure-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}

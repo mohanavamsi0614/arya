@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Dash.css";
+import DashboardNav from "./DashboardNav"; // Import the new component
 
 function Dashboard() {
   const orders = Array(8).fill({
@@ -27,32 +28,10 @@ function Dashboard() {
   return (
     <div className="dashboard-app">
       <div className="dashboard-container">
-        {/* Main Navigation Tabs */}
-        <div className="dashboard-header">
-          <div className="dashboard-nav">
-            <button 
-              onClick={() => setActiveTab("Dashboard")}
-              className={activeTab === "Dashboard" ? "active" : ""}
-            >Dashboard</button>
-            <button 
-              onClick={() => setActiveTab("Menu")}
-              className={activeTab === "Menu" ? "active" : ""}
-            >Menu</button>
-            <button 
-              onClick={() => setActiveTab("Orders")}
-              className={activeTab === "Orders" ? "active" : ""}
-            >Orders</button>
-            <button 
-              onClick={() => setActiveTab("Reservations")}
-              className={activeTab === "Reservations" ? "active" : ""}
-            >Reservations</button>
-            <button 
-              onClick={() => setActiveTab("Loyalty")}
-              className={activeTab === "Loyalty" ? "active" : ""}
-            >Loyalty</button>
-          </div>
-        </div>
         
+        {/* Separate Navbar Component */}
+        <DashboardNav activeTab={activeTab} setActiveTab={setActiveTab} />
+
         {/* Order Filter Navigation */}
         <div className="order-filter-header">
           <h3 className="filter-title">Orders</h3>
@@ -98,10 +77,10 @@ function Dashboard() {
               <h3 className="order-customer">{order.customer}</h3>
               <div className="order-details">
                 <p className="order-id">{order.id}</p>
-              <div className="order-meta">
-                <p>{order.type}</p>
-                <p>{order.table}</p>
-              </div>
+                <div className="order-meta">
+                  <p>{order.type}</p>
+                  <p>{order.table}</p>
+                </div>
               </div>
               <div className="order-items-header">
                 <p>Items</p>

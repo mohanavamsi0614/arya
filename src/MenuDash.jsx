@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; // Added for navigation
 import Layout from './components/Layout';
-import Navbar from './components/Navbar';
+import DashboardNav from './DashboardNav';
 import menuData from './menu.json';
+import './MenuDash.css'; 
 
-function Menu() {
+function MenuDash() {
+  const navigate = useNavigate(); // For navigation to edit page
   const tabsRef = useRef(null);
   const [activeSection, setActiveSection] = useState('Indo-Chineese-Starters');
   const isDragging = useRef(false);
@@ -11,61 +14,8 @@ function Menu() {
   const scrollLeft = useRef(0);
   const [dragging, setDragging] = useState(false);
   const [menuItems, setMenuData] = useState(menuData);
-  const [cartItems, setCartItems] = useState(() => {
-    try {
-      const savedItems = localStorage.getItem("cartItems");
-      return savedItems ? JSON.parse(savedItems) : [];
-    } catch (error) {
-      console.error("Error loading cart items:", error);
-      return [];
-    }
-  });
 
-  useEffect(() => {
-    try {
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    } catch (error) {
-      console.error("Error saving cart items:", error);
-    }
-  }, [cartItems]);
-
-  function addToCart(item) {
-    setCartItems(prevItems => {
-      const existingItemIndex = prevItems.findIndex(cartItem => cartItem.name === item.name);
-
-      if (existingItemIndex !== -1) {
-        const updatedItems = [...prevItems];
-        updatedItems[existingItemIndex].quantity += 1;
-        return updatedItems;
-      } else {
-        return [...prevItems, {
-          name: item.name,
-          price: item.price,
-          image: item.image,
-          quantity: 1,
-          description: item.description || "No description available."
-        }];
-      }
-    });
-    setMenuData(menuData);
-  }
-
-  function decrementFromCart(item) {
-    setCartItems(prevItems => {
-      const existingItemIndex = prevItems.findIndex(cartItem => cartItem.name === item.name);
-      if (existingItemIndex !== -1) {
-        const updatedItems = [...prevItems];
-        if (updatedItems[existingItemIndex].quantity > 1) {
-          updatedItems[existingItemIndex].quantity -= 1;
-          return updatedItems;
-        } else {
-          return updatedItems.filter(cartItem => cartItem.name !== item.name);
-        }
-      }
-      return prevItems;
-    });
-  }
-
+  // Removed cart functionality since it's not needed for editing
   useEffect(() => {
     const menuContent = document.querySelector('.menu-content');
     const menuTabs = document.querySelector('.menu-tabs');
@@ -171,13 +121,21 @@ function Menu() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Function to handle item editing
+  const handleEditItem = (sectionId, itemIndex) => {
+    // Navigate to edit page with section and item index as parameters
+    navigate(`/edit-item/${sectionId}/${itemIndex}`);
+  };
+
   const sections = Object.keys(menuItems);
 
   return (
     <Layout pageType="menu">
+      <div className='menu-header'>
+        <DashboardNav />
+      </div>
       <div className="menu-container">
         <div className="menu-image">
-          <Navbar variant="overlay" />
           <img src="/media/menu_main.png" alt="Main Dish" />
           <div className='menu-heading-container'>
             <h1 className="menu-heading" style={{ fontWeight: "lighter" }}>MENU</h1>
@@ -215,7 +173,6 @@ function Menu() {
               {menuItems[sectionId].map((item, index) => {
                 const imageName = item.image.split('/').pop();
                 const imagePath = `/media/${imageName}`;
-                const cartItem = cartItems.find(i => i.name === item.name);
 
                 return (
                   <div key={index} className="menu-item">
@@ -232,15 +189,13 @@ function Menu() {
                       </div>
                       <p style={{ whiteSpace: 'pre-line' }}>{item.description}</p>
                     </div>
-                    {cartItem ? (
-                      <div className="cart-controls">
-                        <button onClick={() => decrementFromCart(item)}>-</button>
-                        <p style={{color:"rgb(239, 231, 210)",fontSize:"20px"}}>{cartItem.quantity}</p>
-                        <button onClick={() => addToCart(item)}>+</button>
-                      </div>
-                    ) : (
-                      <button className="add-to-cart-btn" onClick={() => addToCart({...item,image:imagePath})}>Add To Cart</button>
-                    )}
+                    {/* Replaced Add to Cart with Edit Item button */}
+                    <button 
+                      className="edit-item-btn"
+                      onClick={() => handleEditItem(sectionId, index)}
+                    >
+                      Edit Item
+                    </button>
                   </div>
                 );
               })}
@@ -252,4 +207,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default MenuDash;

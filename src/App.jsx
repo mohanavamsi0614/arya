@@ -12,6 +12,9 @@ import Contact from "./Contact";
 import Blog from "./Blog";
 import Cart from "./Cart";
 import Dashboard from "./Dashboard";
+import PaymentSuccess from "./PaymentSuccess";
+import PaymentFail from "./PaymentFail";
+import MenuDash from "./MenuDash";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -70,6 +73,18 @@ function App() {
       <Route
         path="/dashboard"
         element={isAuthenticated ? <Dashboard /> : <Navigate to="/auth" />}
+      />
+      <Route
+        path="/payment_success"
+        element={isAuthenticated ? <PaymentSuccess /> : <Navigate to="/auth" />}
+      />
+      <Route
+        path="/payment_fail"
+        element={isAuthenticated ? <PaymentFail /> : <Navigate to="/auth" />}
+      />
+      <Route
+        path="/menu_dashboard"
+        element={isAuthenticated ? <MenuDash /> : <Navigate to="/auth" />}
       />
     </Routes>
   );
