@@ -8,13 +8,13 @@ function Dashboard() {
   const [orderStatus, setOrderStatus] = useState("All");
   const [orderType, setOrderType] = useState("All");
   useEffect(() => {
-    axios.get("http://localhost:5000/api/orders").then((res) => {setorders(res.data.reverse())})
+    axios.get("https://arya-server.onrender.com/api/orders").then((res) => {setorders(res.data.reverse())})
   },[])
 
   const statusOptions = ["All", "On Process", "Completed", "Shipped", "Delivered", "Cancelled"];
   const typeOptions = ["All", "Dine In", "Takeaway", "Online"];
 const handleAcceptOrder = (id) => {
-    axios.post(`http://localhost:5000/api/order-status`, {status: "On Process",orderId:id}).then((res) => {
+    axios.post(`https://arya-server.onrender.com/api/order-status`, {status: "On Process",orderId:id}).then((res) => {
       console.log("Order accepted:", res.data);
       setorders(orders.map(order => order._id === id ? {...order, status: "On Process"} : order));
     }).catch((error) => {
@@ -22,7 +22,7 @@ const handleAcceptOrder = (id) => {
     });
 }
 const handleCompleteOrder = (id) => {
-  axios.post(`http://localhost:5000/api/order-status`, {status: "Completed",orderId:id}).then((res) => {
+  axios.post(`https://arya-server.onrender.com/api/order-status`, {status: "Completed",orderId:id}).then((res) => {
     console.log("Order completed:", res.data);
     setorders(orders.map(order => order._id === id ? {...order, status: "Completed"} : order));
   }).catch((error) => {
