@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import { loadStripe } from "@stripe/stripe-js"; 
+import axios from "axios";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const [selectedDistance, setSelectedDistance] = useState("");
   const [orderType, setOrderType] = useState(""); // dinein, collection, homedelivery
+  const [additionalInfo, setAdditionalInfo] = useState({});
 
   useEffect(() => {
     const storedCart = localStorage.getItem('cartItems');
@@ -108,14 +111,31 @@ function Cart() {
     // alert(`Order placed for home delivery! Total: £${getTotal().toFixed(2)}`);
   };
 
-    const handlePaymentClick = () => {
-    if (cartItems.length === 0) {
-      alert('Your cart is empty!');
-      return;
-    }
-    // setOrderType("homedelivery");
-    alert(`Order placed for home delivery! Total: £${getTotal().toFixed(2)}`);
-  };
+  const handlePaymentClick = async () => {
+  const items = cartItems.map(item => ({
+    name: item.name,
+    price: Number(item.price.replace('£', '')),
+    quantity: item.quantity,
+    image: item.image,
+    description: item.description || "No description available."
+  }));
+
+  const stripe = await loadStripe("pk_test_51OqSY6SCGNUdxrLKg60mlKkyEXe2C7UByMDn6hIWRvoTBYRGz9W2epYsPgcORaSLiA0KBorgfPrSKVUSaG6ViAj400hmhE8dcL"); // Replace with your publishable key
+
+  try {
+    const res = await axios.post("http://localhost:5000/api/create-checkout-session", {
+      products: items
+    });
+    localStorage.setItem("data", JSON.stringify({userId:localStorage.getItem("user"),items, additionalInfo,type:orderType,total:getTotal()}));
+    await stripe.redirectToCheckout({
+      sessionId: res.data.sessionId,
+    });
+  } catch (error) {
+    console.error("Checkout Error:", error);
+    alert("Payment failed. Please try again.");
+  }
+};
+
 
   return (
     <div className="cart-container">
@@ -265,24 +285,24 @@ function Cart() {
           {orderType === "dinein" && (
             <div className="dinein-inputs">
               <label>Table No:</label>
-              <input type="text" placeholder="Enter Table Number" />
+              <input type="text" placeholder="Enter Table Number" onChange={(e) => setAdditionalInfo({tableNumber: e.target.value })} />
             </div>
           )}
 
           {orderType === "homedelivery" && (
             <div className="dinein-inputs">
               <label>Full Name:</label>
-              <input type="text" placeholder="Enter Full Name" />
+              <input type="text" placeholder="Enter Full Name"  onChange={(e) => setAdditionalInfo({...additionalInfo, fullName: e.target.value })} />
               <label>Phone Number:</label>
-              <input type="text" placeholder="Enter Phone Number" />
+              <input type="text" placeholder="Enter Phone Number" onChange={(e) => setAdditionalInfo({...additionalInfo, phoneNumber: e.target.value })} />
               <label>Street Address:</label>
-              <input type="text" placeholder="Enter Street Address" />
+              <input type="text" placeholder="Enter Street Address" onChange={(e) => setAdditionalInfo({...additionalInfo, streetAddress: e.target.value })} />
               <label>City/Town:</label>
-              <input type="text" placeholder="Enter City or Town" />
+              <input type="text" placeholder="Enter City or Town" onChange={(e) => setAdditionalInfo({...additionalInfo, city: e.target.value })} />
               <label>Postal Code:</label>
-              <input type="text" placeholder="Enter Postal Code" />
+              <input type="text" placeholder="Enter Postal Code" onChange={(e) => setAdditionalInfo({...additionalInfo, postalCode: e.target.value })} />
               <label>Landmark:</label>
-              <input type="text" placeholder="Enter Landmark" />
+              <input type="text" placeholder="Enter Landmark" onChange={(e) => setAdditionalInfo({...additionalInfo, landmark: e.target.value })} />
             </div>
           )}
 

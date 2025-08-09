@@ -1,29 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Dash.css";
+import axios from "axios";
 
 function Dashboard() {
-  const orders = Array(8).fill({
-    id: "#ODR109",
-    date: "Sat, October 20, 2025",
-    time: "02:47 PM",
-    customer: "Winston Pitt",
-    type: "Dine-In",
-    table: "Table 12",
-    items: [
-      { name: "Paneer Amrit Handi", price: "£12.29", qty: 1 },
-      { name: "Paneer Butter Masala", price: "£15.00", qty: 1 },
-    ],
-    total: "£27.29",
-    status: "On Process"
-  });
-
+  const [orders,setorders] = useState([]);
   const [activeTab, setActiveTab] = useState("Orders");
   const [orderStatus, setOrderStatus] = useState("All");
   const [orderType, setOrderType] = useState("All");
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/orders").then((res) => {setorders(res.data.reverse())})
+  },[])
 
   const statusOptions = ["All", "On Process", "Completed", "Shipped", "Delivered", "Cancelled"];
   const typeOptions = ["All", "Dine In", "Takeaway", "Online"];
-
+const handleAcceptOrder = (id) => {
+    axios.post(`http://localhost:5000/api/order-status`, {status: "On Process",orderId:id}).then((res) => {
+      console.log("Order accepted:", res.data);
+      setorders(orders.map(order => order._id === id ? {...order, status: "On Process"} : order));
+    }).catch((error) => {
+      console.error("Error accepting order:", error);
+    });
+}
+const handleCompleteOrder = (id) => {
+  axios.post(`http://localhost:5000/api/order-status`, {status: "Completed",orderId:id}).then((res) => {
+    console.log("Order completed:", res.data);
+    setorders(orders.map(order => order._id === id ? {...order, status: "Completed"} : order));
+  }).catch((error) => {
+    console.error("Error completing order:", error);
+  });
+}
+const handleRejectOrder = (id) => {}
   return (
     <div className="dashboard-app">
       <div className="dashboard-container">
@@ -92,10 +98,10 @@ function Dashboard() {
           {orders.map((order, idx) => (
             <div key={idx} className="order-card">
               <div className="order-header">
-                <span>{order.date}</span>
+                <span>{order.createdAt}</span>
                 <span>{order.time}</span>
               </div>
-              <h3 className="order-customer">{order.customer}</h3>
+              <h3 className="order-customer">{order.userId}</h3>
               <div className="order-details">
                 <p className="order-id">{order.id}</p>
               <div className="order-meta">
@@ -113,8 +119,8 @@ function Dashboard() {
                     <div className="order-item-info">
                       <span>{item.name}</span>
                       <div className="order-item-details">
-                        <span>×{item.qty}</span>
-                        <span>{item.price}</span>
+                        <span>×{item.quantity}</span>
+                        <span>€ {item.price}</span>
                       </div>
                     </div>
                   </div>
@@ -122,12 +128,15 @@ function Dashboard() {
               </div>
               <div className="order-total">
                 <span>Total</span>
-                <span>{order.total}</span>
+                <span>€ {(order.total+"").slice(0,5)}</span>
               </div>
-              <div className="order-actions">
-                <button className="accept-btn">Accept</button>
-                <button className="completed-btn">Completed</button>
-              </div>
+              {order.status == "On Process" ?              <div className="order-actions">
+                <button className="completed-btn" onClick={() => handleCompleteOrder(order._id)}>Completed</button>
+              </div> : <div className="order-actions">
+                <button className="accept-btn" onClick={() => handleAcceptOrder(order._id)}>Accept</button>
+                <button className="reject-btn" onClick={() => handleRejectOrder(order._id)}>Reject</button>
+              </div>}
+              {/* <button className="completed-btn" onClick={() => handleCompleteOrder(order._id)}>Completed</button> */}
             </div>
           ))}
         </div>

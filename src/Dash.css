@@ -19,6 +19,11 @@
   padding: 20px;
 }
 
+.reject-btn{
+  background-color: rgba(174, 46, 46, 0.404);
+  color: white;
+}
+
 /* Navigation Tabs */
 .dashboard-header {
   display: flex;
@@ -280,7 +285,7 @@
   margin-top: 20px;
 }
 
-.accept-btn, .completed-btn {
+.accept-btn, .completed-btn ,.reject-btn {
   flex: 1;
   border: none;
   padding: 10px;
@@ -297,6 +302,15 @@
   background: rgba(76, 175, 80, 0.2);
   color: #4CAF50;
   border: 1px solid rgba(76, 175, 80, 0.3);
+}
+.reject-btn{
+  background-color: rgba(174, 46, 46, 0.404);
+  color: white;
+  border: 1px solid rgba(174, 46, 46, 0.404);
+
+}
+.reject-btn:hover {
+  background: rgba(255, 0, 0, 0.3);
 }
 
 .accept-btn:hover {
