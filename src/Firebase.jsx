@@ -37,6 +37,8 @@ function SignUp() {
       })
       .then((response) => {
         localStorage.setItem("user", JSON.stringify(response.data.name));
+        localStorage.setItem("email", JSON.stringify(response.data.email));
+
         nav("/");
       })
       .catch((error) => {
