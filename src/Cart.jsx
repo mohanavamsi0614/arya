@@ -147,7 +147,7 @@ function Cart() {
           ) : (
             cartItems.map((item, i) => (
               <div key={i} className="cart-item">
-                <img src={"./" + item.image || "media/Achari Bhindi.png"} alt={item.name} />
+                <img src={item.image} alt={item.name} />
                 <div className="cart-item-text">
                   <div className="cart-item-header">
                     <span className="cart-header">{item.name}</span>

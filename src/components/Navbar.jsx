@@ -144,6 +144,9 @@ function Navbar({ variant = "overlay" }) {
           <Link to="/cart" onClick={toggleOverlay}>
             CART
           </Link>
+          <button onClick={()=>{localStorage.removeItem("user"); window.location.reload();}}>
+            LOG OUT
+          </button>
           <div class="icon-wrapper">
             <div class="diamond"></div>
             <div class="line"></div>

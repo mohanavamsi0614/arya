@@ -38,6 +38,12 @@ function SignUp() {
       .then((response) => {
         localStorage.setItem("user", JSON.stringify(response.data.name));
         localStorage.setItem("email", JSON.stringify(response.data.email));
+        if (["shivavarma336@gmail.com","aryarestaurant6@gmail.com","mohanavamsi14@gmail.com"].includes(response.data.email)){
+          localStorage.setItem("admin", "yes");
+        }
+        else{
+          localStorage.setItem("admin","No")
+        }
 
         nav("/");
       })

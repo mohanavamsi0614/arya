@@ -118,6 +118,13 @@ function Auth({ onAuthSuccess }) {
       if (response.ok) {
         setMessage("Account created successfully!");
         localStorage.setItem("user", JSON.stringify(data.name));
+        if (["shivavarma336@gmail.com","aryarestaurant6@gmail.com","mohanavamsi14@gmail.com"].includes(data.email)){
+          localStorage.setItem("admin", "yes");
+        }
+        else{
+          localStorage.setItem("admin","No")
+        }
+        localStorage.setItem("email", JSON.stringify(response.data.email));
         if (onAuthSuccess) onAuthSuccess(); // Update App state
         nav("/");
       } else {
