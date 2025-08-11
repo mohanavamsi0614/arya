@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
+import { BiCheckCircle } from "react-icons/bi";
 import {  useParams } from "react-router";
 
 function Success(){
@@ -16,9 +17,10 @@ function Success(){
  return (
     <div className="payment-success">
       <div className="payment-success-card">
-        <CheckCircle className="success-icon" size={80} />
+        <BiCheckCircle className="success-icon" size={80} />
         <h1>Payment Successful!</h1>
-        <p>Thank you for your purchase. Your transaction has been completed successfully.</p>        
+        <p>Thank you for your purchase. Your transaction has been completed successfully.</p>  
+        <button className="home" style={{backgroundColor: "#4CAF50", color: "white",padding:"10px",border:"none",borderRadius:"5px"}} onClick={() => window.location.href = "/"}>Go to Home</button>      
       </div>
     </div>
   );

@@ -50,6 +50,31 @@
     text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
   }
 } */
+.order-card-On-Process {
+  border: 1px solid #ffa000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.order-card-Completed {
+  border: 1px solid #4caf50;
+  padding: 10px;
+    border-radius: 10px;
+
+}
+
+.order-card-rejected {
+  border: 1px solid #f44336;
+  padding: 10px;  
+    border-radius: 10px;
+
+}
+.order-card-pending{
+  border: 1px solid #005effb9;
+  padding: 10px;
+    border-radius: 10px;
+
+}
 
 .payment-success,
 .payment-failure {
