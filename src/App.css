@@ -4272,7 +4272,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .blog-content-item img {
   /* width: 160px; */
-  /* height: 120px; */
+  height: 200px;
   border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
