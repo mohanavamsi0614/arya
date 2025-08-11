@@ -7,7 +7,7 @@ function Contact() {
       {/* Left Side Image and Heading */}
       <div className="contact-image">
         <Navbar />
-        <img src="media/GFiteaJ9X1ZXtx4cQeiT1DzpA.webp" alt="Main Dish" />
+        <img src="/media/ARYA-122.jpg" alt="Main Dish" />
         <h1 className="contact-heading">Contact</h1>
       </div>
       {/* Right Side Content */}

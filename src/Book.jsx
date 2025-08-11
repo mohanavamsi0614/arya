@@ -9,7 +9,7 @@ function Book() {
       {/* Left Image */}
       <div className="book-left">
         <img
-          src="./apLVZGAMneXESKaZkziIssg86a8.webp"
+          src="/media/ARYA-22-2.jpg"
           alt="Main Dish"
           className="book-image"
         />
