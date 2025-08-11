@@ -6,7 +6,20 @@ function Navbar({ variant = "overlay" }) {
   const nav = useNavigate();
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const location = useLocation();
+
+  // Check admin status and screen size
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    const checkAdmin = () => setIsAdmin(localStorage.getItem("admin") === "yes");
+    
+    checkMobile();
+    checkAdmin();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleBookClick = () => {
     if (location.pathname !== "/reservation") {
@@ -15,37 +28,26 @@ function Navbar({ variant = "overlay" }) {
       setOverlayOpen(!overlayOpen);
     }
   };
-  // Check if mobile on mount and resize
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const toggleOverlay = () => {
-    setOverlayOpen(!overlayOpen);
+  const handleDashboardClick = () => {
+    nav("/dashboard");
   };
 
-  // Close overlay when clicking outside or on mobile
+  const toggleOverlay = () => setOverlayOpen(!overlayOpen);
+
+  // Close overlay on escape key
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === "Escape" && overlayOpen) {
-        setOverlayOpen(false);
-      }
+      if (e.key === "Escape" && overlayOpen) setOverlayOpen(false);
     };
 
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
   }, [overlayOpen]);
 
-  // Different navbar styles based on variant
-  const navbarClass =
-    variant === "overlay" ? "navbar navbar-overlay" : "navbar navbar-fixed";
+  const navbarClass = variant === "overlay" 
+    ? "navbar navbar-overlay" 
+    : "navbar navbar-fixed";
 
   return (
     <>
@@ -58,12 +60,10 @@ function Navbar({ variant = "overlay" }) {
           >
             <span></span>
           </button>
-          {/* <span className="logo">ARYA</span> */}
           <Link to="/" className="logo no-underline">
             ARYA
           </Link>
 
-          {/* Desktop Navigation Links - Hidden on Mobile */}
           <ul className="nav-links desktop-only">
             <li>
               <Link
@@ -84,23 +84,26 @@ function Navbar({ variant = "overlay" }) {
           </ul>
         </div>
 
-        {/* Book Table Button */}
-        <a href="#" className="book" onClick={(e) => e.preventDefault()}>
-          <span className="book-text-full" onClick={handleBookClick}>
-            BOOK A TABLE
-          </span>
-          <span className="book-text-short" onClick={handleBookClick}>
-            BOOK A TABLE
-          </span>
-        </a>
+        {isAdmin ? (
+          <a href="#" className="book" onClick={(e) => {
+            e.preventDefault();
+            handleDashboardClick();
+          }}>
+            <span className="book-text-full">DASHBOARD</span>
+            <span className="book-text-short">DASH</span>
+          </a>
+        ) : (
+          <a href="#" className="book" onClick={(e) => {
+            e.preventDefault();
+            handleBookClick();
+          }}>
+            <span className="book-text-full">BOOK A TABLE</span>
+            <span className="book-text-short">BOOK</span>
+          </a>
+        )}
       </nav>
 
-      {/* Fullscreen Navigation Overlay */}
-      {/* <div className='overlay-container'> */}
-      <div
-        className={`overlay ${overlayOpen ? "active" : ""}`}
-        id="fullscreenNav"
-      >
+      <div className={`overlay ${overlayOpen ? "active" : ""}`} id="fullscreenNav">
         <button
           className="close-btn"
           onClick={toggleOverlay}
@@ -109,30 +112,18 @@ function Navbar({ variant = "overlay" }) {
           ×
         </button>
         <div className="overlay-content">
-          <div class="icon-wrapper">
-            <div class="diamond"></div>
-            <div class="line"></div>
-            <div class="diamond"></div>
+          <div className="icon-wrapper">
+            <div className="diamond"></div>
+            <div className="line"></div>
+            <div className="diamond"></div>
           </div>
-          <Link
-            to="/menu"
-            onClick={toggleOverlay}
-            className={location.pathname === "/menu" ? "active" : ""}
-          >
+          <Link to="/menu" onClick={toggleOverlay}>
             MENU
           </Link>
-          <Link
-            to="/reservation"
-            onClick={toggleOverlay}
-            className={location.pathname === "/reservation" ? "active" : ""}
-          >
+          <Link to="/reservation" onClick={toggleOverlay}>
             RESERVATION
           </Link>
-          <Link
-            to="/about"
-            onClick={toggleOverlay}
-            className={location.pathname === "/about" ? "active" : ""}
-          >
+          <Link to="/about" onClick={toggleOverlay}>
             ABOUT
           </Link>
           <Link to="/contact" onClick={toggleOverlay}>
@@ -144,19 +135,20 @@ function Navbar({ variant = "overlay" }) {
           <Link to="/cart" onClick={toggleOverlay}>
             CART
           </Link>
-          <button onClick={()=>{localStorage.removeItem("user"); window.location.reload();}}>
+          <button onClick={() => {
+            localStorage.removeItem("user");
+            localStorage.removeItem("admin");
+            window.location.reload();
+          }}>
             LOG OUT
           </button>
-          <div class="icon-wrapper">
-            <div class="diamond"></div>
-            <div class="line"></div>
-            <div class="diamond"></div>
+          <div className="icon-wrapper">
+            <div className="diamond"></div>
+            <div className="line"></div>
+            <div className="diamond"></div>
           </div>
-          {/* <a href="#" onClick={(e) => { e.preventDefault(); toggleOverlay(); }}>RESERVATION</a> */}
-          {/* <a href="#" onClick={(e) => { e.preventDefault(); toggleOverlay(); }}>LOYALTY</a> */}
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 }
