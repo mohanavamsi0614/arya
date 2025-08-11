@@ -47,7 +47,7 @@ const About = () => {
     <div className="menu-container">
       <div className="menu-image">
         <Navbar/>
-        <img src="./about-left.webp" alt="Main Dish" />
+        <img src="/media/ARYA-122.jpg" alt="Main Dish" />
         <div className='about-heading-container'>
         <h1 className="about-heading">ABOUT</h1>
         </div>
