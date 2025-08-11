@@ -3871,6 +3871,11 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   left: 45px;
   font-weight: lighter;
   color: rgb(239, 231, 210);
+  text-shadow:
+    -1px -1px 0 black,
+     2px -2px 0 black,
+    -1px  1px 0 black,
+     2px  2px 0 black; 
   font-size: 106px;
   line-height: 1;
   margin: 0;
@@ -4272,7 +4277,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .blog-content-item img {
   /* width: 160px; */
-  height: 200px;
+  /* height: 120px; */
   border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
