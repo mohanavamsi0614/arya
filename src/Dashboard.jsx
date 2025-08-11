@@ -11,8 +11,8 @@ function Dashboard() {
     axios.get("https://arya-server.onrender.com/api/orders").then((res) => {setorders(res.data.reverse())})
   },[])
 
-  const statusOptions = ["All", "On Process", "Completed", "Shipped", "Delivered", "Cancelled"];
-  const typeOptions = ["All", "Dine In", "Takeaway", "Online"];
+  const statusOptions = ["All", "On Process", "Completed", "Cancelled"];
+  const typeOptions = ["All", "Dine In", "Collection", "Orders"];
 const handleAcceptOrder = (id) => {
     axios.post(`https://arya-server.onrender.com/api/order-status`, {status: "On Process",orderId:id}).then((res) => {
       console.log("Order accepted:", res.data);
@@ -36,14 +36,6 @@ const handleRejectOrder = (id) => {}
         {/* Main Navigation Tabs */}
         <div className="dashboard-header">
           <div className="dashboard-nav">
-            <button 
-              onClick={() => setActiveTab("Dashboard")}
-              className={activeTab === "Dashboard" ? "active" : ""}
-            >Dashboard</button>
-            <button 
-              onClick={() => setActiveTab("Menu")}
-              className={activeTab === "Menu" ? "active" : ""}
-            >Menu</button>
             <button 
               onClick={() => setActiveTab("Orders")}
               className={activeTab === "Orders" ? "active" : ""}

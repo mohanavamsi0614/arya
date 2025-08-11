@@ -5,15 +5,15 @@ import axios from 'axios';
 
 function Menu() {
   const tabsRef = useRef(null);
-  
+
   const admin = localStorage.getItem("admin") == "yes" ? true : false;
   const [activeSection, setActiveSection] = useState('Indo-Chinese-Starters');
-  
+
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
   const [dragging, setDragging] = useState(false);
-  
+
   // Load menu items from API or localStorage
   const [menuItems, setMenuData] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -466,63 +466,70 @@ function Menu() {
               </div>
 
               {categories.map((sectionId) => {
-            const categoryItems = menuItems.filter(item => item.category === sectionId);
-            return (
-            <div key={sectionId} id={sectionId} className="menu-section">
-              <div className="menu-category-decor">
-                <span className="diamond-line left">
-                  <span className="diamond-shape" />
-                  <span className="line-shape" />
-                </span>
-                <h2 className="menu-category">{formatSectionName(sectionId)}</h2>
-                <span className="diamond-line right">
-                  <span className="line-shape" />
-                  <span className="diamond-shape" />
-                </span>
-              </div>
-              {admin && (
-                <div className="add-item-container">
-                  <button className="add-new-item-btn" onClick={() => addNewItem(sectionId)}>
-                    + Add New Item to {formatSectionName(sectionId)}
-                  </button>
+              const categoryItems = menuItems.filter(item => item.category === sectionId);
+              return (
+              <div key={sectionId} id={sectionId} className="menu-section">
+                <div className="menu-category-decor">
+                  <span className="diamond-line left">
+                    <span className="diamond-shape" />
+                    <span className="line-shape" />
+                  </span>
+                  <h2 className="menu-category">{formatSectionName(sectionId)}</h2>
+                  <span className="diamond-line right">
+                    <span className="line-shape" />
+                    <span className="diamond-shape" />
+                  </span>
                 </div>
-              )}
-              {categoryItems.map((item, index) => {
-                const cartItem = cartItems.find(i => i.name === item.name);
-
-                return (
-                  <div key={index} className="menu-item">
-                    <img
-                      src={item.image || '/media/item1.png'}
-                      alt={item.name}
-                      onError={(e) => { e.target.src = '/media/item1.png'; }}
-                    />
-                    <div className="item-text">
-                      <div className="item-header">
-                        <span>{item.name}</span>
-                        <div className='ckcjc7'><div className="c1az4bwh"></div></div>
-                        <span className="price">{item.price}</span>
-                      </div>
-                      <p style={{ whiteSpace: 'pre-line' }}>{item.description}</p>
-                    </div>
-                    {cartItem ? (
-                      <div className="cart-controls">
-                        <button onClick={() => decrementFromCart(item)}>-</button>
-                        <p style={{color:"rgb(239, 231, 210)",fontSize:"20px"}}>{cartItem.quantity}</p>
-                        <button onClick={() => addToCart(item)}>+</button>
-                      </div>
-                    ) : (
-                      <div className="item-buttons">
-                        <button className="add-to-cart-btn" onClick={() => addToCart({...item})}>Add To Cart</button>
-                        {admin && <button className="edit-item-btn" onClick={() => editMenuItem(item)}>Edit</button>}
-                      </div>
-                    )}
+                {admin && (
+                  <div className="add-item-container">
+                    <button className="add-new-item-btn" onClick={() => addNewItem(sectionId)}>
+                      Add New Item to {formatSectionName(sectionId)}
+                    </button>
                   </div>
-                );
-              })}
-            </div>
-            );
-          })}
+                )}
+                {categoryItems.map((item, index) => {
+                  const cartItem = cartItems.find(i => i.name === item.name);
+
+                  return (
+                    <div key={index} className="menu-item">
+                      <img
+                        src={item.image || '/media/item1.png'}
+                        alt={item.name}
+                        onError={(e) => { e.target.src = '/media/item1.png'; }}
+                      />
+                      <div className="item-text">
+                        <div className="item-header">
+                          <span>{item.name}</span>
+                          <div className='ckcjc7'><div className="c1az4bwh"></div></div>
+                          <span className="price">{item.price}</span>
+                        </div>
+                        <p style={{ whiteSpace: 'pre-line' }}>{item.description}</p>
+                      </div>
+                      
+                      {/* --- MODIFICATION START --- */}
+                      {admin ? (
+                        <div className="item-buttons">
+                           <button className="edit-item-btn" onClick={() => editMenuItem(item)}>Edit</button>
+                        </div>
+                      ) : cartItem ? (
+                        <div className="cart-controls">
+                          <button onClick={() => decrementFromCart(item)}>-</button>
+                          <p style={{color:"rgb(239, 231, 210)",fontSize:"20px"}}>{cartItem.quantity}</p>
+                          <button onClick={() => addToCart(item)}>+</button>
+                        </div>
+                      ) : (
+                        <div className="item-buttons">
+                          <button className="add-to-cart-btn" onClick={() => addToCart({...item})}>Add To Cart</button>
+                        </div>
+                      )}
+                      {/* --- MODIFICATION END --- */}
+
+                    </div>
+                  );
+                })}
+              </div>
+              );
+            })}
             </>
           )}
         </div>

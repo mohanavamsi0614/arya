@@ -4843,7 +4843,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .add-to-cart-btn:hover {
-  background: white;
+  background: rgb(239, 231, 210);
   color: black;
   transform: translateY(-2px);
   /* box-shadow: 0 4px 8px rgb(239, 231, 210); */
@@ -5371,7 +5371,6 @@ button:disabled:hover {
 .add-new-item-btn:hover {
   background: #B8941F;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
 }
 
 /* Item Buttons - Side by Side */
@@ -5383,9 +5382,12 @@ button:disabled:hover {
 }
 
 .edit-item-btn {
-  background: #555;
+  background: transparent;
+  border: 2px solid #EFE7D2;
+  border-radius: 6px;
+  color: rgb(239, 231, 210);
+  font-family: 'Satoshi', 'Inter', sans-serif;
   color: #EFE7D2;
-  border: none;
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
@@ -5396,18 +5398,20 @@ button:disabled:hover {
 }
 
 .edit-item-btn:hover {
-  background: #666;
+  background: rgb(239, 231, 210);
+  color: black;
   transform: translateY(-1px);
 }
 
 .add-new-item-btn {
   background: transparent;
-  color: white;
-  border: none;
+  border: 1px solid #EFE7D2;
+  border-radius: 6px;
+  color: rgb(239, 231, 210);
+  font-family: 'Satoshi', 'Inter', sans-serif;
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
-  border: 1px solid white;
   font-size: 0.9rem;
   font-weight: 500;
   margin-left: 20px;
@@ -5415,7 +5419,8 @@ button:disabled:hover {
 }
 
 .add-new-item-btn:hover {
-  background: #B8941F;
+  background: rgb(239, 231, 210);
+  color: black;
   transform: translateY(-2px);
 }
 
