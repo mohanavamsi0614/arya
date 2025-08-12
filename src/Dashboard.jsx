@@ -1,71 +1,85 @@
+  const statusOptions = ["All", "On Process", "Completed", "rejected", "pending"];
+  const typeOptions = ["All", "dinein", "Collection", "homedelivery"];
+
+  const handleAcceptOrder = (id) => {
+    axios.post(`http://localhost:5000/api/order-status`, { status: "On Process", orderId: id }).then((res) => {
+      setorders(orders.map(order => order._id === id ? { ...order, status: "On Process" } : order));
+    }).catch((error) => {
+      console.error("Error accepting order:", error);
+    });
+  };
+
+  const handleCompleteOrder = (id) => {
+    axios.post(`http://localhost:5000/api/order-status`, { status: "Completed", orderId: id }).then((res) => {
+      setorders(orders.map(order => order._id === id ? { ...order, status: "Completed" } : order));
+    }).catch((error) => {
+      console.error("Error completing order:", error);
+    });
+  };
+
+  const handleRejectOrder = (id) => {
+    axios.post(`http://localhost:5000/api/order-status`, { status: "rejected", orderId: id }).then((res) => {
+      setorders(orders.map(order => order._id === id ? { ...order, status: "rejected" } : order));
+    }).catch((error) => {
+      console.error("Error rejecting order:", error);
+    });
+  };
 import { useEffect, useState } from "react";
 import "./Dash.css";
 import axios from "axios";
-import {io} from "socket.io-client";
+import { AiOutlineHome } from "react-icons/ai";
+import { BsVolumeUp, BsVolumeMute } from "react-icons/bs";
+import { io } from "socket.io-client";
 
-const socket=io("http://localhost:5000");
+const socket = io("http://localhost:5000");
+
 function Dashboard() {
-  const [orders,setorders] = useState([]);
+  const [orders, setorders] = useState([]);
   const [activeTab, setActiveTab] = useState("Orders");
   const [orderStatus, setOrderStatus] = useState("All");
   const [orderType, setOrderType] = useState("All");
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/orders").then((res) => {setorders(res.data.reverse())})
-    
-  },[])
-
-  socket.on("new-order",(orders)=>{
-      setorders(orders.reverse())
-    })
-  // Play sound when there is a pending order, only after user enables sound
   const [soundEnabled, setSoundEnabled] = useState(false);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/orders").then((res) => {
+      setorders(res.data.reverse());
+    });
+  }, []);
+
+  useEffect(() => {
+    socket.on("new-order", (orders) => {
+      setorders(orders.reverse());
+    });
+    return () => {
+      socket.off("new-order");
+    };
+  }, []);
+
   useEffect(() => {
     let intervalId;
     if (soundEnabled && orders.some(order => order.status === "pending")) {
       intervalId = setInterval(() => {
         const audio = new window.Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
         audio.play();
-      }, 1000); // every 5 seconds
+      }, 1000);
     }
     return () => {
       if (intervalId) clearInterval(intervalId);
     };
   }, [orders, soundEnabled]);
 
-  const statusOptions = ["All", "On Process", "Completed", "rejected","pending"];
-  const typeOptions = ["All", "dinein", "Collection", "homedelivery"];
-const handleAcceptOrder = (id) => {
-    axios.post(`http://localhost:5000/api/order-status`, {status: "On Process",orderId:id}).then((res) => {
-      console.log("Order accepted:", res.data);
-      setorders(orders.map(order => order._id === id ? {...order, status: "On Process"} : order));
-    }).catch((error) => {
-      console.error("Error accepting order:", error);
-    });
-}
-const handleCompleteOrder = (id) => {
-  axios.post(`http://localhost:5000/api/order-status`, {status: "Completed",orderId:id}).then((res) => {
-    console.log("Order completed:", res.data);
-    setorders(orders.map(order => order._id === id ? {...order, status: "Completed"} : order));
-  }).catch((error) => {
-    console.error("Error completing order:", error);
-  });
-}
-const handleRejectOrder = (id) => {
-  axios.post(`http://localhost:5000/api/order-status`, {status: "rejected",orderId:id}).then((res) => {
-    console.log("Order rejected:", res.data);
-    setorders(orders.map(order => order._id === id ? {...order, status: "rejected"} : order));
-  }).catch((error) => {
-    console.error("Error completing order:", error);
-  });
-}
+  if (localStorage.getItem("admin") !== "yes") {
+    return (
+      <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", fontSize: "20px"}}>
+        <p>You are not authorized to view this page.</p>
+      </div>
+    );
+  }
   return (
     <div className="dashboard-app">
       <div className="dashboard-container">
-        <button style={{margin: "10px", padding: "8px 16px"}} onClick={() => setSoundEnabled(true)}>
-          Enable Sound
-        </button>
-        {/* Main Navigation Tabs */}
-        <div className="dashboard-header">
+        <div className="dashboard-header" style={{display: "flex", alignItems: "center", gap: "16px"}}>
+          <AiOutlineHome size={32} style={{cursor: "pointer"}} onClick={() => window.location.href = "/"} title="Go Home" />
           <div className="dashboard-nav">
             <button 
               onClick={() => setActiveTab("Orders")}
@@ -80,6 +94,12 @@ const handleRejectOrder = (id) => {
               className={activeTab === "Loyalty" ? "active" : ""}
             >Loyalty</button>
           </div>
+          <div>
+            <button style={{background: "none", border: "none", cursor: "pointer",padding:"5px",borderRadius:"50%",border:"1px solid #ccc "}} onClick={() => setSoundEnabled(!soundEnabled)} title={soundEnabled ? "Turn sound off" : "Turn sound on"}>
+              {soundEnabled ? <BsVolumeUp size={28} color="#D4AF37" /> : <BsVolumeMute size={28} color="#888" />}
+            </button>
+            </div>
+
         </div>
         
         {/* Order Filter Navigation */}
@@ -185,5 +205,4 @@ const handleRejectOrder = (id) => {
     </div>
   );
 }
-
 export default Dashboard;
