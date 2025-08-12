@@ -13,10 +13,9 @@ function Auth({ onAuthSuccess }) {
   const nav = useNavigate();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const location = useLocation(); // 👈 get current path
+  const location = useLocation(); 
 
   useEffect(() => {
-    // 🔁 Run this only on /auth to detect Google login
     if (location.pathname === "/auth") {
       const interval = setInterval(() => {
         const user = localStorage.getItem("user");
@@ -26,7 +25,7 @@ function Auth({ onAuthSuccess }) {
         }
       }, 1000);
 
-      return () => clearInterval(interval); // Clean up
+      return () => clearInterval(interval); 
     }
   }, [location.pathname, onAuthSuccess]);
 
@@ -43,7 +42,7 @@ function Auth({ onAuthSuccess }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth",
+        "https://arya-server.onrender.com/api/auth",
         {
           method: "POST",
           headers: {
@@ -68,8 +67,7 @@ function Auth({ onAuthSuccess }) {
 
       if (response.ok) {
         setMessage("Login successful!");
-        localStorage.setItem("user", JSON.stringify(data.name));
-        localStorage.setItem("email", JSON.stringify(data.email));
+        localStorage.setItem("user", data.userId);
         if (onAuthSuccess) {
           onAuthSuccess(); // This sets App's `isAuthenticated` to true
           nav("/"); // Then redirect to home
@@ -90,7 +88,7 @@ function Auth({ onAuthSuccess }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth",
+        "https://arya-server.onrender.com/api/auth",
         {
           method: "POST",
           headers: {

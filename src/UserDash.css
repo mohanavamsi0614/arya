@@ -1,3 +1,43 @@
+/* Stylish order status badge */
+.order-status {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px 0 0 0;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: linear-gradient(90deg, #f7f7f7 0%, #eaeaea 100%);
+  color: #333;
+  border: 1px solid #e0e0e0;
+  transition: background 0.3s, color 0.3s;
+}
+
+.order-status[data-status="Pending"],
+.order-status[data-status="pending"] {
+  background: linear-gradient(90deg, #fffbe6 0%, #ffe58f 100%);
+  color: #ad8b00;
+  border-color: #ffe58f;
+}
+.order-status[data-status="On Process"],
+.order-status[data-status="on process"] {
+  background: linear-gradient(90deg, #e6f7ff 0%, #91d5ff 100%);
+  color: #096dd9;
+  border-color: #91d5ff;
+}
+.order-status[data-status="Completed"],
+.order-status[data-status="completed"] {
+  background: linear-gradient(90deg, #f6ffed 0%, #b7eb8f 100%);
+  color: #389e0d;
+  border-color: #b7eb8f;
+}
+.order-status[data-status="Rejected"],
+.order-status[data-status="rejected"] {
+  background: linear-gradient(90deg, #fff1f0 0%, #ffa39e 100%);
+  color: #cf1322;
+  border-color: #ffa39e;
+}
 /* User Dashboard Styles */
 .userdash-container {
   min-height: 100vh;

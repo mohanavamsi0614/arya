@@ -170,7 +170,7 @@ function Cart() {
     }));
     const stripe = await loadStripe("pk_test_51OqSY6SCGNUdxrLKg60mlKkyEXe2C7UByMDn6hIWRvoTBYRGz9W2epYsPgcORaSLiA0KBorgfPrSKVUSaG6ViAj400hmhE8dcL");
     try {
-      const res = await axios.post("http://localhost:5000/api/create-checkout-session", {
+      const res = await axios.post("https://arya-server.onrender.com/api/create-checkout-session", {
         products: items,
         data: {
           userId: localStorage.getItem("user"),
@@ -337,8 +337,11 @@ function Cart() {
 
           {orderType === "dinein" && (
             <div className="dinein-inputs">
+            
+            <label>Full Name:</label>
+            <input type="text" placeholder="Enter Full Name" onChange={(e) => setAdditionalInfo({...additionalInfo, fullName: e.target.value })} />
               <label>Table No:</label>
-              <input type="text" placeholder="Enter Table Number" onChange={(e) => setAdditionalInfo({tableNumber: e.target.value })} />
+              <input type="text" placeholder="Enter Table Number" onChange={(e) => setAdditionalInfo({...additionalInfo,tableNumber: e.target.value })} />
             </div>
           )}
 

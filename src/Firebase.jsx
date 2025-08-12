@@ -33,11 +33,10 @@ function SignUp() {
           email: user.email,
           google: true
         };
-        return axios.post("http://localhost:5000/api/auth", payload);
+        return axios.post("https://arya-server.onrender.com/api/auth", payload);
       })
       .then((response) => {
-        localStorage.setItem("user", JSON.stringify(response.data.name));
-        localStorage.setItem("email", JSON.stringify(response.data.email));
+        localStorage.setItem("user", (response.data.userId));
         if (["shivavarma336@gmail.com","aryarestaurant6@gmail.com","mohanavamsi14@gmail.com"].includes(response.data.email)){
           localStorage.setItem("admin", "yes");
         }
