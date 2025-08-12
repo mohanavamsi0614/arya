@@ -43,7 +43,7 @@ function Auth({ onAuthSuccess }) {
 
     try {
       const response = await fetch(
-        "https://arya-server.onrender.com/api/auth",
+        "http://localhost:5000/api/auth",
         {
           method: "POST",
           headers: {
@@ -90,7 +90,7 @@ function Auth({ onAuthSuccess }) {
 
     try {
       const response = await fetch(
-        "https://arya-server.onrender.com/api/auth",
+        "http://localhost:5000/api/auth",
         {
           method: "POST",
           headers: {

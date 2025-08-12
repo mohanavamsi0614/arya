@@ -7,7 +7,7 @@ import axios from "axios";
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const [selectedDistance, setSelectedDistance] = useState("");
-  const [orderType, setOrderType] = useState(""); // dinein, collection, homedelivery
+  const [orderType, setOrderType] = useState("");
   const [additionalInfo, setAdditionalInfo] = useState({});
 
   useEffect(() => {
@@ -111,30 +111,83 @@ function Cart() {
     // alert(`Order placed for home delivery! Total: £${getTotal().toFixed(2)}`);
   };
 
-  const handlePaymentClick = async () => {
-  const items = cartItems.map(item => ({
-    name: item.name,
-    price: Number(item.price.replace('£', '')),
-    quantity: item.quantity,
-    image: item.image,
-    description: item.description || "No description available."
-  }));
-
-  const stripe = await loadStripe("pk_test_51OqSY6SCGNUdxrLKg60mlKkyEXe2C7UByMDn6hIWRvoTBYRGz9W2epYsPgcORaSLiA0KBorgfPrSKVUSaG6ViAj400hmhE8dcL"); // Replace with your publishable key
-
-  try {
-    const res = await axios.post("https://arya-server.onrender.com/api/create-checkout-session", {
-      products: items
-    });
-    localStorage.setItem("data", JSON.stringify({userId:localStorage.getItem("user"),items, additionalInfo,type:orderType,total:getTotal()}));
-    await stripe.redirectToCheckout({
-      sessionId: res.data.sessionId,
-    });
-  } catch (error) {
-    console.error("Checkout Error:", error);
-    alert("Payment failed. Please try again.");
+  const [errors, setErrors] = useState([]);
+  function validateFields() {
+    const errs = [];
+    if (cartItems.length === 0) errs.push('Your cart is empty!');
+    if (!orderType) errs.push('Please select an order type (Dine In, Collection, or Home Delivery).');
+    if (orderType === 'dinein') {
+      if (!additionalInfo.tableNumber || additionalInfo.tableNumber.trim() === '') {
+        errs.push('Table number is required for Dine In.');
+      }
+    }
+    if (orderType === 'homedelivery') {
+      if (!additionalInfo.fullName || additionalInfo.fullName.trim() === '') errs.push('Full Name is required.');
+      if (!additionalInfo.phoneNumber || !/^\d{10,}$/.test(additionalInfo.phoneNumber.trim())) errs.push('Valid Phone Number is required.');
+      if (!additionalInfo.streetAddress || additionalInfo.streetAddress.trim() === '') errs.push('Street Address is required.');
+      if (!additionalInfo.city || additionalInfo.city.trim() === '') errs.push('City/Town is required.');
+      if (!additionalInfo.postalCode || !/^\d{5,}$/.test(additionalInfo.postalCode.trim())) errs.push('Valid Postal Code is required.');
+      if (!additionalInfo.landmark || additionalInfo.landmark.trim() === '') errs.push('Landmark is required.');
+    }
+    return errs;
   }
-};
+
+  const handlePaymentClick = async () => {
+    if(orderType=="collection"){
+      if (!additionalInfo.fullName || additionalInfo.phoneNumber.trim() === '') {
+        setErrors(['Collection Time is required.']);
+        return;
+      }
+    }
+    if(orderType=="homedelivery"){
+      if (!additionalInfo.fullName || additionalInfo.phoneNumber.trim() === '' || additionalInfo.streetAddress.trim() === '' || additionalInfo.city.trim() === '' || additionalInfo.postalCode.trim() === '' || additionalInfo.landmark.trim() === '') {
+        setErrors(['Full Name and Phone Number are required.']);
+        return;
+      }
+    }
+    if (orderType === "dinein") {
+      if (!additionalInfo.tableNumber || additionalInfo.tableNumber.trim() === '') {
+        setErrors(['Table number is required for Dine In.']);
+        return;
+      }
+    }
+    if(!selectedDistance){
+      setErrors(['Delivery distance is required.']);
+      return;
+    }
+    const errs = validateFields();
+    if (errs.length > 0) {
+      setErrors(errs);
+      return;
+    }
+    setErrors([]);
+    const items = cartItems.map(item => ({
+      name: item.name,
+      price: Number(item.price.replace('£', '')),
+      quantity: item.quantity,
+      image: item.image,
+      description: item.description || "No description available."
+    }));
+    const stripe = await loadStripe("pk_test_51OqSY6SCGNUdxrLKg60mlKkyEXe2C7UByMDn6hIWRvoTBYRGz9W2epYsPgcORaSLiA0KBorgfPrSKVUSaG6ViAj400hmhE8dcL");
+    try {
+      const res = await axios.post("http://localhost:5000/api/create-checkout-session", {
+        products: items,
+        data: {
+          userId: localStorage.getItem("user"),
+          items,
+          additionalInfo,
+          type: orderType,
+          total: getTotal()
+        }
+      });
+      await stripe.redirectToCheckout({
+        sessionId: res.data.sessionId,
+      });
+    } catch (error) {
+      console.error("Checkout Error:", error);
+      setErrors(["Payment failed. Please try again."]);
+    }
+  };
 
 
   return (
@@ -305,10 +358,23 @@ function Cart() {
               <input type="text" placeholder="Enter Landmark" onChange={(e) => setAdditionalInfo({...additionalInfo, landmark: e.target.value })} />
             </div>
           )}
-
+          {orderType == "collection" &&(
+            <div className="dinein-inputs">
+            <label>Full Name:</label>
+            <input type="text" placeholder="Enter Full Name" required  onChange={(e) => setAdditionalInfo({...additionalInfo, fullName: e.target.value })} />
+            <label>Phone Number:</label>
+            <input type="text" placeholder="Enter Your Number" required onChange={(e) => setAdditionalInfo({...additionalInfo, phoneNumber: e.target.value })} />
+            <label>Note:</label>
+            <textarea type="text" style={{height:"100px"}} required placeholder="Enter Your Comment" onChange={(e) => setAdditionalInfo({...additionalInfo, comment: e.target.value })} />
+            </div>
+          )}
+          <div style={{color: 'red', margin: '10px 0'}}>
+            {errors.length > 0 && errors.map((err, i) => <div key={i}>{err}</div>)}
+          </div>
           <div className="proceed-to-payment" onClick={handlePaymentClick}>
             <button className="proceed-to-payment-button">Proceed to Payment</button>
           </div>
+          
         </div>
       </div>
     </div>

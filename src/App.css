@@ -76,6 +76,17 @@
 
 }
 
+.order-additional-info{
+  margin-top: 12px;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  font-size: large;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .payment-success,
 .payment-failure {
   display: flex;
@@ -86,18 +97,22 @@
   font-family: "Poppins", sans-serif;
 }
 
-.payment-success {
+/* .payment-success {
   background: linear-gradient(135deg, #e8f5e9, #ffffff);
-}
+} */
 
 .payment-failure {
   background: linear-gradient(135deg, #fdecea, #ffffff);
 }
 
+.order-id{
+  font-size: 12px;
+}
+
 .payment-success-card,
 .payment-failure-card {
-  background: #fff;
   padding: 2rem 3rem;
+  border: 1px solid #ddd;
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -112,17 +127,17 @@
 }
 
 .payment-success-card h1 {
-  color: #2e7d32;
+  color: #D4AF37;
   margin-bottom: 0.5rem;
 }
 
 .payment-success-card p {
-  color: #555;
+  color: #836f2e;
   margin-bottom: 1.5rem;
 }
 
 .success-btn {
-  background-color: #4caf50;
+  background-color: #D4AF37;
   border: none;
   color: white;
   padding: 0.75rem 1.5rem;
@@ -133,7 +148,7 @@
 }
 
 .success-btn:hover {
-  background-color: #388e3c;
+  background-color: #D4AF37;
 }
 
 /* Failure Styles */
@@ -4747,7 +4762,19 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   width: 100%;
   box-sizing: border-box;
   font-family: Satoshi, "Satoshi Placeholder", sans-serif;
+}.dinein-inputs textarea{
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: rgba(30, 30, 30, 0.28);
+  color: rgb(239, 231, 210);
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: Satoshi, "Satoshi Placeholder", sans-serif;
 }
+
 
 @media screen and (max-width: 768px) {
 .cart-container{
