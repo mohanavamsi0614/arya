@@ -123,25 +123,28 @@ function Navbar({ variant = "overlay" }) {
           <Link to="/reservation" onClick={toggleOverlay}>
             RESERVATION
           </Link>
+          <Link to="/cart" onClick={toggleOverlay}>
+            CART
+          </Link>
+          <Link>
+            Profile
+          </Link>
+          <Link to="/blog" onClick={toggleOverlay}>
+            BLOG
+          </Link>
           <Link to="/about" onClick={toggleOverlay}>
             ABOUT
           </Link>
           <Link to="/contact" onClick={toggleOverlay}>
             CONTACT
           </Link>
-          <Link to="/blog" onClick={toggleOverlay}>
-            BLOG
-          </Link>
-          <Link to="/cart" onClick={toggleOverlay}>
-            CART
-          </Link>
-          <button onClick={() => {
+          <Link onClick={() => {
             localStorage.removeItem("user");
             localStorage.removeItem("admin");
             window.location.reload();
           }}>
-            LOG OUT
-          </button>
+            Log Out
+          </Link>
           <div className="icon-wrapper">
             <div className="diamond"></div>
             <div className="line"></div>
