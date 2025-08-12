@@ -126,7 +126,7 @@ function Navbar({ variant = "overlay" }) {
           <Link to="/cart" onClick={toggleOverlay}>
             CART
           </Link>
-          <Link>
+          <Link to="/profile" onClick={toggleOverlay}>
             Profile
           </Link>
           <Link to="/blog" onClick={toggleOverlay}>

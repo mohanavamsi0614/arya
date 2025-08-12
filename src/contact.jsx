@@ -8,6 +8,8 @@ function Contact() {
       <div className="contact-image">
         <Navbar />
         <img src="/media/ARYA-122.jpg" alt="Main Dish" />
+                <div className="book-image-overlay" />
+
         <h1 className="contact-heading">Contact</h1>
       </div>
       {/* Right Side Content */}
