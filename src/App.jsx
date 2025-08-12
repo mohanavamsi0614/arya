@@ -14,6 +14,7 @@ import Cart from "./Cart";
 import Dashboard from "./Dashboard";
 import Success from "./suc";
 import UserDash from "./UserDash";
+import Reservation from "./reservation";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -45,10 +46,10 @@ function App() {
         path="/menu"
         element={isAuthenticated ? <Menu /> : <Navigate to="/auth" />}
       />
-      <Route
+      {/* <Route
         path="/reservation"
         element={isAuthenticated ? <Book /> : <Navigate to="/auth" />}
-      />
+      /> */}
       <Route
         path="/about"
         element={isAuthenticated ? <About /> : <Navigate to="/auth" />}
@@ -80,6 +81,11 @@ function App() {
       <Route
         path="/profile"
         element={isAuthenticated ? <UserDash /> : <Navigate to="/auth" />}
+/>
+<Route
+        path="/reservation"
+        element={isAuthenticated ? <Reservation /> : <Navigate to="/auth" />}
+ 
       />
     </Routes>
   );

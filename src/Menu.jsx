@@ -14,7 +14,6 @@ function Menu() {
   const scrollLeft = useRef(0);
   const [dragging, setDragging] = useState(false);
 
-  // Load menu items from API or localStorage
   const [menuItems, setMenuData] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -49,7 +48,7 @@ function Menu() {
   useEffect(() => {
     // Fetch menu data from API
     setLoading(true);
-    axios.get("https://arya-server.onrender.com/api/menu")
+    axios.get("http://localhost:5000/api/menu")
       .then(response => {
         console.log("API Response:", response.data); // Debug log
         let apiMenuData = response.data;
@@ -64,6 +63,7 @@ function Menu() {
           // If API returns [...]
           setMenuData(apiMenuData);
           const cats = [...new Set(apiMenuData.map(item => item.category))];
+          console.log("Categories found:", cats); // Debug log
           setCategories(cats);
         } else {
           console.error("Unexpected API response structure:", apiMenuData);
@@ -238,7 +238,7 @@ function Menu() {
         };
 
         console.log("New item added:", newItem);
-        await axios.post("https://arya-server.onrender.com/api/menu", {item: newItem});
+        await axios.post("http://localhost:5000/api/menu", {item: newItem});
         setMenuData(prev => [...prev, newItem]);
         showToast('Menu item added successfully!');
       } else if (modalType === 'edit') {
@@ -249,7 +249,7 @@ function Menu() {
         };
         
         console.log("Editing item:", selectedItem);
-        await axios.post(`https://arya-server.onrender.com/api/menu/${selectedItem._id}`, {item: updatedItem});
+        await axios.post(`http://localhost:5000/api/menu/${selectedItem._id}`, {item: updatedItem});
         setMenuData(prev => prev.map(item => 
           item.name === selectedItem.name ? { ...updatedItem, _id: item._id } : item
         ));
@@ -271,7 +271,7 @@ function Menu() {
     try {
       if (selectedItem) {
         // Delete item via API
-        await axios.delete(`https://arya-server.onrender.com/api/menu/${selectedItem._id || selectedItem.name}`);
+        await axios.delete(`http://localhost:5000/api/menu/${selectedItem._id || selectedItem.name}`);
         const updatedMenu = menuItems.filter(item => item.name !== selectedItem.name);
         setMenuData(updatedMenu);
       }

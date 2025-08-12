@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react";
 import "./Dash.css";
 import axios from "axios";
+import {io} from "socket.io-client";
 
+const socket=io("http://localhost:5000");
 function Dashboard() {
   const [orders,setorders] = useState([]);
   const [activeTab, setActiveTab] = useState("Orders");
   const [orderStatus, setOrderStatus] = useState("All");
   const [orderType, setOrderType] = useState("All");
   useEffect(() => {
-    axios.get("https://arya-server.onrender.com/api/orders").then((res) => {setorders(res.data.reverse())})
+    axios.get("http://localhost:5000/api/orders").then((res) => {setorders(res.data.reverse())})
+    
   },[])
 
+  socket.on("new-order",(orders)=>{
+      setorders(orders.reverse())
+    })
   // Play sound when there is a pending order, only after user enables sound
   const [soundEnabled, setSoundEnabled] = useState(false);
   useEffect(() => {
@@ -29,7 +35,7 @@ function Dashboard() {
   const statusOptions = ["All", "On Process", "Completed", "rejected","pending"];
   const typeOptions = ["All", "dinein", "Collection", "homedelivery"];
 const handleAcceptOrder = (id) => {
-    axios.post(`https://arya-server.onrender.com/api/order-status`, {status: "On Process",orderId:id}).then((res) => {
+    axios.post(`http://localhost:5000/api/order-status`, {status: "On Process",orderId:id}).then((res) => {
       console.log("Order accepted:", res.data);
       setorders(orders.map(order => order._id === id ? {...order, status: "On Process"} : order));
     }).catch((error) => {
@@ -37,7 +43,7 @@ const handleAcceptOrder = (id) => {
     });
 }
 const handleCompleteOrder = (id) => {
-  axios.post(`https://arya-server.onrender.com/api/order-status`, {status: "Completed",orderId:id}).then((res) => {
+  axios.post(`http://localhost:5000/api/order-status`, {status: "Completed",orderId:id}).then((res) => {
     console.log("Order completed:", res.data);
     setorders(orders.map(order => order._id === id ? {...order, status: "Completed"} : order));
   }).catch((error) => {
@@ -45,7 +51,7 @@ const handleCompleteOrder = (id) => {
   });
 }
 const handleRejectOrder = (id) => {
-  axios.post(`https://arya-server.onrender.com/api/order-status`, {status: "rejected",orderId:id}).then((res) => {
+  axios.post(`http://localhost:5000/api/order-status`, {status: "rejected",orderId:id}).then((res) => {
     console.log("Order rejected:", res.data);
     setorders(orders.map(order => order._id === id ? {...order, status: "rejected"} : order));
   }).catch((error) => {
@@ -126,10 +132,10 @@ const handleRejectOrder = (id) => {
                 </div>
                 <h3 className="order-customer">{order.userId}</h3>
                 <div className="order-details">
-                  <p className="order-id">{order.id}</p>
+                  <p className="order-id">orderID: {order.orderId}</p>
                 <div className="order-meta">
                   <p>{order.type}</p>
-                  <p>{order.table}</p>
+                  {/* <p>{order.table}</p> */}
                 </div>
                 </div>
                 <div className="order-items-header">
@@ -165,6 +171,13 @@ const handleRejectOrder = (id) => {
                 {order.status == "rejected" &&            <div className="order-actions">
                   <div className="reject-btn" style={{backgroundColor: "#f4433674",textAlign:"center",fontWeight:"bolder", color: "white",padding:"10px",border:"none",borderRadius:"5px"}}>Rejected</div>
                 </div>}
+                {order.additionalInfo && (
+                  <div className="order-additional-info">
+                    {Object.entries(order.additionalInfo).map(([key, value]) => (
+                      <p key={key}><strong>{key}:</strong> {value}</p>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
         </div>
