@@ -95,7 +95,6 @@ function Contact() {
         </div>
 
         <div className="contact-details-content2">
-            {/* Map */}
             <div className="contact-map-container">
                     <iframe
                         title="Restaurant Location"
