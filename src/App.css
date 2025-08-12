@@ -3907,16 +3907,11 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .contact-heading {
   position: absolute;
-  bottom: 30px;
-  left: 45px;
+  bottom: 28px;
+  left: 42px;
   font-weight: lighter;
   color: rgb(239, 231, 210);
-  text-shadow:
-    -1px -1px 0 black,
-     2px -2px 0 black,
-    -1px  1px 0 black,
-     2px  2px 0 black; 
-  font-size: 106px;
+  font-size: 102px;
   line-height: 1;
   margin: 0;
   text-transform: uppercase;

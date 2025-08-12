@@ -13,6 +13,7 @@ import Blog from "./Blog";
 import Cart from "./Cart";
 import Dashboard from "./Dashboard";
 import Success from "./suc";
+import UserDash from "./UserDash";
 import Reservation from "./reservation";
 
 function App() {
@@ -78,8 +79,13 @@ function App() {
         element={isAuthenticated ? <Success /> : <Navigate to="/auth" />}
       />
       <Route
+        path="/profile"
+        element={isAuthenticated ? <UserDash /> : <Navigate to="/auth" />}
+/>
+<Route
         path="/reservation"
         element={isAuthenticated ? <Reservation /> : <Navigate to="/auth" />}
+ 
       />
     </Routes>
   );
