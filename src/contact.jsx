@@ -75,18 +75,18 @@ function Contact() {
             <div className="contact-image-grid">
                 <div className="contact-image-row1">
                     <div className="contact-image-item-1">
-                        <img src="media/GFiteaJ9X1ZXtx4cQeiT1DzpA.webp" alt="Dish 1" />
+                        <img src="media/ARYA-33-2.jpg" alt="Dish 1" />
                     </div>
                     <div className="contact-image-item-2">
-                        <img src="media/5MZ021glbQW94mvUOxalCyrZkY.webp" alt="Dish 2" />
+                        <img src="media/ARYA-59-2.jpg" alt="Dish 2" />
                     </div>
                 </div>
                 <div className="contact-image-row2">
                     <div className="contact-image-item-3">
-                        <img src="media/ZM8uTOLkdF1KBhpdRUj3MFzkCIM.webp" alt="Chef preparing" />
+                        <img src="media/ARYA-15-3.jpg" alt="Chef preparing" />
                     </div>
                     <div className="contact-image-item-4">
-                        <img src="media/Rh7B5c6lHXPxmiGfzpWOdSYW5M.avif" alt="Sprinkling salt" />
+                        <img src="media/ARYA-34-2.jpg" alt="Sprinkling salt" />
                     </div>
                 </div>
             </div>

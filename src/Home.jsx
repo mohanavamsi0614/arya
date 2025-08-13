@@ -76,7 +76,7 @@ function Home() {
             onClick={() => navigate('/menu')}  
             className="nav-card">
             <div className="card-image">
-              <img href='/menu' src="/media/arya-15.jpg" alt="Menu" />
+              <img href='/menu' src="/media/ARYA-15-3.jpg" alt="Menu" />
             </div>
             <div className="card-info">
               <div className="card-title-section">
@@ -94,7 +94,7 @@ function Home() {
           onClick={() => navigate('/reservation')}
           className="nav-card">
             <div className="card-image">
-              <img src="/media/ARYA-66.jpg" alt="Reservation" />
+              <img src="/media/ARYA-24-2.jpg" alt="Reservation" />
             </div>
             <div className="card-info">
               <div className="card-title-section">
@@ -108,13 +108,14 @@ function Home() {
             </div>
           </div>
 
-          <div className="nav-card">
+          <div onClick={() => navigate('/about')}
+          className="nav-card">
             <div className="card-image">
-              <img src="/media/ARYA-122.jpg" alt="Our Restaurant" />
+              <img src="/media/ARYA-66-2.jpg" alt="Our Restaurant" />
             </div>
             <div className="card-info">
               <div className="card-title-section">
-                <h6 className="card-title">Our Restaurant</h6>
+                <h6 className="card-title">About</h6>
                 <div className="card-arrow-container">
                   <div className="card-arrow-icon">
                     <FaArrowRight />
