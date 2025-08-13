@@ -1,12 +1,18 @@
 import "./App.css";
 import Navbar from './components/Navbar';
+import photo1 from "/media/ARYA-33-2.jpg";
+import photo2 from "/media/ARYA-59-2.jpg";
+import photo3 from "/media/ARYA-15-3.jpg";
+import photo4 from "/media/ARYA-34-2.jpg";
+import mainDish from "/media/ARYA-122.jpg";
+
 function Contact() {
   return (
     <div className="contact-container">
       {/* Left Side Image and Headig */}
       <div className="contact-image">
         <Navbar />
-        <img src="/media/ARYA-122.jpg" alt="Main Dish" />
+        <img src={mainDish} alt="Main Dish" />
         <h1 className="contact-heading">Contact</h1>
       </div>
       <div className="contact-details">
@@ -73,18 +79,18 @@ function Contact() {
             <div className="contact-image-grid">
                 <div className="contact-image-row1">
                     <div className="contact-image-item-1">
-                        <img src="media/ARYA-33-2.jpg" alt="Dish 1" />
+                        <img src={photo1} alt="Dish 1" />
                     </div>
                     <div className="contact-image-item-2">
-                        <img src="media/ARYA-59-2.jpg" alt="Dish 2" />
+                        <img src={photo2} alt="Dish 2" />
                     </div>
                 </div>
                 <div className="contact-image-row2">
                     <div className="contact-image-item-3">
-                        <img src="media/ARYA-15-3.jpg" alt="Chef preparing" />
+                        <img src={photo3} alt="Chef preparing" />
                     </div>
                     <div className="contact-image-item-4">
-                        <img src="media/ARYA-34-2.jpg" alt="Sprinkling salt" />
+                        <img src={photo4} alt="Sprinkling salt" />
                     </div>
                 </div>
             </div>
