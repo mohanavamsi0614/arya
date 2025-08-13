@@ -49,15 +49,16 @@ function UserDash() {
                 order.filter(o => o.status !== "Completed" && o.status !== "rejected").slice(0,1).map((o, idx) => (
                   <div className="orders-card" key={o._id || idx}>
                     <div className="order-header">
-                      <span className="order-date">{o.createdAt ? new Date(o.createdAt).toLocaleDateString() : ""}</span>
+                      <span className="order-date">{o.createdAt}</span>
                       <span className="order-time">{o.time || ""}</span>
                     </div>
                     <div className="order-customer">
                       <h4>{o.additionalInfo.fullName}</h4>
                       <div className="orders-details">
-                        <span className="orders-id">{o.orderId}</span>
+                        <span className="orders-id">#{o.orderId}</span>
                         <span className="orders-meta">{o.type}{o.table ? ` • Table ${o.table}` : ""}</span>
                       </div>
+                      <div><p>Status: {o.status=="pending" ? "Placed" : o.status=="On Process" ? "Preparing" : "Rejected"}</p></div>
                     </div>
                     <div className="orders-items-header">
                       <p>Items</p>
@@ -149,6 +150,7 @@ function UserDash() {
                                 <div className="orders-items-price">
                                   <span>×{item.quantity}</span>
                                   <span>£{item.price}</span>
+                                  <span>{item.status}</span>
                                 </div>
                               </div>
                             </div>

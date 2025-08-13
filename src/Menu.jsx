@@ -59,8 +59,8 @@ function Menu() {
           setMenuData(apiMenuData.items);
           const cats = [...new Set(apiMenuData.items.map(item => item.category))];
           setCategories([
-  "Indo-Chinese-Startes",
-  "Harmony-Starter-Japanese",
+  "Indo-Chinese-Starters",
+  "Harmony-Starters-Japanese",
   "Innovation-Starters-Chinese",
   "Thai-Starters",
   "Heritage-Starters-Indian",
@@ -88,8 +88,8 @@ function Menu() {
           const cats = [...new Set(apiMenuData.map(item => item.category))];
           console.log("Categories found:", cats); // Debug log
           setCategories([
-  "Indo-Chinese-Startes",
-  "Harmony-Starter-Japanese",
+  "Indo-Chinese-Starters",
+  "Harmony-Starters-Japanese",
   "Innovation-Starters-Chinese",
   "Thai-Starters",
   "Heritage-Starters-Indian",

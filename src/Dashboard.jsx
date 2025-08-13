@@ -177,7 +177,7 @@ function Dashboard() {
                 </div>
                 <div className="order-total">
                   <span>Total</span>
-                  <span>€ {(order.total+"").slice(0,5)}</span>
+                  <span>€ {(order.total+"")}</span>
                 </div>
                 {order.status == "On Process" &&            <div className="order-actions">
                   <button className="completed-btn"  onClick={() => handleCompleteOrder(order._id)}>Completed</button>
