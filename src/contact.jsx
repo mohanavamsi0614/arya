@@ -10,7 +10,7 @@ function Contact() {
         <img src="/media/ARYA-122.jpg" alt="Main Dish" />
         <h1 className="contact-heading">Contact</h1>
       </div>
-      {/* Right Side Content */}
+      {/* Right Side Conten */}
       <div className="contact-details">
         <div className="contact-details-content1">
             <div className="contact-opening-hours">
