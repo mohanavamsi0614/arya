@@ -32,12 +32,12 @@ const About = () => {
 
 
   const sliderImages = [
-    "media/slPotYXPFXAfEsa1a4GJhZIk.webp",
+    "media/ARYA-59-2.jpg",
     "media/jFLjtiNrSbyMi9cGMowrM7Pc7Bg.webp",
     "media/InB1qO4eodYHQXKOVBszhLURHE.webp",
   ];
   const sliderImagesOur = [
-    "media/G4pBdBCgBUC7XWv710nE2LXLUTs.webp",
+    "media/ARYA-82-2.jpg",
     "media/CFQGdIzQBxhDDSuVq7NiPP3wI.avif",
     "media/eN3OMUIE7k3yknjR7LKFRc8TlU.avif",
   ];

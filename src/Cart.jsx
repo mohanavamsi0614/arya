@@ -335,7 +335,7 @@ function Cart() {
             </div>
           </div>
 
-          {orderType === "dinein" && (
+          {/* {orderType === "dinein" && (
             <div className="dinein-inputs">
             
             <label>Full Name:</label>
@@ -343,7 +343,7 @@ function Cart() {
               <label>Table No:</label>
               <input type="text" placeholder="Enter Table Number" onChange={(e) => setAdditionalInfo({...additionalInfo,tableNumber: e.target.value })} />
             </div>
-          )}
+          )} */}
 
           {orderType === "homedelivery" && (
             <div className="dinein-inputs">

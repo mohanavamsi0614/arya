@@ -117,27 +117,27 @@ function Navbar({ variant = "overlay" }) {
             <div className="line"></div>
             <div className="diamond"></div>
           </div>
+          <Link to="/profile" onClick={toggleOverlay}>
+            Profile
+          </Link>
           <Link to="/menu" onClick={toggleOverlay}>
             MENU
           </Link>
           <Link to="/reservation" onClick={toggleOverlay}>
             RESERVATION
           </Link>
-          <Link to="/cart" onClick={toggleOverlay}>
-            CART
-          </Link>
-          <Link to="/profile" onClick={toggleOverlay}>
-            Profile
+          <Link to="/about" onClick={toggleOverlay}>
+            ABOUT
           </Link>
           <Link to="/blog" onClick={toggleOverlay}>
             BLOG
           </Link>
-          <Link to="/about" onClick={toggleOverlay}>
-            ABOUT
-          </Link>
           <Link to="/contact" onClick={toggleOverlay}>
             CONTACT
           </Link>
+          <Link to="/cart" onClick={toggleOverlay}>
+            CART
+          </Link>  
           <Link onClick={() => {
             localStorage.removeItem("user");
             localStorage.removeItem("admin");
