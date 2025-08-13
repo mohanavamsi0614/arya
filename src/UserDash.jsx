@@ -117,12 +117,12 @@ function UserDash() {
                 order.filter(o => o.status === "Completed" || o.status === "rejected").map((o, idx) => (
                   <div className="past-order" key={o._id || idx}>
                     <div className="past-order-details">
-                      <span className="past-date">{o.createdAt ? new Date(o.createdAt).toLocaleDateString() : ""}</span>
+                      <span className="past-date">{o.createdAt }</span>
                       <span className="past-id">{o.orderId}</span>
                     </div>
                     <div className="past-order-items">
                       <div>
-                        <span className="past-amount">£{o.total}</span>
+                        <span className="past-amount">£{(o.total+"").split(".")[0]+"."+ (o.total+"").split(".")[1].slice(0, 2)}</span>
                       </div>
                       <div
                         className="past-order-chevron"
@@ -158,7 +158,7 @@ function UserDash() {
                         </div>
                         <div className="orders-totals">
                           <span>Total</span>
-                          <span>£{o.total}</span>
+                          <span>£{(o.total+"").split(".")[0]+"."+ (o.total+"").split(".")[1].slice(0, 2)}</span>
                         </div>
                       </div>
                     )}
