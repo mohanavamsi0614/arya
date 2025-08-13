@@ -324,9 +324,9 @@ function Cart() {
             <span>£{getTotal().toFixed(2)}</span>
           </div>
           <div className="bill-buttons">
-            <div className="bill-button">
+            {/* <div className="bill-button">
               <button className="order" onClick={handleOrderOnline}>Dine In</button>
-            </div>
+            </div> */}
             <div className="bill-button">
               <button className="order" onClick={handleOrderOnsite}>Collection</button>
             </div>

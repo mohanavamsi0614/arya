@@ -68,6 +68,7 @@ function Auth({ onAuthSuccess }) {
       if (response.ok) {
         setMessage("Login successful!");
         localStorage.setItem("user", data.userId);
+        localStorage.setItem("name", data.username);
         if (onAuthSuccess) {
           onAuthSuccess(); // This sets App's `isAuthenticated` to true
           nav("/"); // Then redirect to home

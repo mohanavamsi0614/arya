@@ -13,7 +13,11 @@ function Success(){
     axios.post(`https://arya-server.onrender.com/api/order/${sessionId}`).then((response) => {
       console.log("Order confirmed:", response.data);
       socket.emit("order");
+      localStorage.setItem("cartItems", JSON.stringify([]));
       setSuccess(true);
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 2000);
     }).catch((error) => {
       console.error("Error confirming order:", error);
       setSuccess(false);

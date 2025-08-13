@@ -58,13 +58,60 @@ function Menu() {
           // If API returns {items: [...]}
           setMenuData(apiMenuData.items);
           const cats = [...new Set(apiMenuData.items.map(item => item.category))];
-          setCategories(cats);
+          setCategories([
+  "Indo-Chinese-Startes",
+  "Harmony-Starter-Japanese",
+  "Innovation-Starters-Chinese",
+  "Thai-Starters",
+  "Heritage-Starters-Indian",
+  "Special-Soya-Chaap",
+  "Japanese Tappenyaki",
+  "Japanese-Ramen",
+  "Japanese-Teriyaki",
+  "Chinese Mains",
+  "Transformation-Mains-Thai",
+  "Pad-Thai-Noodles",
+  "Wraps",
+  "Burgers",
+  "Vegetarian-Delights",	
+  "Non- veg Curries",
+  "Non-veg Biryani",
+  "Veg-Biryani",
+  "Rice",
+  "Breads",
+  "Sides",
+  "Desserts",
+  "5 phase journey bundle"
+]);
         } else if (Array.isArray(apiMenuData)) {
-          // If API returns [...]
           setMenuData(apiMenuData);
           const cats = [...new Set(apiMenuData.map(item => item.category))];
           console.log("Categories found:", cats); // Debug log
-          setCategories(cats);
+          setCategories([
+  "Indo-Chinese-Startes",
+  "Harmony-Starter-Japanese",
+  "Innovation-Starters-Chinese",
+  "Thai-Starters",
+  "Heritage-Starters-Indian",
+  "Special-Soya-Chaap",
+  "Japanese Tappenyaki",
+  "Japanese-Ramen",
+  "Japanese-Teriyaki",
+  "Chinese Mains",
+  "Transformation-Mains-Thai",
+  "Pad-Thai-Noodles",
+  "Wraps",
+  "Burgers",
+  "Vegetarian-Delights",	
+  "Non- veg Curries",
+  "Non-veg Biryani",
+  "Veg-Biryani",
+  "Rice",
+  "Breads",
+  "Sides",
+  "Desserts",
+  "5 phase journey bundle"
+]);
         } else {
           console.error("Unexpected API response structure:", apiMenuData);
         }

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import "./Dash.css";
 import axios from "axios";
@@ -139,6 +138,7 @@ function Dashboard() {
         {/* Orders Grid */}
         <div className="orders-grid">
           {orders
+            .filter(order => order.payment === "paid")
             .filter(order => {
               const statusMatch = orderStatus === "All" || order.status === orderStatus;
               const typeMatch = orderType === "All" || order.type === orderType;
@@ -164,7 +164,7 @@ function Dashboard() {
                 <div className="order-items">
                   {order.items.map((item, i) => (
                     <div key={i} className="order-item">
-                      <img src="/media/corn-palak.png" alt={item.name} />
+                      <img src={item.image || "/media/corn-palak.png"} alt={item.name} />
                       <div className="order-item-info">
                         <span>{item.name}</span>
                         <div className="order-item-details">

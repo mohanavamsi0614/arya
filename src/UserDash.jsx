@@ -36,7 +36,7 @@ function UserDash() {
       {/* Right Side Content */}
       <div className="userdash-details">
         <div className="userdash-greeting">
-          <h2>Hello, Arya 👋🏻</h2>
+          <h2>Hello, {localStorage.getItem("name")} 👋🏻</h2>
         </div>
 
         <div className="orders-section">
