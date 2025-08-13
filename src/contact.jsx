@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 function Contact() {
   return (
     <div className="contact-container">
-      {/* Left Side Image and Heading */}
+      {/* Left Side Image and Headig */}
       <div className="contact-image">
         <Navbar />
         <img src="/media/ARYA-122.jpg" alt="Main Dish" />
