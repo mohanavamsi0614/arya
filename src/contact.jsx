@@ -1,6 +1,5 @@
 import "./App.css";
 import Navbar from './components/Navbar';
-
 function Contact() {
   return (
     <div className="contact-container">
