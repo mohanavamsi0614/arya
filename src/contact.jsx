@@ -35,42 +35,49 @@ function Contact() {
                         <div className='ckcjc7'>
                             <div className="c1az4bwh"></div>
                         </div>
-                        <span>16:00 - 22:30</span>
+                        <span>5:00pm - 10:00pm</span>
                     </li>
                     <li>
                         <span>Tue</span>
                         <div className='ckcjc7'>
                           <div className="c1az4bwh"></div>
                         </div>
-                        <span>16:00 - 22:30</span>
+                        <span>Closed</span>
                     </li>
                     <li>
                         <span>Wed</span>
                         <div className='ckcjc7'>
                           <div className="c1az4bwh"></div>
                         </div>
-                        <span>16:00 - 22:30</span>
+                        <span>5:00pm - 10:00pm</span>
                     </li>
                     <li>
                         <span>Thu</span>
                         <div className='ckcjc7'>
                           <div className="c1az4bwh"></div>
                         </div>
-                        <span>16:00 - 22:30</span>
+                        <span>5:00pm - 10:00pm</span>
                     </li>
                     <li>
                         <span>Fri</span>
                         <div className='ckcjc7'>
                           <div className="c1az4bwh"></div>
                         </div>
-                        <span>16:00 - 22:30</span>
+                        <span>5:00pm - 10:00pm</span>
                     </li>
                     <li>
-                        <span>Sat & Sun</span> 
+                        <span>Sat</span> 
                         <div className='ckcjc7'>
                           <div className="c1az4bwh"></div>
                         </div>
-                        <span>16:00 - 22:30</span>
+                        <span>12:00pm - 2:30pm & 5:00 - 8:30</span>
+                    </li>
+                     <li>
+                        <span>Sun</span> 
+                        <div className='ckcjc7'>
+                          <div className="c1az4bwh"></div>
+                        </div>
+                        <span>12:00pm - 2:30pm & 5:00pm - 8:30pm</span>
                     </li>
                 </ul>
             </div>
@@ -128,8 +135,8 @@ function Contact() {
                     ADDRESS
                 </p>
                 <p className="contact-info-title-details">
-                        23 Greenfield Avenue,<br />
-                    Prague 120 00
+                        264 London Road,<br />
+                    Carlisle CA12QS
                     </p>
                 </div>
 
@@ -138,7 +145,7 @@ function Contact() {
                     PHONE
                 </p>
                 <p className="contact-info-title-details">
-                    +42 1234 567890
+                    +44 7955 965365
                 </p>
                 </div>
                 <div className="contact-info-details">
