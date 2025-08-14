@@ -139,7 +139,7 @@ function Auth({ onAuthSuccess }) {
   return (
     <div className="auth-container">
       <div className="auth-image">
-        <img src="./apLVZGAMneXESKaZkziIssg86a8.webp" alt="Main Dish" />
+        <img src="/media/ARYA-22-2.jpg" alt="Main Dish" />
         <h1 className="auth-heading">
           {isLogin ? "LOGIN" : "SIGN UP"}
           <br />
