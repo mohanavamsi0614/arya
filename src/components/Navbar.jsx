@@ -138,13 +138,17 @@ function Navbar({ variant = "overlay" }) {
           <Link to="/cart" onClick={toggleOverlay}>
             CART
           </Link>  
-          <Link onClick={() => {
+          {localStorage.getItem("user") ?          <Link onClick={() => {
             localStorage.removeItem("user");
             localStorage.removeItem("admin");
             window.location.reload();
           }}>
             Log Out
           </Link>
+:
+<Link to="/auth" onClick={toggleOverlay}>
+  Signup/Sigin
+</Link> }
           <div className="icon-wrapper">
             <div className="diamond"></div>
             <div className="line"></div>

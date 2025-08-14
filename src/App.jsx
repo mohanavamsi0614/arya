@@ -40,11 +40,11 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={isAuthenticated ? <Home /> : <Navigate to="/auth" />}
+        element={ <Home />}
       />
       <Route
         path="/menu"
-        element={isAuthenticated ? <Menu /> : <Navigate to="/auth" />}
+        element={ <Menu /> }
       />
       {/* <Route
         path="/reservation"
@@ -52,7 +52,7 @@ function App() {
       /> */}
       <Route
         path="/about"
-        element={isAuthenticated ? <About /> : <Navigate to="/auth" />}
+        element={<About /> }
       />
       <Route
         path="/auth"
@@ -60,11 +60,11 @@ function App() {
       />
       <Route
         path="/contact"
-        element={isAuthenticated ? <Contact /> : <Navigate to="/auth" />}
+        element={ <Contact />}
       />
       <Route
         path="/blog"
-        element={isAuthenticated ? <Blog /> : <Navigate to="/auth" />}
+        element={ <Blog /> }
       />
       <Route
         path="/cart"
