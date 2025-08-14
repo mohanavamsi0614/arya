@@ -75,7 +75,7 @@ function Contact() {
                 </ul>
             </div>
 
-            {/* Image Gri */}
+            {/* Image Gi */}
             <div className="contact-image-grid">
                 <div className="contact-image-row1">
                     <div className="contact-image-item-1">
