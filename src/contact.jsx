@@ -70,14 +70,14 @@ function Contact() {
                         <div className='ckcjc7'>
                           <div className="c1az4bwh"></div>
                         </div>
-                        <span>12:00-2:30|5:00-10:10</span>
+                        <span>12:00-2:30 | 5:00-10:10</span>
                     </li>
                      <li>
                         <span>Sun</span> 
                         <div className='ckcjc7'>
                           <div className="c1az4bwh"></div>
                         </div>
-                        <span>12:00-2:30|5:00-8:30</span>
+                        <span>12:00-2:30 | 5:00-8:30</span>
                     </li>
                 </ul>
             </div>
@@ -153,16 +153,16 @@ function Contact() {
                     EMAIL
                 </p>
                 <p className="contact-info-title-details">
-                    info@qitchen.com
+                aryarestaurant6@gmail.com
                 </p>
                 </div>
                 <div className="contact-info-details">
-                <p className="contact-info-title">
+                {/* <p className="contact-info-title">
                     FOLLOW
                 </p>
                 <p className="contact-info-title-details">
                     [Social Media Icons Placeholder]
-                </p>
+                </p> */}
                 </div>
                 </div>
             </div>
