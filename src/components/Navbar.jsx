@@ -91,7 +91,7 @@ function Navbar({ variant = "overlay" }) {
             handleDashboardClick();
           }}>
             <span className="book-text-full">DASHBOARD</span>
-            <span className="book-text-short">DASH</span>
+            <span className="book-text-short">DASHBOARD</span>
           </a>
         ) : (
           <a href="#" className="book" onClick={(e) => {
@@ -99,7 +99,7 @@ function Navbar({ variant = "overlay" }) {
             handleBookClick();
           }}>
             <span className="book-text-full">BOOK A TABLE</span>
-            <span className="book-text-short">BOOK</span>
+            <span className="book-text-short">BOOK A TABLE</span>
           </a>
         )}
       </nav>
