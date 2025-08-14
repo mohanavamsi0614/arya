@@ -36,6 +36,14 @@ function App() {
     }
   }, [isAuthenticated, location.pathname, navigate]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const user = localStorage.getItem("user");
+      setIsAuthenticated(!!user);
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Routes>
       <Route
