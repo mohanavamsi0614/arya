@@ -8,7 +8,7 @@ import "./App.css";
 import Book from "./Book";
 import Auth from "./Auth";
 import About from "./About";
-import Contact from "./Contact";
+import Contact from "./contact";
 import Blog from "./Blog";
 import Cart from "./Cart";
 import Dashboard from "./Dashboard";
