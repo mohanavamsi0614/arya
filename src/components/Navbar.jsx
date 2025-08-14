@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -138,10 +139,12 @@ function Navbar({ variant = "overlay" }) {
           <Link to="/cart" onClick={toggleOverlay}>
             CART
           </Link>  
-          {localStorage.getItem("user") ?          <Link onClick={() => {
-            localStorage.removeItem("user");
-            localStorage.removeItem("admin");
-            window.location.reload();
+          {localStorage.getItem("user") ?          
+          <Link onClick={async() => {
+
+            await axios.post("https://arya-server.onrender.com/api/cart",{userId: localStorage.getItem("user"),items:localStorage.getItem("cartItems")?JSON.parse(localStorage.getItem("cartItems")):[]});
+            localStorage.clear();
+            window.location.replace("/");
           }}>
             Log Out
           </Link>

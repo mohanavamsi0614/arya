@@ -60,7 +60,16 @@ function Cart() {
 
   const getSubtotal = () => {
     return cartItems.reduce((total, item) => {
-      return total + (parseFloat(item.price.replace('£', '')) * item.quantity);
+      let price = 0;
+      if (typeof item.price === 'number') {
+        price = item.price;
+      } else if (typeof item.price === 'string') {
+        // Remove currency symbol and parse
+        const cleaned = item.price.replace(/[^\d.]/g, '');
+        price = parseFloat(cleaned);
+        if (isNaN(price)) price = 0;
+      }
+      return total + (price * (item.quantity || 1));
     }, 0);
   };
 
@@ -77,11 +86,15 @@ function Cart() {
     const subtotal = getSubtotal();
     const serviceFee = 0.6;
     const deliveryFee = getDeliveryFee();
+    if (orderType === "collection") {
+      return subtotal + serviceFee; 
+    }
     return subtotal + serviceFee + deliveryFee;
   };
 
   const handleDistanceChange = (distance) => {
     setSelectedDistance(distance);
+    setOrderType('homedelivery');
   };
 
   const handleOrderOnline = () => {
@@ -168,6 +181,13 @@ function Cart() {
       image: item.image,
       description: item.description || "No description available."
     }));
+    items.push({
+      name: "Delivery",
+      price: Number(selectedDistance ? selectedDistance.price : 0),
+      quantity: 1,
+      image: "https://res.cloudinary.com/dus9hgplo/image/upload/v1755147493/delivary_x6eyql.jpg",
+      description: "Delivery Charge"
+    });
     const stripe = await loadStripe("pk_test_51OqSY6SCGNUdxrLKg60mlKkyEXe2C7UByMDn6hIWRvoTBYRGz9W2epYsPgcORaSLiA0KBorgfPrSKVUSaG6ViAj400hmhE8dcL");
     try {
       const res = await axios.post("https://arya-server.onrender.com/api/create-checkout-session", {
