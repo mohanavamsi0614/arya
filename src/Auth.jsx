@@ -70,6 +70,14 @@ function Auth({ onAuthSuccess }) {
         localStorage.setItem("user", data.userId);
         localStorage.setItem("name", data.username);
         localStorage.setItem("cartItems", data.cartItems ? JSON.stringify(data.cartItems) : "[]");
+                if (["shivavarma336@gmail.com","aryarestaurant6@gmail.com","mohanavamsi14@gmail.com"].includes(data.email)){
+          localStorage.setItem("admin", "yes");
+        }
+        else{
+          localStorage.setItem("admin","No")
+        }
+        localStorage.setItem("email", JSON.stringify(response.data.email));
+
         if (onAuthSuccess) {
           onAuthSuccess(); // This sets App's `isAuthenticated` to true
           nav("/"); // Then redirect to home
@@ -117,7 +125,9 @@ function Auth({ onAuthSuccess }) {
 
       if (response.ok) {
         setMessage("Account created successfully!");
-        localStorage.setItem("user", JSON.stringify(data.name));
+        localStorage.setItem("user", JSON.stringify(data.userId));
+                localStorage.setItem("name", data.username);
+        localStorage.setItem("cartItems", data.cartItems ? JSON.stringify(data.cartItems) : "[]");
         if (["shivavarma336@gmail.com","aryarestaurant6@gmail.com","mohanavamsi14@gmail.com"].includes(data.email)){
           localStorage.setItem("admin", "yes");
         }
@@ -126,7 +136,7 @@ function Auth({ onAuthSuccess }) {
         }
         localStorage.setItem("email", JSON.stringify(response.data.email));
         if (onAuthSuccess) onAuthSuccess(); // Update App state
-        nav("/");
+        // nav("/");
       } else {
         setMessage(data.message || `Signup failed (${response.status})`);
       }
