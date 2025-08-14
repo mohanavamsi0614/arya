@@ -70,14 +70,14 @@ function Contact() {
                         <div className='ckcjc7'>
                           <div className="c1az4bwh"></div>
                         </div>
-                        <span>12:00pm - 2:30pm & 5:00 - 8:30</span>
+                        <span>12:00pm-2:30pm|5:00pm-10:10pm</span>
                     </li>
                      <li>
                         <span>Sun</span> 
                         <div className='ckcjc7'>
                           <div className="c1az4bwh"></div>
                         </div>
-                        <span>12:00pm - 2:30pm & 5:00pm - 8:30pm</span>
+                        <span>12:00pm-2:30pm|5:00pm-8:30pm</span>
                     </li>
                 </ul>
             </div>
