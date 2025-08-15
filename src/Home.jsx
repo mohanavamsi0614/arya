@@ -51,7 +51,7 @@ function Home() {
             <div className="video-gradient"></div>
             <div className="hero-title-container">
               <h1 className="hero-title">
-                Arya<br />Sensation
+                Asian<br />Sensation
               </h1>
             </div>
             <div className="social-section">
