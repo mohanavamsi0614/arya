@@ -40,7 +40,7 @@ function SignUp() {
         localStorage.setItem("name", response.data.username);
         localStorage.setItem("cartItems", response.data.cartItems ? JSON.stringify(response.data.cartItems) : "[]");
 
-        if (["shivavarma336@gmail.com","aryarestaurant6@gmail.com","mohanavamsi14@gmail.com"].includes(response.data.email)){
+        if (["shivavarma336@gmail.com","aryarestaurant6@gmail.com","mohanavamsi14@gmail.com", "jatinjayadev@gmail.com"].includes(response.data.email)){
           localStorage.setItem("admin", "yes");
         }
         else{
