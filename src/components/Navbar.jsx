@@ -13,8 +13,9 @@ function Navbar({ variant = "overlay" }) {
   // Check admin status and screen size
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    const checkAdmin = () => setIsAdmin(localStorage.getItem("admin") === "yes");
-    
+    const checkAdmin = () =>
+      setIsAdmin(localStorage.getItem("admin") === "yes");
+
     checkMobile();
     checkAdmin();
     window.addEventListener("resize", checkMobile);
@@ -46,9 +47,8 @@ function Navbar({ variant = "overlay" }) {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [overlayOpen]);
 
-  const navbarClass = variant === "overlay" 
-    ? "navbar navbar-overlay" 
-    : "navbar navbar-fixed";
+  const navbarClass =
+    variant === "overlay" ? "navbar navbar-overlay" : "navbar navbar-fixed";
 
   return (
     <>
@@ -86,25 +86,36 @@ function Navbar({ variant = "overlay" }) {
         </div>
 
         {isAdmin ? (
-          <a href="#" className="book" onClick={(e) => {
-            e.preventDefault();
-            handleDashboardClick();
-          }}>
+          <a
+            href="#"
+            className="book"
+            onClick={(e) => {
+              e.preventDefault();
+              handleDashboardClick();
+            }}
+          >
             <span className="book-text-full">DASHBOARD</span>
             <span className="book-text-short">DASHBOARD</span>
           </a>
         ) : (
-          <a href="#" className="book" onClick={(e) => {
-            e.preventDefault();
-            handleBookClick();
-          }}>
+          <a
+            href="#"
+            className="book"
+            onClick={(e) => {
+              e.preventDefault();
+              handleBookClick();
+            }}
+          >
             <span className="book-text-full">BOOK A TABLE</span>
             <span className="book-text-short">BOOK A TABLE</span>
           </a>
         )}
       </nav>
 
-      <div className={`overlay ${overlayOpen ? "active" : ""}`} id="fullscreenNav">
+      <div
+        className={`overlay ${overlayOpen ? "active" : ""}`}
+        id="fullscreenNav"
+      >
         <button
           className="close-btn"
           onClick={toggleOverlay}
@@ -138,20 +149,27 @@ function Navbar({ variant = "overlay" }) {
           </Link>
           <Link to="/cart" onClick={toggleOverlay}>
             CART
-          </Link>  
-          {localStorage.getItem("user") ?          
-          <Link onClick={async() => {
-
-            axios.post("http://localhost:5000/api/cart",{userId: localStorage.getItem("user"),items:localStorage.getItem("cartItems")?JSON.parse(localStorage.getItem("cartItems")):[]});
-            localStorage.clear();
-            window.location.replace("/");
-          }}>
-            Log Out
           </Link>
-:
-<Link to="/auth" onClick={toggleOverlay}>
-  Signup/Sigin
-</Link> }
+          {localStorage.getItem("user") ? (
+            <Link
+              onClick={async () => {
+                axios.post("https://arya-server.onrender.com/api/cart", {
+                  userId: localStorage.getItem("user"),
+                  items: localStorage.getItem("cartItems")
+                    ? JSON.parse(localStorage.getItem("cartItems"))
+                    : [],
+                });
+                localStorage.clear();
+                window.location.replace("/");
+              }}
+            >
+              Log Out
+            </Link>
+          ) : (
+            <Link to="/auth" onClick={toggleOverlay}>
+              Signup/Sigin
+            </Link>
+          )}
           <div className="icon-wrapper">
             <div className="diamond"></div>
             <div className="line"></div>

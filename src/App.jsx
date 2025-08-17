@@ -89,7 +89,7 @@ function App() {
       />
       <Route
         path="/profile"
-        element={isAuthenticated ? <UserDash /> : <Navigate to="/auth" />}
+        element={ <UserDash /> }
 />
 <Route
         path="/book"
