@@ -15,6 +15,7 @@ import Dashboard from "./Dashboard";
 import Success from "./suc";
 import UserDash from "./UserDash";
 import Reservation from "./reservation";
+import OwnerDashboard from "./OwnerDashboard";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -93,6 +94,11 @@ function App() {
 <Route
         path="/reservation"
         element={isAuthenticated ? <Reservation /> : <Navigate to="/auth" />}
+ 
+      />
+<Route
+        path="/ownerdashboard"
+        element={isAuthenticated ? <OwnerDashboard /> : <Navigate to="/auth" />}
  
       />
     </Routes>
