@@ -5,7 +5,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { BsVolumeUp, BsVolumeMute } from "react-icons/bs";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://arya-server.onrender.com");
 
 function Dashboard() {
   const [orders, setorders] = useState([]);
@@ -15,7 +15,7 @@ function Dashboard() {
   const [soundEnabled, setSoundEnabled] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/orders").then((res) => {
+    axios.get("https://arya-server.onrender.com/api/orders").then((res) => {
       setorders(res.data.reverse());
     });
   }, []);
@@ -45,7 +45,7 @@ function Dashboard() {
   const typeOptions = ["All", "dinein", "Collection", "homedelivery"];
 
   const handleAcceptOrder = (id) => {
-    axios.post(`http://localhost:5000/api/order-status`, { status: "On Process", orderId: id }).then((res) => {
+    axios.post(`https://arya-server.onrender.com/api/order-status`, { status: "On Process", orderId: id }).then((res) => {
       setorders(orders.map(order => order._id === id ? { ...order, status: "On Process" } : order));
     }).catch((error) => {
       console.error("Error accepting order:", error);
@@ -53,7 +53,7 @@ function Dashboard() {
   };
 
   const handleCompleteOrder = (id) => {
-    axios.post(`http://localhost:5000/api/order-status`, { status: "Completed", orderId: id }).then((res) => {
+    axios.post(`https://arya-server.onrender.com/api/order-status`, { status: "Completed", orderId: id }).then((res) => {
       setorders(orders.map(order => order._id === id ? { ...order, status: "Completed" } : order));
     }).catch((error) => {
       console.error("Error completing order:", error);
@@ -61,7 +61,7 @@ function Dashboard() {
   };
 
   const handleRejectOrder = (id) => {
-    axios.post(`http://localhost:5000/api/order-status`, { status: "rejected", orderId: id }).then((res) => {
+    axios.post(`https://arya-server.onrender.com/api/order-status`, { status: "rejected", orderId: id }).then((res) => {
       setorders(orders.map(order => order._id === id ? { ...order, status: "rejected" } : order));
     }).catch((error) => {
       console.error("Error rejecting order:", error);

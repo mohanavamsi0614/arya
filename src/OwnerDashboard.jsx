@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const OwnerDashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [activeView, setActiveView] = useState('list');
   
-  // Table capacity configuration
   const tableCapacity = {
     1: { min: 1, max: 4 },
     2: { min: 1, max: 4 },
@@ -20,113 +20,59 @@ const OwnerDashboard = () => {
     12: { min: 1, max: 4 }
   };
 
-  // Check if guest count is within table capacity
   const isValidCapacity = (tableNumber, guestCount) => {
     const capacity = tableCapacity[tableNumber];
     if (!capacity) return false;
     return guestCount >= capacity.min && guestCount <= capacity.max;
   };
 
-  // Sample reservation data
-  const [reservations, setReservations] = useState([
-    {
-      id: 1,
-      name: 'Winston Pitt',
-      mobile: '+1234567890',
-      email: 'winston@example.com',
-      tableNumber: 12,
-      reservationTime: '12:30',
-      reservationDate: '2025-08-16',
-      status: 'occupied',
-      guests: 3,
-      duration: 2
-    },
-    {
-      id: 2,
-      name: 'Sara Lewis',
-      mobile: '+1234567891',
-      email: 'sara@example.com',
-      tableNumber: 5,
-      reservationTime: '19:00',
-      reservationDate: '2025-08-16',
-      status: 'occupied',
-      guests: 4,
-      duration: 2
-    },
-    {
-      id: 3,
-      name: 'pavanth',
-      mobile: '+1234567892',
-      email: 'pavanth@example.com',
-      tableNumber: 1,
-      reservationTime: '19:00',
-      reservationDate: '2025-08-16',
-      status: 'pending',
-      guests: 2,
-      duration: 1.5
-    },
-    {
-      id: 4,
-      name: 'John Smith',
-      mobile: '+1234567893',
-      email: 'john@example.com',
-      tableNumber: 8,
-      reservationTime: '20:30',
-      reservationDate: '2025-08-17',
-      status: 'pending',
-      guests: 6,
-      duration: 2.5
-    },
-    {
-      id: 5,
-      name: 'Alice Johnson',
-      mobile: '+1234567894',
-      email: 'alice@example.com',
-      tableNumber: 3,
-      reservationTime: '18:45',
-      reservationDate: '2025-08-16',
-      status: 'occupied',
-      guests: 2,
-      duration: 1
-    },
-    {
-      id: 6,
-      name: 'Mike Wilson',
-      mobile: '+1234567895',
-      email: 'mike@example.com',
-      tableNumber: 7,
-      reservationTime: '21:15',
-      reservationDate: '2025-08-16',
-      status: 'pending',
-      guests: 4,
-      duration: 2
-    }
-  ]);
+  const [reservations, setReservations] = useState([]);
 
-  // Filter reservations by selected date
   const todaysReservations = reservations.filter(
     reservation => reservation.reservationDate === selectedDate
   );
 
-  // Calculate statistics
+  useEffect(() => {
+    axios.get(`https://arya-server.onrender.com/api/reservations/${selectedDate}`)
+      .then(response => {
+        const mapped = response.data.map(r => ({
+          id: r._id,
+          name: r.name,
+          email: r.email,
+          mobile: r.phone,
+          tableNumber: r.table,
+          reservationDate: r.date || r.reservationDate,
+          reservationTime: r.startTime,
+          endTime: r.endTime,
+          status: r.status || 'pending',
+          guests: r.guests || '',
+          duration: r.duration || 1,
+        }));
+        setReservations(mapped);
+      })
+      .catch(error => {
+        console.error('Error fetching reservations:', error);
+      });
+  }, [selectedDate]);
+
   const totalReservations = todaysReservations.length;
   const pendingReservations = todaysReservations.filter(r => r.status === 'pending').length;
-  const occupiedReservations = todaysReservations.filter(r => r.status === 'occupied').length;
+  const occupiedReservations = todaysReservations.filter(r => r.status === 'accepted').length;
   const totalTables = 12;
   const availableTables = totalTables - occupiedReservations;
 
-  // Handle reservation status change
-  const handleStatusChange = (id, newStatus) => {
+  const handleStatusChange = async (id, newStatus) => {
+    console.log("Changing status for reservation:", id, "to", newStatus);
+    await axios.post("https://arya-server.onrender.com/api/reservations/"+id, { status: newStatus });
     setReservations(prevReservations =>
       prevReservations.map(reservation =>
-        reservation.id === id
+        reservation._id === id
           ? { ...reservation, status: newStatus }
           : reservation
       )
     );
   };
 
-  // Calculate end time for reservation
   const calculateEndTime = (startTime, durationHours) => {
     const [hours, minutes] = startTime.split(':').map(Number);
     const startMinutes = hours * 60 + minutes;
@@ -136,7 +82,6 @@ const OwnerDashboard = () => {
     return `${endHours}:${endMins.toString().padStart(2, '0')}`;
   };
 
-  // Generate time slots for timeline (30-minute intervals)
   const generateTimeSlots = () => {
     const slots = [];
     for (let hour = 12; hour <= 23; hour++) {
@@ -148,11 +93,11 @@ const OwnerDashboard = () => {
     return slots;
   };
 
-  // Check if a reservation overlaps with a time slot
   const isReservationActiveAtTime = (reservation, timeSlot) => {
-    if (reservation.status !== 'occupied') return false;
-    
-    const isInTodaysList = todaysReservations.some(r => r.id === reservation.id);
+    console.log(reservation || "ewjhkj")
+  const isInTodaysList = todaysReservations.some(r => r._id === reservation._id);
+  if (reservation.status !== 'accepted') return false;
+
     if (!isInTodaysList) return false;
     
     const timeToMinutes = (timeStr) => {
@@ -172,7 +117,7 @@ const OwnerDashboard = () => {
   const getReservationAtTime = (time, tableNumber) => {
     return todaysReservations.find(
       reservation => 
-        reservation.tableNumber === tableNumber &&
+        reservation.tableNumber == tableNumber &&
         isReservationActiveAtTime(reservation, time)
     );
   };
@@ -200,9 +145,9 @@ const OwnerDashboard = () => {
             .map(reservation => {
               const validCapacity = isValidCapacity(reservation.tableNumber, reservation.guests);
               const capacity = tableCapacity[reservation.tableNumber];
-              
+
               return (
-                <div key={reservation.id} className="table-row">
+                <div key={reservation._id} className="table-row">
                   <div className="time-cell">
                     {reservation.reservationTime} - {calculateEndTime(reservation.reservationTime, reservation.duration)}
                   </div>
@@ -222,7 +167,7 @@ const OwnerDashboard = () => {
                   <div className="status-cell">
                     <span className={`status-badge ${reservation.status}`}>
                       {reservation.status === 'pending' && '🟡 Pending'}
-                      {reservation.status === 'occupied' && '🔴 Occupied'}
+                      {reservation.status === 'accepted' && '🔴 Occupied'}
                       {reservation.status === 'cancelled' && '❌ Cancelled'}
                     </span>
                   </div>
@@ -231,22 +176,22 @@ const OwnerDashboard = () => {
                       <>
                         <button 
                           className="accept-btn"
-                          onClick={() => handleStatusChange(reservation.id, 'occupied')}
+                          onClick={() => handleStatusChange(reservation._id, 'accepted')}
                         >
                           Accept
                         </button>
                         <button 
                           className="cancel-btn"
-                          onClick={() => handleStatusChange(reservation.id, 'cancelled')}
+                          onClick={() => handleStatusChange(reservation._id, 'cancelled')}
                         >
                           Cancel
                         </button>
                       </>
                     )}
-                    {reservation.status === 'occupied' && (
+                    {reservation.status === 'accepted' && (
                       <button 
                         className="cancel-btn"
-                        onClick={() => handleStatusChange(reservation.id, 'cancelled')}
+                        onClick={() => handleStatusChange(reservation._id, 'cancelled')}
                       >
                         Cancel
                       </button>
@@ -284,6 +229,7 @@ const OwnerDashboard = () => {
                 <div className="time-slot">{time}</div>
                 {[...Array(13)].map((_, tableIndex) => {
                   const tableNumber = tableIndex + 1;
+                  console.log(tableNumber)
                   const reservation = getReservationAtTime(time, tableNumber);
                   
                   return (
@@ -294,7 +240,7 @@ const OwnerDashboard = () => {
                       {reservation && (
                         <div className="reservation-info">
                           <div className="guest-name">{reservation.name}</div>
-                          <div className="guest-time">{reservation.reservationTime}</div>
+                          <div className="guest-time">{reservation.reservationTime} - {reservation.endTime || calculateEndTime(reservation.reservationTime, reservation.duration)}</div>
                         </div>
                       )}
                     </div>
