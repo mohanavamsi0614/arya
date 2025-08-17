@@ -1,10 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const OwnerDashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [activeView, setActiveView] = useState('list');
   
-  // Sample reservation data - in real app, this would come from your backend
+  // Table capacity configuration
+  const tableCapacity = {
+    1: { min: 1, max: 4 },
+    2: { min: 1, max: 4 },
+    3: { min: 1, max: 6 },
+    4: { min: 1, max: 5 },
+    5: { min: 1, max: 4 },
+    6: { min: 1, max: 4 },
+    7: { min: 1, max: 4 },
+    8: { min: 1, max: 4 },
+    9: { min: 1, max: 2 },
+    10: { min: 1, max: 4 },
+    11: { min: 1, max: 4 },
+    12: { min: 1, max: 4 }
+  };
+
+  // Check if guest count is within table capacity
+  const isValidCapacity = (tableNumber, guestCount) => {
+    const capacity = tableCapacity[tableNumber];
+    if (!capacity) return false;
+    return guestCount >= capacity.min && guestCount <= capacity.max;
+  };
+
+  // Sample reservation data
   const [reservations, setReservations] = useState([
     {
       id: 1,
@@ -16,7 +39,7 @@ const OwnerDashboard = () => {
       reservationDate: '2025-08-16',
       status: 'occupied',
       guests: 3,
-      duration: 2 // hours
+      duration: 2
     },
     {
       id: 2,
@@ -89,7 +112,7 @@ const OwnerDashboard = () => {
   const totalReservations = todaysReservations.length;
   const pendingReservations = todaysReservations.filter(r => r.status === 'pending').length;
   const occupiedReservations = todaysReservations.filter(r => r.status === 'occupied').length;
-  const totalTables = 13;
+  const totalTables = 12;
   const availableTables = totalTables - occupiedReservations;
 
   // Handle reservation status change
@@ -103,18 +126,6 @@ const OwnerDashboard = () => {
     );
   };
 
-  // Generate time slots for timeline (30-minute intervals)
-  const generateTimeSlots = () => {
-    const slots = [];
-    for (let hour = 12; hour <= 23; hour++) {
-      slots.push(`${hour}:00`);
-      if (hour < 23) { // Don't add :30 for the last hour
-        slots.push(`${hour}:30`);
-      }
-    }
-    return slots;
-  };
-
   // Calculate end time for reservation
   const calculateEndTime = (startTime, durationHours) => {
     const [hours, minutes] = startTime.split(':').map(Number);
@@ -125,15 +136,25 @@ const OwnerDashboard = () => {
     return `${endHours}:${endMins.toString().padStart(2, '0')}`;
   };
 
-  // Check if a reservation overlaps with a time slot (only for active reservations in list)
+  // Generate time slots for timeline (30-minute intervals)
+  const generateTimeSlots = () => {
+    const slots = [];
+    for (let hour = 12; hour <= 23; hour++) {
+      slots.push(`${hour}:00`);
+      if (hour < 23) {
+        slots.push(`${hour}:30`);
+      }
+    }
+    return slots;
+  };
+
+  // Check if a reservation overlaps with a time slot
   const isReservationActiveAtTime = (reservation, timeSlot) => {
     if (reservation.status !== 'occupied') return false;
     
-    // Only show reservations that exist in today's list
     const isInTodaysList = todaysReservations.some(r => r.id === reservation.id);
     if (!isInTodaysList) return false;
     
-    // Convert times to minutes for easier comparison
     const timeToMinutes = (timeStr) => {
       const [hours, minutes] = timeStr.split(':').map(Number);
       return hours * 60 + minutes;
@@ -141,13 +162,13 @@ const OwnerDashboard = () => {
     
     const slotMinutes = timeToMinutes(timeSlot);
     const reservationMinutes = timeToMinutes(reservation.reservationTime);
-    const reservationDuration = (reservation.duration || 2) * 60; // Use reservation duration
+    const reservationDuration = (reservation.duration || 2) * 60;
     
     return slotMinutes >= reservationMinutes && 
            slotMinutes < reservationMinutes + reservationDuration;
   };
 
-  // Get reservation for specific time and table (only from today's reservations)
+  // Get reservation for specific time and table
   const getReservationAtTime = (time, tableNumber) => {
     return todaysReservations.find(
       reservation => 
@@ -176,56 +197,67 @@ const OwnerDashboard = () => {
           </div>
           {todaysReservations
             .sort((a, b) => a.reservationTime.localeCompare(b.reservationTime))
-            .map(reservation => (
-            <div key={reservation.id} className="table-row">
-              <div className="time-cell">
-                {reservation.reservationTime} - {calculateEndTime(reservation.reservationTime, reservation.duration)}
-              </div>
-              <div className="name-cell">
-                <strong>{reservation.name}</strong>
-                <small>{reservation.email}</small>
-              </div>
-              <div className="contact-cell">{reservation.mobile}</div>
-              <div className="table-cell">Table {reservation.tableNumber}</div>
-              <div className="guests-cell">{reservation.guests}</div>
-              <div className="status-cell">
-                <span className={`status-badge ${reservation.status}`}>
-                  {reservation.status === 'pending' && '🟡 Pending'}
-                  {reservation.status === 'occupied' && '🔴 Occupied'}
-                  {reservation.status === 'cancelled' && '❌ Cancelled'}
-                </span>
-              </div>
-              <div className="actions-cell">
-                {reservation.status === 'pending' && (
-                  <>
-                    <button 
-                      className="accept-btn"
-                      onClick={() => handleStatusChange(reservation.id, 'occupied')}
-                    >
-                      Accept
-                    </button>
-                    <button 
-                      className="cancel-btn"
-                      onClick={() => handleStatusChange(reservation.id, 'cancelled')}
-                    >
-                      Cancel
-                    </button>
-                  </>
-                )}
-                {reservation.status === 'occupied' && (
-                  <button 
-                    className="cancel-btn"
-                    onClick={() => handleStatusChange(reservation.id, 'cancelled')}
-                  >
-                    Cancel
-                  </button>
-                )}
-                {reservation.status === 'cancelled' && (
-                  <span className="cancelled-text">Cancelled</span>
-                )}
-              </div>
-            </div>
-          ))}
+            .map(reservation => {
+              const validCapacity = isValidCapacity(reservation.tableNumber, reservation.guests);
+              const capacity = tableCapacity[reservation.tableNumber];
+              
+              return (
+                <div key={reservation.id} className="table-row">
+                  <div className="time-cell">
+                    {reservation.reservationTime} - {calculateEndTime(reservation.reservationTime, reservation.duration)}
+                  </div>
+                  <div className="name-cell">
+                    <strong>{reservation.name}</strong>
+                    <small>{reservation.email}</small>
+                  </div>
+                  <div className="contact-cell">{reservation.mobile}</div>
+                  <div className="table-cell">
+                    Table {reservation.tableNumber}
+                    <small className="capacity-info">({capacity?.min}-{capacity?.max} persons)</small>
+                  </div>
+                  <div className={`guests-cell ${!validCapacity ? 'capacity-exceeded' : ''}`}>
+                    {reservation.guests}
+                    {!validCapacity && <span className="capacity-warning">⚠️</span>}
+                  </div>
+                  <div className="status-cell">
+                    <span className={`status-badge ${reservation.status}`}>
+                      {reservation.status === 'pending' && '🟡 Pending'}
+                      {reservation.status === 'occupied' && '🔴 Occupied'}
+                      {reservation.status === 'cancelled' && '❌ Cancelled'}
+                    </span>
+                  </div>
+                  <div className="actions-cell">
+                    {reservation.status === 'pending' && (
+                      <>
+                        <button 
+                          className="accept-btn"
+                          onClick={() => handleStatusChange(reservation.id, 'occupied')}
+                        >
+                          Accept
+                        </button>
+                        <button 
+                          className="cancel-btn"
+                          onClick={() => handleStatusChange(reservation.id, 'cancelled')}
+                        >
+                          Cancel
+                        </button>
+                      </>
+                    )}
+                    {reservation.status === 'occupied' && (
+                      <button 
+                        className="cancel-btn"
+                        onClick={() => handleStatusChange(reservation.id, 'cancelled')}
+                      >
+                        Cancel
+                      </button>
+                    )}
+                    {reservation.status === 'cancelled' && (
+                      <span className="cancelled-text">Cancelled</span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
         </div>
       )}
     </div>
@@ -440,7 +472,7 @@ const OwnerDashboard = () => {
 
         .table-header {
           display: grid;
-          grid-template-columns: 140px 200px 150px 80px 60px 100px 160px;
+          grid-template-columns: 140px 200px 150px 100px 80px 100px 160px;
           gap: 10px;
           padding: 15px 10px;
           background: #404040;
@@ -451,7 +483,7 @@ const OwnerDashboard = () => {
 
         .table-row {
           display: grid;
-          grid-template-columns: 140px 200px 150px 80px 60px 100px 160px;
+          grid-template-columns: 140px 200px 150px 100px 80px 100px 160px;
           gap: 10px;
           padding: 15px 10px;
           border-bottom: 1px solid #404040;
@@ -479,8 +511,38 @@ const OwnerDashboard = () => {
           font-size: 12px;
         }
 
-        .time-cell, .contact-cell, .table-cell, .guests-cell {
+        .time-cell, .contact-cell {
           color: #EFE7D2;
+        }
+
+        .table-cell {
+          display: flex;
+          flex-direction: column;
+          color: #EFE7D2;
+        }
+
+        .capacity-info {
+          color: #EFE7D2;
+          opacity: 0.6;
+          font-size: 10px;
+          margin-top: 2px;
+        }
+
+        .guests-cell {
+          color: #EFE7D2;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+
+        .guests-cell.capacity-exceeded {
+          color: #e74c3c;
+          font-weight: bold;
+        }
+
+        .capacity-warning {
+          font-size: 14px;
+          color: #f39c12;
         }
 
         .status-badge {
@@ -635,7 +697,6 @@ const OwnerDashboard = () => {
           color: #EFE7D2;
         }
 
-        /* Responsive Design - Desktop First */
         @media (max-width: 1200px) {
           .owner-dashboard {
             padding: 15px;
@@ -650,7 +711,7 @@ const OwnerDashboard = () => {
           }
 
           .table-header, .table-row {
-            grid-template-columns: 120px 180px 130px 70px 50px 90px 140px;
+            grid-template-columns: 120px 180px 130px 90px 70px 90px 140px;
             gap: 8px;
           }
 
@@ -659,7 +720,6 @@ const OwnerDashboard = () => {
           }
         }
 
-        /* Tablet Styles */
         @media (max-width: 968px) {
           .owner-dashboard {
             padding: 12px;
@@ -682,7 +742,7 @@ const OwnerDashboard = () => {
           }
 
           .table-header, .table-row {
-            grid-template-columns: 100px 160px 120px 60px 45px 80px 120px;
+            grid-template-columns: 100px 160px 120px 80px 60px 80px 120px;
             gap: 6px;
             font-size: 13px;
           }
@@ -710,7 +770,6 @@ const OwnerDashboard = () => {
           }
         }
 
-        /* Mobile Styles */
         @media (max-width: 768px) {
           .owner-dashboard {
             padding: 8px;
@@ -770,6 +829,15 @@ const OwnerDashboard = () => {
             margin-left: auto;
           }
 
+          .table-cell {
+            flex-direction: column;
+            align-items: flex-end;
+          }
+
+          .guests-cell {
+            justify-content: flex-end;
+          }
+
           .actions-cell {
             justify-content: center;
             margin-top: 10px;
@@ -794,7 +862,6 @@ const OwnerDashboard = () => {
           }
         }
 
-        /* Small Mobile Styles */
         @media (max-width: 480px) {
           .owner-dashboard {
             padding: 5px;
@@ -850,7 +917,6 @@ const OwnerDashboard = () => {
           }
         }
 
-        /* Custom Scrollbar for Dark Theme */
         .timeline-body::-webkit-scrollbar {
           width: 6px;
         }
@@ -868,6 +934,7 @@ const OwnerDashboard = () => {
           background: #777777;
         }
       `}</style>
+
       <header className="dashboard-header">
         <h1>Restaurant Owner Dashboard</h1>
         <CalendarPicker />

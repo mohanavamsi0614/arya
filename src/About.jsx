@@ -151,7 +151,7 @@ const About = () => {
             {/* <p>We're on a journey to blend spices, stories, and setting from the East and West into every plate we serve. Though new, our vision is timeless: to serve soulful dishes that bridge worlds.</p> */}
           </div>
         </div>
-        <div className="reservation-footer">
+        <div className="about-footer">
             <p className="reservation-footer-text">
               By submitting, you agree to our Terms of Service and  Privacy Policy
             </p>

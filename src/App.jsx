@@ -55,10 +55,10 @@ function App() {
         path="/menu"
         element={ <Menu /> }
       />
-      {/* <Route
+      <Route
         path="/reservation"
         element={isAuthenticated ? <Book /> : <Navigate to="/auth" />}
-      /> */}
+      />
       <Route
         path="/about"
         element={<About /> }
@@ -92,7 +92,7 @@ function App() {
         element={isAuthenticated ? <UserDash /> : <Navigate to="/auth" />}
 />
 <Route
-        path="/reservation"
+        path="/book"
         element={isAuthenticated ? <Reservation /> : <Navigate to="/auth" />}
  
       />

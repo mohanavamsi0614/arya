@@ -3376,7 +3376,8 @@ max-height: 100vh;
   border: 1px solid #444;
   border-radius: 16px;
   padding: 24px;
-  text-align: center  ;
+  text-align: center;
+  display: none;
 }
 
 .reservation-header {
@@ -3602,7 +3603,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
 
   .form-input {
-    font-size: 14px;
+    font-size: 12px;
     padding: 16px 24px;
   }
 

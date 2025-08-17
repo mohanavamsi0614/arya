@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import Reservation from "./reservation";
 import "./App.css";
 
 function Book() {
@@ -25,7 +26,7 @@ function Book() {
       {/* Right Form */}
       <div className="book-right">
         <div className="reservation-container">
-          <div className="reservation-header">
+          {/* <div className="reservation-header">
             <div className="reservation-decor">
               <span className="diamond-line left">
                 <span className="diamond-shape" />
@@ -42,10 +43,11 @@ function Book() {
               <br className="hide-on-mobile" />
               remarkable dining experience await.
             </p>
-          </div>
+          </div> */}
 
           {/* Form */}
-          <div className="reservation-form">
+          <Reservation/>
+          {/* <div className="reservation-form">
             <input placeholder="Your Name" className="form-input" />
             <input placeholder="Phone Number" type="tel" className="form-input" />
             <input placeholder="Email" type="email" className="form-input" />
@@ -67,7 +69,7 @@ function Book() {
             >
               SUBMIT
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="reservation-footer">
             <p className="reservation-footer-text">

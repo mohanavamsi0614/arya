@@ -335,7 +335,7 @@ img {
 }
 
 
-.reservation-footer{
+.about-footer{
   border: 1px solid #444;
   border-radius: 16px;
   padding: 24px;
@@ -343,10 +343,6 @@ img {
   /* display: none; */
   width: 100%;
 }
-
-
-
-
 
 
 /* --------------------- Tablet Devices --------------------- */
