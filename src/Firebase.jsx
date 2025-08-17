@@ -26,19 +26,20 @@ function SignUp() {
   const handleGoogleSignIn = () => {
     setLoading(true);
     signInWithPopup(auth, provider)
-      .then((result) => {
+      .then(async (result) => {
         const user = result.user;
         const payload = {
           username: user.displayName,
           email: user.email,
           google: true
         };
-        return axios.post("https://arya-server.onrender.com/api/auth", payload);
+        return await axios.post("http://localhost:5000/api/auth", payload);
       })
       .then((response) => {
         localStorage.setItem("user", (response.data.userId));
         localStorage.setItem("name", response.data.username);
         localStorage.setItem("cartItems", response.data.cartItems ? JSON.stringify(response.data.cartItems) : "[]");
+        localStorage.setItem("coins", response.data.coins || 0);
 
         if (["shivavarma336@gmail.com","aryarestaurant6@gmail.com","mohanavamsi14@gmail.com", "jatinjayadev@gmail.com"].includes(response.data.email)){
           localStorage.setItem("admin", "yes");

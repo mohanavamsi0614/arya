@@ -4,16 +4,17 @@ import { BiCheckCircle } from "react-icons/bi";
 import {  useParams } from "react-router";
 import {io} from "socket.io-client";
 
-const socket=io("https://arya-server.onrender.com");
+const socket=io("http://localhost:5000");
 function Success(){
     const {sessionId}=useParams()
   const [loading, setLoading] = useState(true);
   const [success, setSuccess] = useState(false);
   useEffect(() => {
-    axios.post(`https://arya-server.onrender.com/api/order/${sessionId}`).then((response) => {
+    axios.post(`http://localhost:5000/api/order/${sessionId}`).then((response) => {
       console.log("Order confirmed:", response.data);
       socket.emit("order");
       localStorage.setItem("cartItems", JSON.stringify([]));
+      localStorage.setItem("coins", response.data.coins || 0);``
       setSuccess(true);
       setTimeout(() => {
         window.location.href = "/";

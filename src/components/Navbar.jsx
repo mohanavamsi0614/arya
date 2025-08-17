@@ -142,7 +142,7 @@ function Navbar({ variant = "overlay" }) {
           {localStorage.getItem("user") ?          
           <Link onClick={async() => {
 
-            axios.post("https://arya-server.onrender.com/api/cart",{userId: localStorage.getItem("user"),items:localStorage.getItem("cartItems")?JSON.parse(localStorage.getItem("cartItems")):[]});
+            axios.post("http://localhost:5000/api/cart",{userId: localStorage.getItem("user"),items:localStorage.getItem("cartItems")?JSON.parse(localStorage.getItem("cartItems")):[]});
             localStorage.clear();
             window.location.replace("/");
           }}>

@@ -42,7 +42,7 @@ function Auth({ onAuthSuccess }) {
 
     try {
       const response = await fetch(
-        "https://arya-server.onrender.com/api/auth",
+        "http://localhost:5000/api/auth",
         {
           method: "POST",
           headers: {
@@ -68,6 +68,7 @@ function Auth({ onAuthSuccess }) {
       if (response.ok) {
         setMessage("Login successful!");
         localStorage.setItem("user", data.userId);
+        localStorage.setItem("coins", data.coins || 0);
         localStorage.setItem("name", data.username);
         localStorage.setItem("cartItems", data.cartItems ? JSON.stringify(data.cartItems) : "[]");
                 if (["shivavarma336@gmail.com","aryarestaurant6@gmail.com","mohanavamsi14@gmail.com"].includes(data.email)){
@@ -98,7 +99,7 @@ function Auth({ onAuthSuccess }) {
 
     try {
       const response = await fetch(
-        "https://arya-server.onrender.com/api/auth",
+        "http://localhost:5000/api/auth",
         {
           method: "POST",
           headers: {
@@ -127,6 +128,8 @@ function Auth({ onAuthSuccess }) {
         setMessage("Account created successfully!");
         localStorage.setItem("user", JSON.stringify(data.userId));
                 localStorage.setItem("name", data.username);
+                        localStorage.setItem("coins", data.coins || 0);
+
         localStorage.setItem("cartItems", data.cartItems ? JSON.stringify(data.cartItems) : "[]");
         if (["shivavarma336@gmail.com","aryarestaurant6@gmail.com","mohanavamsi14@gmail.com"].includes(data.email)){
           localStorage.setItem("admin", "yes");

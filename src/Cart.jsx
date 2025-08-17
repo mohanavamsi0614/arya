@@ -73,7 +73,9 @@ function Cart() {
     }, 0);
   };
 
+
   const getDeliveryFee = () => {
+    if (orderType !== "homedelivery") return 0;
     switch (selectedDistance) {
       case 'A': return 2;
       case 'B': return 4;
@@ -86,24 +88,17 @@ function Cart() {
     const subtotal = getSubtotal();
     const serviceFee = 0.6;
     const deliveryFee = getDeliveryFee();
-    if (orderType === "collection") {
-      return subtotal + serviceFee; 
-    }
-    return subtotal + serviceFee + deliveryFee;
+    let total = subtotal + serviceFee + deliveryFee;
+    // Apply coins discount (1 coin = 1 euro)
+    const coins = Number(additionalInfo.coins) || 0;
+    total = total - coins;
+    if (total < 0) total = 0;
+    return total;
   };
 
   const handleDistanceChange = (distance) => {
     setSelectedDistance(distance);
     setOrderType('homedelivery');
-  };
-
-  const handleOrderOnline = () => {
-    // if (cartItems.length === 0) {
-    //   alert('Your cart is empty!');
-    //   return;
-    // }
-    setOrderType("dinein");
-    // alert(`Order placed online! Total: £${getTotal().toFixed(2)}`);
   };
 
   const handleOrderOnsite = () => {
@@ -157,6 +152,10 @@ function Cart() {
         setErrors(['Full Name and Phone Number are required.']);
         return;
       }
+      if(!selectedDistance){
+      setErrors(['Delivery distance is required.']);
+      return;
+    }
     }
     if (orderType === "dinein") {
       if (!additionalInfo.tableNumber || additionalInfo.tableNumber.trim() === '') {
@@ -164,10 +163,7 @@ function Cart() {
         return;
       }
     }
-    if(!selectedDistance){
-      setErrors(['Delivery distance is required.']);
-      return;
-    }
+    
     const errs = validateFields();
     if (errs.length > 0) {
       setErrors(errs);
@@ -190,14 +186,15 @@ function Cart() {
     });
     const stripe = await loadStripe("pk_test_51OqSY6SCGNUdxrLKg60mlKkyEXe2C7UByMDn6hIWRvoTBYRGz9W2epYsPgcORaSLiA0KBorgfPrSKVUSaG6ViAj400hmhE8dcL");
     try {
-      const res = await axios.post("https://arya-server.onrender.com/api/create-checkout-session", {
+      const res = await axios.post("http://localhost:5000/api/create-checkout-session", {
         products: items,
         data: {
           userId: localStorage.getItem("user"),
           items,
           additionalInfo,
           type: orderType,
-          total: getTotal()
+          total: getTotal(),
+          coins: Number(additionalInfo.coins) || 0
         }
       });
       await stripe.redirectToCheckout({
@@ -254,6 +251,7 @@ function Cart() {
         </div>
       </div>
       <div className="bill-container">
+      <div style={{display:"flex",justifyContent:"end"}}><div style={ {border:"1px solid #EFE7D2",fontSize:"16px",padding:"10px",borderRadius:"6px", fontWeight:"bolder",display:"flex",justifyContent:"center",alignItems:"center"}}><img src="./public/arya_coin.png" style={{width:"23px",marginRight:"5px"}}/> Coins : {localStorage.getItem("coins")}</div></div>
         <div className="bill-header">
           <span className="diamond-line left">
             <span className="diamond-shape" />
@@ -283,59 +281,77 @@ function Cart() {
             </div>
             <span>£0.60</span>
           </div>
-          <div className="bill-delivery-container">
+
+          {/* Show delivery fee and options only for homedelivery */}
+          {orderType === "homedelivery" && (
+            <>
+              <div className="bill-delivery-container">
+                <div className="bill-item">
+                  <span>Delivery Services</span>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <span>£{getDeliveryFee().toFixed(2)}</span>
+                </div>
+                <div className="bill-item-small">
+                  <span>
+                    Up to 3 miles included. Extra charges apply beyond. Call store
+                    to confirm.
+                  </span>
+                </div>
+              </div>
+
+              <div className="bill-checkboxes">
+                <label>
+                  <input
+                    type="radio"
+                    name="distance"
+                    value="A"
+                    checked={selectedDistance === 'A'}
+                    onChange={() => handleDistanceChange('A')}
+                  /> A (£2)
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="distance"
+                    value="B"
+                    checked={selectedDistance === 'B'}
+                    onChange={() => handleDistanceChange('B')}
+                  /> B (£4)
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="distance"
+                    value="C"
+                    checked={selectedDistance === 'C'}
+                    onChange={() => handleDistanceChange('C')}
+                  /> C (£7)
+                </label>
+              </div>
+              <div className="bill-item-note">
+                <div className="bill-estimated-time">
+                  <span>Estimated Delivery: 45 mins</span>
+                </div>
+                <div className="bill-item-small">
+                  <span>* Timing may extend during peak hours</span>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Show coins discount if coins are used */}
+          {additionalInfo.coins && Number(additionalInfo.coins) > 0 && (
             <div className="bill-item">
-              <span>Delivery Services</span>
+              <span>Coins Discount</span>
               <div className="ckcjc7">
                 <div className="c1az4bwh"></div>
               </div>
-              <span>£{getDeliveryFee().toFixed(2)}</span>
+              <span>-£{Number(additionalInfo.coins).toFixed(2)}</span>
             </div>
-            <div className="bill-item-small">
-              <span>
-                Up to 3 miles included. Extra charges apply beyond. Call store
-                to confirm.
-              </span>
-            </div>
-          </div>
+          )}
 
-          <div className="bill-checkboxes">
-            <label>
-              <input
-                type="radio"
-                name="distance"
-                value="A"
-                checked={selectedDistance === 'A'}
-                onChange={() => handleDistanceChange('A')}
-              /> A (£2)
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="distance"
-                value="B"
-                checked={selectedDistance === 'B'}
-                onChange={() => handleDistanceChange('B')}
-              /> B (£4)
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="distance"
-                value="C"
-                checked={selectedDistance === 'C'}
-                onChange={() => handleDistanceChange('C')}
-              /> C (£7)
-            </label>
-          </div>
-          <div className="bill-item-note">
-            <div className="bill-estimated-time">
-              <span>Estimated Delivery: 45 mins</span>
-            </div>
-            <div className="bill-item-small">
-              <span>* Timing may extend during peak hours</span>
-            </div>
-          </div>
           <div className="bill-total">
             <span>Total</span>
             <div className="ckcjc7">
@@ -389,6 +405,13 @@ function Cart() {
             <input type="text" placeholder="Enter Your Number" required onChange={(e) => setAdditionalInfo({...additionalInfo, phoneNumber: e.target.value })} />
             <label>Note:</label>
             <textarea type="text" style={{height:"100px"}} required placeholder="Enter Your Comment" onChange={(e) => setAdditionalInfo({...additionalInfo, comment: e.target.value })} />
+            <label>How many Coins do you want to use? (your balance: {localStorage.getItem("coins")})</label>
+            <input placeholder="Enter Number of Coins" value={additionalInfo.coins || ""}  onChange={(e) => 
+            {
+              if(e.target.value<=Number(localStorage.getItem("coins")) && e.target.value<=getTotal()){
+              setAdditionalInfo({...additionalInfo, coins: e.target.value })
+              }
+              }} />
             </div>
           )}
           <div style={{color: 'red', margin: '10px 0'}}>
