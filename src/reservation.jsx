@@ -1,47 +1,13 @@
-// import { AiOutlineHome } from 'react-icons/ai';
-
-// function Reservation() {
-//   return (
-//     <div style={{ height: '100vh', position: 'relative' }}>
-//       {/* Home Icon - Top Left */}
-//       <div
-//         style={{
-//           position: 'absolute',
-//           top: '20px',
-//           left: '20px',
-//           cursor: 'pointer',
-//         }}
-//         onClick={() => (window.location.href = '/')}
-//         title="Go Home"
-//       >
-//         <AiOutlineHome size={32} />
-//       </div>
-
-//       {/* Centered Text */}
-//       <div
-//         style={{
-//           height: '100%',
-//           display: 'flex',
-//           justifyContent: 'center',
-//           alignItems: 'center',
-//         }}
-//       >
-//         <h1>
-//           To book a table, please contact aryarestaurant6@gmail.com or call +44
-//           7955 965365
-//         </h1>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Reservation;
-
 import React, { useState, useMemo } from 'react';
-import { Calendar, Clock } from 'lucide-react';
+import { Calendar, Clock, Users } from 'lucide-react';
+import './reservation.css';
 
 const Reservation = () => {
-  const [formData, setFormData] = useState({
+ const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    table: '',
     date: '',
     startTime: '',
     endTime: ''
@@ -157,20 +123,45 @@ const Reservation = () => {
     return `${displayHour}:${minute}${ampm}`;
   };
 
+  const tables = [
+    { id: 1, label: "Table 1 (2-4 guests)" },
+    { id: 2, label: "Table 2 (2-4 guests)" },
+    { id: 3, label: "Table 3 (4-6 guests)" },
+    { id: 4, label: "Table 4 (4-5 guests)" },
+    { id: 5, label: "Table 5 (2-4 guests)" },
+    { id: 6, label: "Table 6 (2-4 guests)" },
+    { id: 7, label: "Table 7 (2-4 guests)" },
+    { id: 8, label: "Table 8 (4 guests)" },
+    { id: 9, label: "Table 9 (2 guests)" },
+    { id: 10, label: "Table 10 (4 guests)" },
+    { id: 11, label: "Table 11 (4 guests)" },
+    { id: 12, label: "Table 12 (4 guests)" }
+  ];
+
   return (
     <div className="screen">
       <div className="container">
-        <div className="header">
-          <h1 className="title">
-            Reserve Your Table
-          </h1>
-          <p className="subtitle">
-            Select your preferred date and time for dining with us
-          </p>
-        </div>
-
+        <div className="reservation-header">
+            <div className="reservation-decor">
+              <span className="diamond-line left">
+                <span className="diamond-shape" />
+                <span className="line-shape" />
+              </span>
+              <h1 className="reservation-title">RESERVATION</h1>
+              <span className="diamond-line left">
+                <span className="diamond-shape" />
+                <span className="line-shape" />
+              </span>
+            </div>
+            <p className="reservation-text">
+              Select your preferred date and time for dining with us
+            </p>
+{/* 
+              <br className="hide-on-mobile" />
+              remarkable dining experience await. */}
+          </div>
         <div className="wrapper">
-          {formData.date && (
+          {/* {formData.date && (
             <div className="dateinfo">
               <h3 className="dayname">
                 {getDayName(formData.date)} - {new Date(formData.date).toLocaleDateString('en-US', { 
@@ -187,40 +178,101 @@ const Reservation = () => {
                 }
               </p>
             </div>
-          )}
+          )} */}
 
           <div className="card">
             <div className="form">
               <div className="field">
+              <input 
+                placeholder="Your Name" 
+                className="form-input" 
+                value={formData.name}
+                onChange={(e) => handleInputChange('name', e.target.value)}
+              />
+              <input 
+                placeholder="Phone Number" 
+                type="tel" 
+                className="form-input"
+                value={formData.phone}
+                onChange={(e) => handleInputChange('phone', e.target.value)}
+              />
+              <input 
+                placeholder="Email" 
+                type="email" 
+                className="form-input"
+                value={formData.email}
+                onChange={(e) => handleInputChange('email', e.target.value)}
+              />
+              {/* <div className="form-row">
+                <input
+                  type="number"
+                  placeholder="Table No: 1-13"
+                  min={1}
+                  max={13}
+                  className="form-input"
+                />
+              </div>
+              <label className="label">
+                <Users className="icon" />
+                  Guests
+              </label>
+              <input
+                  type="number"
+                  placeholder="Guests 1-13"
+                  min={1}
+                  max={13}
+                  className="form-input"
+                /> */}
+
                 <label className="label">
-                  <Calendar className="icon" />
-                  Select Date
+                  <Users className="icon" />
+                  Table and Guests
                 </label>
-                <div className="inputwrapper">
-                  <input
-                    type="date"
-                    className="input"
-                    value={formData.date}
-                    min={getMinDate()}
-                    onChange={(e) => {
-                      if (!isTuesday(e.target.value)) {
-                        handleInputChange('date', e.target.value);
-                      } else {
-                        alert('Sorry, we are closed on Tuesdays. Please select another date.');
-                      }
-                    }}
-                  />
-                </div>
-                {formData.date && isTuesday(formData.date) && (
+                <select
+                  className="select"
+                  value={formData.table}
+                  onChange={(e) => handleInputChange('table', e.target.value)}
+                >
+                  <option value="" className="option">Choose your table</option>
+                  {tables.map(table => (
+                    <option key={table.id} value={table.label} className="option">
+                      {table.label}
+                    </option>
+                  ))}
+                </select>
+                 {/* Note for large groups */}
+    <p className="note">
+      Note: For groups larger than 6 guests, we kindly request that you contact our staff directly. Our team will be happy to assist you in arranging a comfortable and seamless dining experience.
+    </p>
+              <label className="label">
+                <Calendar className="icon" />
+                Select Date
+              </label>
+              <div className="inputwrapper">
+                <input
+                  type="date"
+                  className="form-input"
+                  value={formData.date}
+                  min={getMinDate()}
+                  onChange={(e) => {
+                    if (!isTuesday(e.target.value)) {
+                      handleInputChange('date', e.target.value);
+                    } else {
+                      alert('Sorry, we are closed on Tuesdays. Please select another date.');
+                    }
+                }}
+              />
+            </div>
+            {formData.date && isTuesday(formData.date) && (
                   <p className="error">We are closed on Tuesdays</p>
                 )}
-              </div>
+            </div>
 
               {formData.date && !isTuesday(formData.date) && availableTimes.length > 0 && (
                 <div className="timegrid">
                   <div className="timefield">
                     <label className="label">
-                      <Clock className="icongreen" />
+                      <Clock className="icon" />
                       Start Time
                     </label>
                     <select
@@ -239,7 +291,7 @@ const Reservation = () => {
 
                   <div className="timefield">
                     <label className="label">
-                      <Clock className="iconpurple" />
+                      <Clock className="icon" />
                       End Time
                     </label>
                     <select
@@ -260,12 +312,20 @@ const Reservation = () => {
               )}
 
               {formData.date && formData.startTime && formData.endTime && (
-                <button
-                  onClick={handleSubmit}
-                  className="button"
-                >
-                  Confirm Reservation
-                </button>
+                // <button
+                //   onClick={handleSubmit}
+                //   className="button"
+                // >
+                //   Confirm Reservation
+                // </button>
+              <button
+              className="form-button"
+                                onClick={handleSubmit}
+              onMouseOver={(e) => (e.target.style.opacity = "0.9")}
+              onMouseOut={(e) => (e.target.style.opacity = "1")}
+            >
+               Confirm Reservation
+            </button>
               )}
 
               {formData.date && formData.startTime && formData.endTime && (
@@ -287,264 +347,6 @@ const Reservation = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .screen {
-          min-height: 100vh;
-          background: #000000;
-          color: #EFE7D2;
-          padding: 2rem 1rem;
-        }
-        
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 1rem;
-        }
-        
-        .header {
-          text-align: center;
-          margin-bottom: 3rem;
-        }
-        
-        .title {
-          font-size: 3rem;
-          font-weight: bold;
-          color: #EFE7D2;
-          margin-bottom: 1rem;
-        }
-        
-        .subtitle {
-          color: #EFE7D2;
-          font-size: 1.25rem;
-          opacity: 0.8;
-          max-width: 600px;
-          margin: 0 auto;
-        }
-        
-        .wrapper {
-          max-width: 800px;
-          margin: 0 auto;
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-        }
-        
-        .dateinfo {
-          background: rgba(239, 231, 210, 0.1);
-          border-radius: 1rem;
-          padding: 1.5rem;
-          border: 1px solid rgba(239, 231, 210, 0.2);
-        }
-        
-        .dayname {
-          font-size: 1.25rem;
-          font-weight: bold;
-          color: #EFE7D2;
-          margin-bottom: 0.75rem;
-        }
-        
-        .dayhours {
-          color: #EFE7D2;
-          opacity: 0.8;
-        }
-        
-        .card {
-          background: rgba(239, 231, 210, 0.05);
-          border-radius: 1.5rem;
-          padding: 2rem;
-          border: 1px solid rgba(239, 231, 210, 0.1);
-        }
-        
-        .form {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-        }
-        
-        .field {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-        
-        .label {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          font-size: 1.25rem;
-          font-weight: 600;
-          color: #EFE7D2;
-        }
-        
-        .icon {
-          width: 1.5rem;
-          height: 1.5rem;
-          color: #EFE7D2;
-        }
-        
-        .icongreen {
-          width: 1.5rem;
-          height: 1.5rem;
-          color: #10b981;
-        }
-        
-        .iconpurple {
-          width: 1.5rem;
-          height: 1.5rem;
-          color: #8b5cf6;
-        }
-        
-        .inputwrapper {
-          position: relative;
-        }
-        
-        .input {
-          width: 100%;
-          padding: 1rem 1.5rem;
-          font-size: 1.125rem;
-          background: rgba(239, 231, 210, 0.1);
-          border: 1px solid rgba(239, 231, 210, 0.3);
-          border-radius: 1rem;
-          color: #EFE7D2;
-          outline: none;
-          transition: all 0.3s ease;
-        }
-        
-        .input:focus {
-          border-color: #EFE7D2;
-          background: rgba(239, 231, 210, 0.15);
-        }
-        
-        .select {
-          width: 100%;
-          padding: 1rem 1.5rem;
-          font-size: 1.125rem;
-          background: rgba(239, 231, 210, 0.1);
-          border: 1px solid rgba(239, 231, 210, 0.3);
-          border-radius: 1rem;
-          color: #EFE7D2;
-          outline: none;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        
-        .select:focus {
-          border-color: #EFE7D2;
-          background: rgba(239, 231, 210, 0.15);
-        }
-        
-        .select:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-        }
-        
-        .option {
-          background: #000000;
-          color: #EFE7D2;
-          padding: 0.5rem;
-        }
-        
-        .timegrid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 1.5rem;
-        }
-        
-        .timefield {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-        
-        .button {
-          width: 100%;
-          background: linear-gradient(135deg, #EFE7D2, #d4c5a0);
-          color: #000000;
-          font-weight: bold;
-          padding: 1rem 2rem;
-          font-size: 1.125rem;
-          border-radius: 1rem;
-          border: none;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          transform: scale(1);
-        }
-        
-        .button:hover {
-          transform: scale(1.02);
-          background: linear-gradient(135deg, #d4c5a0, #EFE7D2);
-        }
-        
-        .summary {
-          background: rgba(16, 185, 129, 0.1);
-          border: 1px solid rgba(16, 185, 129, 0.2);
-          border-radius: 1rem;
-          padding: 1.5rem;
-        }
-        
-        .summarytitle {
-          font-size: 1.125rem;
-          font-weight: bold;
-          color: #10b981;
-          margin-bottom: 0.75rem;
-        }
-        
-        .summarydetails {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-          color: #EFE7D2;
-        }
-        
-        .error {
-          color: #ef4444;
-          font-size: 0.875rem;
-          font-weight: 500;
-        }
-        
-        input[type="date"]::-webkit-calendar-picker-indicator {
-          filter: invert(0.9);
-          cursor: pointer;
-        }
-        
-        @media (max-width: 768px) {
-          .screen {
-            padding: 1rem;
-          }
-          
-          .title {
-            font-size: 2rem;
-          }
-          
-          .subtitle {
-            font-size: 1rem;
-          }
-          
-          .card {
-            padding: 1.5rem;
-          }
-          
-          .timegrid {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-          }
-        }
-        
-        @media (max-width: 480px) {
-          .container {
-            padding: 0 0.5rem;
-          }
-          
-          .title {
-            font-size: 1.75rem;
-          }
-          
-          .card {
-            padding: 1rem;
-          }
-        }
-      `}</style>
     </div>
   );
 };
