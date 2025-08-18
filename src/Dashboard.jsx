@@ -4,6 +4,7 @@ import axios from "axios";
 import { AiOutlineHome } from "react-icons/ai";
 import { BsVolumeUp, BsVolumeMute } from "react-icons/bs";
 import { io } from "socket.io-client";
+import OwnerDashboard from "./OwnerDashboard";
 
 const socket = io("https://arya-server.onrender.com");
 
@@ -88,10 +89,6 @@ function Dashboard() {
               onClick={() => setActiveTab("Reservations")}
               className={activeTab === "Reservations" ? "active" : ""}
             >Reservations</button>
-            <button 
-              onClick={() => setActiveTab("Loyalty")}
-              className={activeTab === "Loyalty" ? "active" : ""}
-            >Loyalty</button>
           </div>
           <div>
             <button style={{background: "none", border: "none", cursor: "pointer",padding:"5px",borderRadius:"50%",border:"1px solid #ccc "}} onClick={() => setSoundEnabled(!soundEnabled)} title={soundEnabled ? "Turn sound off" : "Turn sound on"}>
@@ -101,16 +98,14 @@ function Dashboard() {
 
         </div>
         
-        {/* Order Filter Navigation */}
-        <div className="order-filter-header">
-          <h3 className="filter-title">Orders</h3>
-        </div>
-        <div className="order-filter-nav">
-          <div className="filter-section-status">
-            <div className="filter-buttons">
-              {statusOptions.map((status) => (
-                <button
-                  key={status}
+        {activeTab === "Orders" ? (
+          <div>
+          <div className="order-filter-nav">
+            <div className="filter-section-status">
+              <div className="filter-buttons">
+                {statusOptions.map((status) => (
+                  <button
+                    key={status}
                   className={`filter-btn ${orderStatus === status ? "active" : ""}`}
                   onClick={() => setOrderStatus(status)}
                 >
@@ -135,7 +130,6 @@ function Dashboard() {
           </div>
         </div>
         
-        {/* Orders Grid */}
         <div className="orders-grid">
           {orders
             .filter(order => order.payment === "paid")
@@ -197,10 +191,16 @@ function Dashboard() {
                       <p key={key}><strong>{key}:</strong> {value}</p>
                     ))}
                   </div>
-                )}
+                        )
+                }
               </div>
             ))}
         </div>
+        </div>
+                )
+                :
+                (<OwnerDashboard/>)}
+
       </div>
     </div>
   );

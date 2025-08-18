@@ -116,6 +116,7 @@ const Reservation = () => {
     if (formData.date && formData.startTime && formData.endTime) {
       setLoading(true);
       setResponseMsg(null);
+      formData.userId=localStorage.getItem("user");
       axios.post('https://arya-server.onrender.com/api/reservation', formData)
         .then(response => {
           setLoading(false);

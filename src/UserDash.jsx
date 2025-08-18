@@ -6,6 +6,17 @@ import { useEffect, useState } from 'react';
 function UserDash() {
   const [expandedOrderId, setExpandedOrderId] = useState(null);
   const [order, setorders] = useState([]);
+  const [reservation, setReservation] = useState([]);
+  function handleCancelReservation(reservationId){
+    axios.post(`https://arya-server.onrender.com/api/reservations/${reservationId}`,{status:"cancelled"})
+      .then((response) => {
+        console.log('Reservation cancelled:', response.data);
+        setReservation(reservation.map((r) => r._id === reservationId ? {...r, status: "cancelled"} : r));
+      })
+      .catch((error) => {
+        console.error('Error cancelling reservation:', error);
+      });
+  }
 
   useEffect(() => {
     const userId = localStorage.getItem('user');
@@ -20,6 +31,12 @@ function UserDash() {
       .catch((error) => {
         console.error('Error fetching orders:', error);
       });
+      axios.get(`https://arya-server.onrender.com/api/reservation/${userId}`).then((res)=>{
+        console.log(res.data);
+        setReservation(res.data)
+      }).catch((er)=>{
+        console.log(er)
+      })
   }, []);
 
   const toggleOrder = (orderId) => {
@@ -47,7 +64,7 @@ function UserDash() {
               <p>Arya Coins</p>
             </div>
             <div>
-              <p>36</p>
+              <p>{localStorage.getItem('coins')}</p>
             </div>
             <div>
               <img className='arya-coin-png' src="arya_coin.png" alt="arya_icon" />
@@ -147,15 +164,20 @@ function UserDash() {
               <div className='table-reservation-header'>
                 <h3>Table Reservations</h3>
               </div>
-                  <div className="table-reservation-card">
+              {reservation.length === 0 && (<p>No Reservations</p>)}
+              {reservation.map((i)=>(
+                                  <div className="table-reservation-card">
                     <div className="table-reservation-date-con">
                       <span className="table-reservation-date">
-                        2024-01-10
+                      {i.date}
+                      </span>
+                      <span className={`reservation-status-${i.status}`}>
+                        {i.status}
                       </span>
                     </div>
                     <div className="table-reservation-details">
                       <div>
-                        <h4>Table Number - 1</h4>
+                        <h4>Table Number - {i.table}</h4>
                       </div>
                       <div className='people-reserved-number'>
                         <div>
@@ -169,40 +191,16 @@ function UserDash() {
                         </div>
                       </div>
                     </div>
-                    <div className="table-reservation-actions">
-                        <button className='cancel-reservation-btn'>
+                    {i.status !== "cancelled" && i.status !== "rejected" && (
+                      <div className="table-reservation-actions">
+
+                        <button className='cancel-reservation-btn' onClick={() => handleCancelReservation(i._id)}>
                           Cancel Reservation
                         </button>
                     </div>
-                  </div>
-                  <div className="table-reservation-card">
-                    <div className="table-reservation-date-con">
-                      <span className="table-reservation-date">
-                        2024-01-10
-                      </span>
-                    </div>
-                    <div className="table-reservation-details">
-                      <div>
-                        <h4>Table Number - 1</h4>
-                      </div>
-                      <div className='people-reserved-number'>
-                        <div>
-                          1
-                        </div>
-                        <span>
-                          -
-                        </span>
-                        <div className='table-reservation-user-icon'>
-                          <img className='table-reservation-icon' src="userImage.png" alt="user_icon" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="table-reservation-actions">
-                        <button className='cancel-reservation-btn'>
-                          Cancel Reservation
-                        </button>
-                    </div>
-                  </div>
+                    )}
+</div>
+              ))}
             </div>
 
             {/* Past Orders Section */}

@@ -13,7 +13,26 @@
   border: 1px solid #e0e0e0;
   transition: background 0.3s, color 0.3s;
 }
-
+.reservation-status-pending {
+  border: 1px solid rgba(239, 231, 210, 0.3);
+  padding: 5px;
+  color: white;
+  font-weight: 800;
+  background-color: #ffe58f9c;
+  font-size: larger;
+  border-radius: 5px;
+  margin-left: 7px;
+}
+.reservation-status-cancelled {
+   border: 1px solid rgba(239, 231, 210, 0.3);
+  padding: 5px;
+  background-color: #cf1322;
+  color: white;
+  border-color: #cf1322;
+  font-size: larger;
+  border-radius: 5px;
+  margin-left: 7px;
+}
 .order-status[data-status="Pending"],
 .order-status[data-status="pending"] {
   background: linear-gradient(90deg, #fffbe6 0%, #ffe58f 100%);

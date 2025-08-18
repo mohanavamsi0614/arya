@@ -66,7 +66,7 @@ const OwnerDashboard = () => {
     await axios.post("https://arya-server.onrender.com/api/reservations/"+id, { status: newStatus });
     setReservations(prevReservations =>
       prevReservations.map(reservation =>
-        reservation._id === id
+        reservation.id === id
           ? { ...reservation, status: newStatus }
           : reservation
       )
@@ -94,24 +94,27 @@ const OwnerDashboard = () => {
   };
 
   const isReservationActiveAtTime = (reservation, timeSlot) => {
-    console.log(reservation || "ewjhkj")
-  const isInTodaysList = todaysReservations.some(r => r._id === reservation._id);
   if (reservation.status !== 'accepted') return false;
 
-    if (!isInTodaysList) return false;
-    
-    const timeToMinutes = (timeStr) => {
-      const [hours, minutes] = timeStr.split(':').map(Number);
-      return hours * 60 + minutes;
-    };
-    
-    const slotMinutes = timeToMinutes(timeSlot);
-    const reservationMinutes = timeToMinutes(reservation.reservationTime);
-    const reservationDuration = (reservation.duration || 2) * 60;
-    
-    return slotMinutes >= reservationMinutes && 
-           slotMinutes < reservationMinutes + reservationDuration;
+  const timeToMinutes = (timeStr) => {
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    return hours * 60 + minutes;
   };
+
+  const slotMinutes = timeToMinutes(timeSlot);
+  const startMinutes = timeToMinutes(reservation.reservationTime);
+
+  // Prefer backend-provided endTime
+  let endMinutes;
+  if (reservation.endTime) {
+    endMinutes = timeToMinutes(reservation.endTime);
+  } else {
+    endMinutes = startMinutes + (reservation.duration || 2) * 60;
+  }
+
+  return slotMinutes >= startMinutes && slotMinutes < endMinutes;
+};
+
 
   // Get reservation for specific time and table
   const getReservationAtTime = (time, tableNumber) => {
@@ -149,8 +152,9 @@ const OwnerDashboard = () => {
               return (
                 <div key={reservation._id} className="table-row">
                   <div className="time-cell">
-                    {reservation.reservationTime} - {calculateEndTime(reservation.reservationTime, reservation.duration)}
-                  </div>
+ {reservation.reservationTime} - {reservation.endTime 
+    ? reservation.endTime 
+    : calculateEndTime(reservation.reservationTime, reservation.duration)}                  </div>
                   <div className="name-cell">
                     <strong>{reservation.name}</strong>
                     <small>{reservation.email}</small>
@@ -176,13 +180,13 @@ const OwnerDashboard = () => {
                       <>
                         <button 
                           className="accept-btn"
-                          onClick={() => handleStatusChange(reservation._id, 'accepted')}
+                          onClick={() => handleStatusChange(reservation.id, 'accepted')}
                         >
                           Accept
                         </button>
                         <button 
                           className="cancel-btn"
-                          onClick={() => handleStatusChange(reservation._id, 'cancelled')}
+                          onClick={() => handleStatusChange(reservation.id, 'cancelled')}
                         >
                           Cancel
                         </button>
@@ -191,7 +195,7 @@ const OwnerDashboard = () => {
                     {reservation.status === 'accepted' && (
                       <button 
                         className="cancel-btn"
-                        onClick={() => handleStatusChange(reservation._id, 'cancelled')}
+                        onClick={() => handleStatusChange(reservation.id, 'cancelled')}
                       >
                         Cancel
                       </button>
@@ -240,7 +244,9 @@ const OwnerDashboard = () => {
                       {reservation && (
                         <div className="reservation-info">
                           <div className="guest-name">{reservation.name}</div>
-                          <div className="guest-time">{reservation.reservationTime} - {reservation.endTime || calculateEndTime(reservation.reservationTime, reservation.duration)}</div>
+                          <div className="guest-time"> {reservation.reservationTime} - {reservation.endTime 
+    ? reservation.endTime 
+    : calculateEndTime(reservation.reservationTime, reservation.duration)}</div>
                         </div>
                       )}
                     </div>
@@ -278,7 +284,6 @@ const OwnerDashboard = () => {
 
         body {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-          background: #1a1a1a;
           color: #EFE7D2;
         }
 
@@ -286,7 +291,6 @@ const OwnerDashboard = () => {
           max-width: 1400px;
           margin: 0 auto;
           padding: 20px;
-          background: #1a1a1a;
           min-height: 100vh;
         }
 
@@ -294,7 +298,6 @@ const OwnerDashboard = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background: #2d2d2d;
           color: #EFE7D2;
           padding: 20px 30px;
           border-radius: 8px;
