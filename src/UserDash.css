@@ -84,7 +84,7 @@
 
 .userdash-details{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-direction: column;
     gap: 16px;
     width: 100%;
@@ -120,6 +120,7 @@
 }
 
 .current-orders-section {
+  width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px; /* Adjust spacing as needed */
@@ -377,7 +378,7 @@
 
 .past-orders{
     border: 1px solid rgb(51, 51, 48);
-    width: 70%;
+    /* width: 70%; */
     padding: 20px;
     border-radius: 10px;
 }
@@ -477,6 +478,121 @@
 .past-order-items {
   display: flex;
   align-items: center;
+}
+
+.right-column{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.table-reservation-section{
+  border: 1px solid rgba(239, 231, 210, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.table-reservation-header{
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(51, 51, 48);
+}
+
+.table-reservation-header h3{
+  font-size: 25px;
+}
+
+.table-reservation-card{
+  border: 1px solid rgb(51, 51, 48);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.table-reservation-details{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.table-reservation-details h4{
+  font-family: 'Satoshi', sans-serif;
+}
+
+.table-reservation-date-con{
+  margin-bottom: 10px;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+}
+
+.table-reservation-actions{
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgb(51, 51, 48);
+  border-radius: 20px;
+}
+
+.cancel-reservation-btn{
+  padding: 10px;
+  width: 100%;
+  font-size: 13px;
+  background-color: transparent;
+  border: none;
+  color: #f74936;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;;
+}
+
+.cancel-reservation-btn:hover{
+  background-color: #EFE7D2;
+  color: black;
+  border-radius: 20px;
+}
+
+.people-reserved-number{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
+.table-reservation-icon{
+  height: 16px;
+}
+
+.table-reservation-section,
+.past-orders-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* same gap for both */
+}
+
+.arya-coin-png{
+ height: 25px; 
+}
+
+.userdash-greeting-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.userdash-coins-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: 'Satoshi', sans-serif;
+  border-radius: 8px;
+  border: 1px solid rgba(239, 231, 210, 0.1);
+  padding: 12px;
+}
+
+.userdash-coins-container p{
+  font-size: 15px;
 }
 
 /* Responsive Styles */
