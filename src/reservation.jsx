@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { Calendar, Clock, Users } from 'lucide-react';
 import './reservation.css';
+import axios from 'axios';
 
 const Reservation = () => {
- const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
@@ -12,6 +13,8 @@ const Reservation = () => {
     startTime: '',
     endTime: ''
   });
+  const [loading, setLoading] = useState(false);
+  const [responseMsg, setResponseMsg] = useState(null);
 
   const workingHours = {
     1: [], // Monday
@@ -111,10 +114,25 @@ const Reservation = () => {
 
   const handleSubmit = () => {
     if (formData.date && formData.startTime && formData.endTime) {
-      alert(`Reservation confirmed for ${formData.date} from ${formatTime(formData.startTime)} to ${formatTime(formData.endTime)}`);
+      setLoading(true);
+      setResponseMsg(null);
+      axios.post('https://arya-server.onrender.com/api/reservation', formData)
+        .then(response => {
+          setLoading(false);
+          setResponseMsg({
+            type: 'success',
+            text: `Reservation confirmed for ${formData.date} from ${formatTime(formData.startTime)} to ${formatTime(formData.endTime)}.`
+          });
+        })
+        .catch(error => {
+          setLoading(false);
+          setResponseMsg({
+            type: 'error',
+            text: 'Error making reservation. Please try again.'
+          });
+        });
     }
   };
-
   const formatTime = (time) => {
     const [hour, minute] = time.split(':');
     const hourInt = parseInt(hour);
@@ -156,30 +174,45 @@ const Reservation = () => {
             <p className="reservation-text">
               Select your preferred date and time for dining with us
             </p>
-{/* 
-              <br className="hide-on-mobile" />
-              remarkable dining experience await. */}
           </div>
         <div className="wrapper">
-          {/* {formData.date && (
-            <div className="dateinfo">
-              <h3 className="dayname">
-                {getDayName(formData.date)} - {new Date(formData.date).toLocaleDateString('en-US', { 
-                  weekday: 'long', 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
-                })}
-              </h3>
-              <p className="dayhours">
-                {isTuesday(formData.date) ? 
-                  "Sorry, we're closed on Tuesdays" : 
-                  "Reservation available for selected date"
+          {/* Modern loading spinner */}
+          {loading && (
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '24px 0'}}>
+              <div style={{
+                width: '48px',
+                height: '48px',
+                border: '6px solid #eee',
+                borderTop: '6px solid #2e7d32',
+                borderRadius: '50%',
+                animation: 'spin 1s linear infinite',
+                marginBottom: '12px'
+              }} />
+              <span style={{fontWeight: '500', color: '#2e7d32'}}>Submitting reservation...</span>
+              <style>{`
+                @keyframes spin {
+                  0% { transform: rotate(0deg); }
+                  100% { transform: rotate(360deg); }
                 }
-              </p>
+              `}</style>
             </div>
-          )} */}
-
+          )}
+          {/* Modern response message */}
+          {responseMsg && (
+            <div style={{
+              margin: '24px 0',
+              padding: '18px 24px',
+              borderRadius: '10px',
+              background: responseMsg.type === 'success' ? 'linear-gradient(90deg,#e6ffe6,#f6fff6)' : 'linear-gradient(90deg,#ffe6e6,#fff6f6)',
+              color: responseMsg.type === 'success' ? '#2e7d32' : '#c62828',
+              textAlign: 'center',
+              fontWeight: '500',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+              border: responseMsg.type === 'success' ? '1px solid #b2dfdb' : '1px solid #ffcdd2'
+            }}>
+              {responseMsg.text}
+            </div>
+          )}
           <div className="card">
             <div className="form">
               <div className="field">
@@ -235,7 +268,7 @@ const Reservation = () => {
                 >
                   <option value="" className="option">Choose your table</option>
                   {tables.map(table => (
-                    <option key={table.id} value={table.label} className="option">
+                    <option key={table.id} value={table.id} className="option">
                       {table.label}
                     </option>
                   ))}
@@ -311,21 +344,15 @@ const Reservation = () => {
                 </div>
               )}
 
-              {formData.date && formData.startTime && formData.endTime && (
-                // <button
-                //   onClick={handleSubmit}
-                //   className="button"
-                // >
-                //   Confirm Reservation
-                // </button>
-              <button
-              className="form-button"
-                                onClick={handleSubmit}
-              onMouseOver={(e) => (e.target.style.opacity = "0.9")}
-              onMouseOut={(e) => (e.target.style.opacity = "1")}
-            >
-               Confirm Reservation
-            </button>
+              {formData.date && formData.startTime && formData.endTime && !loading && (
+                <button
+                  className="form-button"
+                  onClick={handleSubmit}
+                  onMouseOver={(e) => (e.target.style.opacity = "0.9")}
+                  onMouseOut={(e) => (e.target.style.opacity = "1")}
+                >
+                  Confirm Reservation
+                </button>
               )}
 
               {formData.date && formData.startTime && formData.endTime && (

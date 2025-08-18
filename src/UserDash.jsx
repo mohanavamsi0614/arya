@@ -13,7 +13,7 @@ function UserDash() {
     
     // Fetch orders
     axios
-      .get(`http://localhost:5000/api/orders/${userId}`)
+      .get(`https://arya-server.onrender.com/api/orders/${userId}`)
       .then((response) => {
         setorders(response.data);
       })
