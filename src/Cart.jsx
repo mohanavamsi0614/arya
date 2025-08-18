@@ -107,7 +107,13 @@ function Cart() {
     setSelectedDistance(distance);
     setOrderType("homedelivery");
   };
-
+  const handleOrderDineIn = () => {
+    // if (cartItems.length === 0) {
+    //   alert('Your cart is empty!');
+    //   return;
+    // }
+    setOrderType("dinein");
+  };
   const handleOrderOnsite = () => {
     // if (cartItems.length === 0) {
     //   alert('Your cart is empty!');
@@ -448,9 +454,9 @@ function Cart() {
             <span>£{getTotal().toFixed(2)}</span>
           </div>
           <div className="bill-buttons">
-            {/* <div className="bill-button">
-              <button className="order" onClick={handleOrderOnline}>Dine In</button>
-            </div> */}
+            <div className="bill-button">
+              <button className="order" onClick={handleOrderDineIn}>Dine In</button>
+            </div>
             <div className="bill-button">
               <button className="order" onClick={handleOrderOnsite}>
                 Collection
@@ -463,15 +469,43 @@ function Cart() {
             </div>
           </div>
 
-          {/* {orderType === "dinein" && (
+          {orderType === "dinein" && (
             <div className="dinein-inputs">
-            
-            <label>Full Name:</label>
-            <input type="text" placeholder="Enter Full Name" onChange={(e) => setAdditionalInfo({...additionalInfo, fullName: e.target.value })} />
+              <label>Full Name:</label>
+              <input
+                type="text"
+                placeholder="Enter Full Name"
+                onChange={(e) =>
+                  setAdditionalInfo({
+                    ...additionalInfo,
+                    fullName: e.target.value,
+                  })
+                }
+              />
+              <label>Phone Number:</label>
+              <input
+                type="text"
+                placeholder="Enter Phone Number"
+                onChange={(e) =>
+                  setAdditionalInfo({
+                    ...additionalInfo,
+                    phoneNumber: e.target.value,
+                  })
+                }
+              />
               <label>Table No:</label>
-              <input type="text" placeholder="Enter Table Number" onChange={(e) => setAdditionalInfo({...additionalInfo,tableNumber: e.target.value })} />
+              <input
+                type="text"
+                placeholder="Enter Table Number"
+                onChange={(e) =>
+                  setAdditionalInfo({
+                    ...additionalInfo,
+                    tableNumber: e.target.value,
+                  })
+                }
+              />
             </div>
-          )} */}
+          )}
 
           {orderType === "homedelivery" && (
             <div className="dinein-inputs">

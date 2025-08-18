@@ -91,9 +91,12 @@ function Dashboard() {
             >Reservations</button>
           </div>
           <div>
+          {activeTab === "Orders" && (
             <button style={{background: "none", border: "none", cursor: "pointer",padding:"5px",borderRadius:"50%",border:"1px solid #ccc "}} onClick={() => setSoundEnabled(!soundEnabled)} title={soundEnabled ? "Turn sound off" : "Turn sound on"}>
               {soundEnabled ? <BsVolumeUp size={28} color="#D4AF37" /> : <BsVolumeMute size={28} color="#888" />}
             </button>
+          )}
+            
             </div>
 
         </div>

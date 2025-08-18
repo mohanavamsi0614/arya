@@ -43,6 +43,7 @@ function Success(){
           <h1>Payment Successful!</h1>
           <p>Thank you for your purchase. Your transaction has been completed successfully.</p>
           <button className="home" style={{backgroundColor: "#D4AF37",fontWeight:"bolder", color: "white",padding:"10px",border:"none",borderRadius:"5px"}} onClick={() => window.location.href = "/"}>Go to Home</button>
+        <p style={{marginTop: "10px", fontSize:"16px"}}>Coins:{localStorage.getItem("coins")}</p>
         </div>
       </div>
     );
