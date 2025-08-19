@@ -454,7 +454,7 @@ function Cart() {
               <div className="ckcjc7">
                 <div className="c1az4bwh"></div>
               </div>
-              <span>-£{Number(additionalInfo.coins).toFixed(2)}</span>
+              <span>-£{Number(additionalInfo.coins).toFixed(2)/10}</span>
             </div>
           )}
 
