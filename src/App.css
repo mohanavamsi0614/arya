@@ -1542,7 +1542,7 @@ html, body {
 
 .item-text {
   flex: 1;
-    font-family: 'Forum', serif;
+  font-family: 'Forum', serif;
   font-size: 1.2rem;
   font-weight: 400;
   color: #fff;
@@ -2038,11 +2038,12 @@ html, body {
 }
 
 .item-text p {
-  font-size: 14px;
+  font-size: 17.5px;
   color: #EFE7D2;
+  opacity: 0.8;
   line-height: 1.5;
   width: 80%;
-  font-weight: 300;
+  font-weight: 500;
   font-family: 'Satoshi', sans-serif;
 }
 
@@ -2850,7 +2851,7 @@ max-height: 100vh;
   /* Description Mobile */
   .menu-page .item-text p {
     text-align: start !important;
-    font-size: 0.9rem !important;
+    font-size: 1.3rem !important;
     line-height: 1.5 !important;
     /* margin-top: 10px !important; */
     color: #EFE7D2 !important;
@@ -2984,7 +2985,7 @@ max-height: 100vh;
   }
 
   .menu-page .item-text p {
-    font-size: 0.85rem !important;
+    font-size: 1.03rem !important;
   }
 
   .menu-page .tab-button {
