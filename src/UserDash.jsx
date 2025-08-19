@@ -219,7 +219,7 @@ function UserDash() {
                       (o) => o.status === 'Completed' || o.status === 'rejected'
                     )
                     .map((o, idx) => (
-                      <div className="past-order" key={o._id || idx}>
+                      <div className="past-order" key={o._id || idx} style={{background: o.status === "rejected" && "rgba(255, 0, 0, 0.1)"}}>
                         <div className="past-order-details">
                           <span className="past-date">{o.createdAt}</span>
                           <span className="past-id">{o.orderId}</span>
@@ -232,6 +232,7 @@ function UserDash() {
                                 '.' +
                                 (o.total + '').split('.')[1].slice(0, 2)}
                             </span>
+                            <span style={{marginLeft: "8px"}}>{o.type}</span>
                           </div>
                           <div
                             className="past-order-chevron"

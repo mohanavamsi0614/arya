@@ -43,7 +43,7 @@ function Dashboard() {
     };
   }, [orders, soundEnabled]);
   const statusOptions = ["All", "On Process", "Completed", "rejected", "pending"];
-  const typeOptions = ["All", "dinein", "Collection", "homedelivery"];
+  const typeOptions = ["All", "dinein", "collection", "homedelivery"];
 
   const handleAcceptOrder = (id) => {
     axios.post(`https://arya-server.onrender.com/api/order-status`, { status: "On Process", orderId: id }).then((res) => {
