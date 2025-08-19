@@ -504,6 +504,25 @@ function Cart() {
                   })
                 }
               />
+                            <label>
+                How many Coins do you want to use? (your balance:{" "}
+                {localStorage.getItem("coins")})
+              </label>
+              <input
+                placeholder="Enter Number of Coins"
+                value={additionalInfo.coins || ""}
+                onChange={(e) => {
+                  if (
+                    e.target.value <= Number(localStorage.getItem("coins")) &&
+                    e.target.value <= getTotal()
+                  ) {
+                    setAdditionalInfo({
+                      ...additionalInfo,
+                      coins: e.target.value,
+                    });
+                  }
+                }}
+              />
             </div>
           )}
 
@@ -571,6 +590,25 @@ function Cart() {
                     landmark: e.target.value,
                   })
                 }
+              />
+                            <label>
+                How many Coins do you want to use? (your balance:{" "}
+                {localStorage.getItem("coins")})
+              </label>
+              <input
+                placeholder="Enter Number of Coins"
+                value={additionalInfo.coins || ""}
+                onChange={(e) => {
+                  if (
+                    e.target.value <= Number(localStorage.getItem("coins")) &&
+                    e.target.value <= getTotal()
+                  ) {
+                    setAdditionalInfo({
+                      ...additionalInfo,
+                      coins: e.target.value,
+                    });
+                  }
+                }}
               />
             </div>
           )}

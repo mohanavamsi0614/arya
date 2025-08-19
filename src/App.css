@@ -3285,7 +3285,7 @@ max-height: 100vh;
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   font-family: 'Forum', serif;
   color: #EFE7D2;
   padding: 20px;
@@ -3370,6 +3370,8 @@ max-height: 100vh;
   padding: 64px 80px 80px;
   border-radius: 16px;
   height: -webkit-fill-available;
+  overflow-y: scroll;
+      scrollbar-width: none;
 }
 
 .reservation-footer{
@@ -4207,7 +4209,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   font-family: "Forum", serif;
   color: #efe7d2;
   padding: 16px;
@@ -4242,7 +4244,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .blog-right{
   width: 50%;
-  height: 100vh;
+  height: auto;
   /* display: flex; */
   /* flex-direction: column; */
   /* align-items: center; */
@@ -4439,7 +4441,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   font-family: "Forum", serif;
   color: #efe7d2;
   padding: 16px;
@@ -4451,7 +4453,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   border: 1px solid rgb(51, 51, 48);
   width: 60%;
   position: relative;
-  height: 100vh;
+  height: auto;
   border-radius: 10px;
   /* overflow-y: scroll; */
   display: flex;
@@ -4588,7 +4590,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .bill-container{
     /* border: 1px solid rgb(51, 51, 48); */
   width: 40%;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   /* align-items: center; */
