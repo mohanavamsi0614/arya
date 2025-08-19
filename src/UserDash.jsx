@@ -83,7 +83,6 @@ function UserDash() {
                   .filter(
                     (o) => o.status !== 'Completed' && o.status !== 'rejected'
                   )
-                  .slice(0, 1)
                   .map((o, idx) => (
                     <div className="orders-card" key={o._id || idx}>
                       <div className="order-header">

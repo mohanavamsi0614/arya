@@ -1,8 +1,20 @@
+  // Convert camelCase keys to Pascal_Snake (e.g., fullName -> Full_Name)
+  const toPascalSnake = (obj) => {
+    const newObj = {};
+    Object.keys(obj).forEach((key) => {
+      const pascalSnake = key
+        .replace(/([A-Z])/g, '_$1')
+        .replace(/^./, (str) => str.toUpperCase());
+      newObj[pascalSnake] = obj[key];
+    });
+    return newObj;
+  };
 import { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import coin from "/public/arya_coin.png";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -243,7 +255,7 @@ function Cart() {
           data: {
             userId: localStorage.getItem("user"),
             items,
-            additionalInfo,
+            additionalInfo: toPascalSnake(additionalInfo),
             type: orderType,
             total: getTotal(),
             coins: Number(additionalInfo.coins) || 0,
@@ -330,7 +342,7 @@ function Cart() {
             }}
           >
             <img
-              src="./public/arya_coin.png"
+              src={coin}
               style={{ width: "23px", marginRight: "5px" }}
             />{" "}
             Coins : {localStorage.getItem("coins")}
