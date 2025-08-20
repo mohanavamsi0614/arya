@@ -61,9 +61,11 @@ function Navbar({ variant = "overlay" }) {
           >
             <span></span>
           </button>
-          <Link to="/" className="logo no-underline">
-            ARYA
+          <div className="logo-wrapper">
+            <Link to="/" className="no-underline">
+            <img className="logo" src="Arya-logo-png.png" alt="" />
           </Link>
+          </div>
 
           <ul className="nav-links desktop-only">
             <li>

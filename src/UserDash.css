@@ -69,7 +69,7 @@
 }
 /* User Dashboard Styles */
 .userdash-container {
-  min-height: 100vh;
+  height: 100vh;
   font-family: "Forum", serif;
   background-image: 
     linear-gradient(rgba(10, 11, 10, 0.911), rgba(10, 11, 10, 0.75)), 
@@ -137,15 +137,25 @@
     flex-direction: row;
     gap: 20px;
     width: 100%;
+      overflow-y: scroll ;
+
 }
 
 .current-orders{
+  overflow-y: scroll ;
     display: flex;
     flex-direction: column;
     border: 1px solid rgb(51, 51, 48);
     padding: 25px;
     border-radius: 10px;
     gap: 20px;
+        scrollbar-width: none;
+}
+
+/* Hide scrollbars */
+.current-orders::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
 }
 
 .current-orders-section {
@@ -410,7 +420,15 @@
     /* width: 70%; */
     padding: 20px;
     border-radius: 10px;
+    overflow-y: scroll;
+        scrollbar-width: none;
 }
+
+/* Hide scrollbars */
+.past-order::-webkit-scrollbar {
+    display: none;
+}
+
 
 .past-orders-header h3{
     font-size: 25px;
@@ -520,6 +538,14 @@
   border: 1px solid rgba(239, 231, 210, 0.1);
   border-radius: 8px;
   padding: 20px;
+  overflow-y: scroll;
+      scrollbar-width: none;
+}
+
+/* Hide scrollbars */
+.table-reservation-section::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
 }
 
 .table-reservation-header{
