@@ -3958,6 +3958,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .contact-info-details{
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   gap: 24px;
 }
 .contact-info-heading{
@@ -3978,6 +3979,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   gap: 16px;
   display: flex;
   flex-direction: column;
+  color: #ccc8b4;
+  font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
+  font-size: 12px;
 }
 
 .contact-info p{
@@ -4148,7 +4152,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
 
   .contact-info-title-details {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .contact-footer {
@@ -4157,6 +4161,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
   .contact-footer-text {
     font-size: 12px;
+  }
+
+  .footer-contact{
+
   }
 
   .contact-image-grid{
@@ -5227,6 +5235,41 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background: transparent;
 }
 
+.home-page-footer{
+  border: 1px solid #333330;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  display: none;
+}
+
+
+.footer-menu-links h4, .footer-about-us h4, .footer-timings h4, .footer-phone h4{
+  font-size: 18px;
+  text-align: center;
+  color: #EFE7D2;
+  margin-bottom: 5%;
+  font-weight: 300;
+  font-family: "Forum", sans-serif;
+}
+
+.footer-about-us p, .footer-phone p{
+  font-size: 12px;
+  text-align: center;
+  color: #ccc8b4;
+  line-height: 1.6;
+  font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
+}
+
+
+.footer-timings ul{
+  color: #ccc8b4;
+  font-size: 12px;
+}
+
 /* Button Loading States Enhanced */
 button:disabled {
   opacity: 0.7;
@@ -5518,4 +5561,10 @@ button:disabled:hover {
   position: relative;
   top: -5px;
   width: 100px;
+}
+
+@media screen and (max-width: 576px) {
+  .home-page-footer{
+    display: flex;
+  }
 }

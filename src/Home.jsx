@@ -1,23 +1,28 @@
-import Layout from './components/Layout';
-import Navbar from './components/Navbar';
-import { useNavigate } from 'react-router-dom';
-import { FaInstagram, FaFacebookF, FaTwitter,FaArrowRight  } from "react-icons/fa";
-import { useEffect } from 'react';
-
+import Layout from "./components/Layout";
+import Navbar from "./components/Navbar";
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaTwitter,
+  FaArrowRight,
+} from "react-icons/fa";
+import { useEffect } from "react";
 
 function Home() {
-    const navigate = useNavigate();
-    useEffect(()=>{
-      window.scrollTo(0, 0);
-    },[])
+  const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Layout pageType="home">
       <div className="framer-app">
-      <Navbar />
+        <Navbar />
 
-      <style>
-        {`:root {
+        <style>
+          {`:root {
           --token-c5c4fdcb-9482-48bb-aedf-353188472aae: rgb(239, 231, 210);
           --token-797a2fb4-2d14-46eb-9fb6-f38c1a9a545e: rgba(245, 242, 234, .7);
           --token-c5446a54-80de-4f79-b24b-55997bf1fe5e: rgb(10, 11, 10);
@@ -29,112 +34,221 @@ function Home() {
           --token-68c05b50-ca7b-4173-82aa-ed42aea1a9b4: rgb(51, 51, 48);
           --token-52eaa3b2-9b53-4c12-9790-fce4171dff3e: rgb(78, 76, 71);
         }`}
-      </style>
+        </style>
 
-      {/* Main Content Wrapper */}
-      <main className="main-wrapper">
-        {/* Left Side - Hero Video Section */}
-        <div className="hero-side">
-          <div className="hero-container">
-            <video
-              className="hero-video"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-            >
-              <source src="https://framerusercontent.com/assets/KNjmnFp5kwda6KegO13wieYyI0.mp4" type="video/mp4" />
-              <source src="/media/hero-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div className="video-gradient"></div>
-            <div className="hero-title-container">
-              <h1 className="hero-title">
-                Asian<br />Sensation
-              </h1>
-            </div>
-            <div className="social-section">
-              <div className="social-links">
-                  <a href="https://instagram.com" className="social-icon" target="_blank">
+        {/* Main Content Wrapper */}
+        <main className="main-wrapper">
+          {/* Left Side - Hero Video Section */}
+          <div className="hero-side">
+            <div className="hero-container">
+              <video
+                className="hero-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+              >
+                <source
+                  src="https://framerusercontent.com/assets/KNjmnFp5kwda6KegO13wieYyI0.mp4"
+                  type="video/mp4"
+                />
+                <source src="/media/hero-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="video-gradient"></div>
+              <div className="hero-title-container">
+                <h1 className="hero-title">
+                  Asian
+                  <br />
+                  Sensation
+                </h1>
+              </div>
+              <div className="social-section">
+                <div className="social-links">
+                  <a
+                    href="https://instagram.com"
+                    className="social-icon"
+                    target="_blank"
+                  >
                     <FaInstagram />
                   </a>
-                  <a href="https://facebook.com" className="social-icon" target="_blank">
+                  <a
+                    href="https://facebook.com"
+                    className="social-icon"
+                    target="_blank"
+                  >
                     <FaFacebookF />
                   </a>
-                  <a href="https://twitter.com" className="social-icon" target="_blank">
+                  <a
+                    href="https://twitter.com"
+                    className="social-icon"
+                    target="_blank"
+                  >
                     <FaTwitter />
                   </a>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* Right Side - Navigation Cards */}
+          <div className="cards-side">
+            <div onClick={() => navigate("/menu")} className="nav-card">
+              <div className="card-image">
+                <img href="/menu" src="/media/ARYA-15-3.jpg" alt="Menu" />
+              </div>
+              <div className="card-info">
+                <div className="card-title-section">
+                  <h6 className="card-title">Menu</h6>
+                  <div className="card-arrow-container">
+                    <div className="card-arrow-icon">
+                      <FaArrowRight />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div onClick={() => navigate("/reservation")} className="nav-card">
+              <div className="card-image">
+                <img src="/media/ARYA-24-2.jpg" alt="Reservation" />
+              </div>
+              <div className="card-info">
+                <div className="card-title-section">
+                  <h6 className="card-title">Reservation</h6>
+                  <div className="card-arrow-container">
+                    <div className="card-arrow-icon">
+                      <FaArrowRight />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div onClick={() => navigate("/about")} className="nav-card">
+              <div className="card-image">
+                <img src="/media/ARYA-66-2.jpg" alt="Our Restaurant" />
+              </div>
+              <div className="card-info">
+                <div className="card-title-section">
+                  <h6 className="card-title">About</h6>
+                  <div className="card-arrow-container">
+                    <div className="card-arrow-icon">
+                      <FaArrowRight />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="home-page-footer">
+            <div className="footer-menu-links">
+              <h4 onClick={() => navigate("/menu")} className="">Menu</h4>
+            </div>
+            <div className="footer-contact">
+              <div className="contact-info-container">
+                <div className="contact-info-details">
+                  <p className="contact-info-title">ADDRESS</p>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <p className="contact-info-title-details">
+                    264 London Road,
+                    Carlisle CA12QS
+                  </p>
+                </div>
+                <div className="contact-info-details">
+                  <p className="contact-info-title">PHONE</p>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <p className="contact-info-title-details">+44 7955 965365</p>
+                </div>
+                <div className="contact-info-details">
+                  <p className="contact-info-title">EMAIL</p>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <p className="contact-info-title-details">
+                    aryarestaurant6@gmail.com
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="footer-timings">
+              <h4>Restaurant Timings</h4>
+              <ul className="contact-opening-hours-list">
+                <li>
+                  <span>Mon</span>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <span>5:00pm - 10:00pm</span>
+                </li>
+                <li>
+                  <span>Tue</span>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <span>Closed</span>
+                </li>
+                <li>
+                  <span>Wed</span>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <span>5:00pm - 10:00pm</span>
+                </li>
+                <li>
+                  <span>Thu</span>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <span>5:00pm - 10:00pm</span>
+                </li>
+                <li>
+                  <span>Fri</span>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <span>5:00pm - 10:00pm</span>
+                </li>
+                <li>
+                  <span>Sat</span>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <span>12:00-2:30 | 5:00-10:10</span>
+                </li>
+                <li>
+                  <span>Sun</span>
+                  <div className="ckcjc7">
+                    <div className="c1az4bwh"></div>
+                  </div>
+                  <span>12:00-2:30 | 5:00-8:30</span>
+                </li>
+              </ul>
+            </div>
+            <div className="footer-about-us">
+              <h4>About Us</h4>
+              <p>
+                Discover a symphony of Asian spices and Western charm, brought
+                together on a single plate. Arya blends tradition with
+                innovation to offer a dining experience that's rooted in culture
+                and crafted for the modern palate.
+              </p>
+            </div>
+          </div>
+        </main>
+
+        {/* Background Pattern */}
+        <div className="background-pattern">
+          <img src="/media/pattern.jpg" alt="Background Pattern" />
         </div>
 
-        {/* Right Side - Navigation Cards */}
-        <div className="cards-side">
-          <div         
-            onClick={() => navigate('/menu')}  
-            className="nav-card">
-            <div className="card-image">
-              <img href='/menu' src="/media/ARYA-15-3.jpg" alt="Menu" />
-            </div>
-            <div className="card-info">
-              <div className="card-title-section">
-                <h6 className="card-title">Menu</h6>
-                <div className="card-arrow-container">
-                  <div className="card-arrow-icon">
-                    <FaArrowRight />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-          onClick={() => navigate('/reservation')}
-          className="nav-card">
-            <div className="card-image">
-              <img src="/media/ARYA-24-2.jpg" alt="Reservation" />
-            </div>
-            <div className="card-info">
-              <div className="card-title-section">
-                <h6 className="card-title">Reservation</h6>
-                              <div className="card-arrow-container">
-                  <div className="card-arrow-icon">
-                    <FaArrowRight />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div onClick={() => navigate('/about')}
-          className="nav-card">
-            <div className="card-image">
-              <img src="/media/ARYA-66-2.jpg" alt="Our Restaurant" />
-            </div>
-            <div className="card-info">
-              <div className="card-title-section">
-                <h6 className="card-title">About</h6>
-                <div className="card-arrow-container">
-                  <div className="card-arrow-icon">
-                    <FaArrowRight />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      {/* Background Pattern */}
-      <div className="background-pattern">
-        <img src="/media/pattern.jpg" alt="Background Pattern" />
+        {/* Framer Badges */}
       </div>
-
-      {/* Framer Badges */}
-   
-    </div>
     </Layout>
   );
 }
