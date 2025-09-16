@@ -144,7 +144,7 @@ function Home() {
           </div>
           <div className="home-page-footer">
             <div className="footer-menu-links">
-              <h4 onClick={() => navigate("/menu")} className="">Menu</h4>
+              <h4 onClick={() => navigate("/menu")} className="">See Menu</h4>
             </div>
             <div className="footer-contact">
               <div className="contact-info-container">
