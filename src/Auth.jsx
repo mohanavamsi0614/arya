@@ -84,7 +84,7 @@ function Auth({ onAuthSuccess }) {
           nav("/"); // Then redirect to home
         }
       } else {
-        setMessage(data.message || `Login failed (${response.status})`);
+        setMessage(data.error || `Login failed (${response.status})`);
       }
     } catch (error) {
       setMessage("Network error. Please try again.");
