@@ -51,29 +51,32 @@
   }
 } */
 .order-card-On-Process {
-  border: 1px solid #ffa000;
+  background-color: rgba(182, 164, 0, 0.1);
+  border: 1px solid #FFD431;
   padding: 10px;
   border-radius: 10px;
 }
 
 .order-card-Completed {
-  border: 1px solid #4caf50;
+  background-color: rgba(0, 153, 10, 0.1);
+  border: 1px solid #008200;
   padding: 10px;
     border-radius: 10px;
 
 }
 
 .order-card-rejected {
-  border: 1px solid #f44336;
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid #A40000;
   padding: 10px;  
     border-radius: 10px;
 
 }
 .order-card-pending{
+  background-color: rgba(84, 139, 233, 0.1);;
   border: 1px solid #005effb9;
   padding: 10px;
     border-radius: 10px;
-
 }
 
 .order-additional-info{
@@ -231,7 +234,6 @@
     display: none;
   }
   .logo {
-    font-size: 28px;
     /* margin-left: 8px; */
   }
   .nav-links {
@@ -427,12 +429,6 @@ body.menu-page {
   position: relative;
 }
 
-.logo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
 
 .nav-menu {
   display: flex;
@@ -1542,7 +1538,7 @@ html, body {
 
 .item-text {
   flex: 1;
-    font-family: 'Forum', serif;
+  font-family: 'Forum', serif;
   font-size: 1.2rem;
   font-weight: 400;
   color: #fff;
@@ -1830,19 +1826,6 @@ html, body {
   background-color: #d4af37;
 } */
 
-.logo {
-  font-size: 32px;
-  font-weight: lighter;
-  letter-spacing: 1px;
-  color: #EFE7D2;
-  font-family: forum;
-}
-
-.logo.no-underline {
-  text-decoration: none;
-  font-weight: lighter; /* or whatever styling your logo needs */
-  font-family: "Forum", serif;
-}
 
 .nav-links {
   list-style: none;
@@ -2038,11 +2021,12 @@ html, body {
 }
 
 .item-text p {
-  font-size: 14px;
+  font-size: 17.5px;
   color: #EFE7D2;
+  opacity: 0.8;
   line-height: 1.5;
   width: 80%;
-  font-weight: 300;
+  font-weight: 500;
   font-family: 'Satoshi', sans-serif;
 }
 
@@ -2373,9 +2357,7 @@ max-height: 100vh;
   }
 
   .logo {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: left;
+
     /* margin-left: 8px; */
   }
 
@@ -2496,7 +2478,7 @@ max-height: 100vh;
   .menu-btn {
     height: 36px;
     width: 36px;
-    padding: 0;
+    /* padding: 0; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2513,9 +2495,6 @@ max-height: 100vh;
   }
 
   .logo {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: left;
     /* margin-left: 8px; */
   }
 
@@ -2634,7 +2613,6 @@ max-height: 100vh;
   }
 
   .logo {
-    font-size: 16px;
   }
 
   .book {
@@ -2850,7 +2828,7 @@ max-height: 100vh;
   /* Description Mobile */
   .menu-page .item-text p {
     text-align: start !important;
-    font-size: 0.9rem !important;
+    font-size: 1.3rem !important;
     line-height: 1.5 !important;
     /* margin-top: 10px !important; */
     color: #EFE7D2 !important;
@@ -2918,10 +2896,7 @@ max-height: 100vh;
   }
 
   .logo {
-    font-size: 28px !important;
-    flex: 1 !important;
-    text-align: center !important;
-    font-weight: lighter;
+
   }
 
   .nav-links {
@@ -2984,7 +2959,7 @@ max-height: 100vh;
   }
 
   .menu-page .item-text p {
-    font-size: 0.85rem !important;
+    font-size: 1.03rem !important;
   }
 
   .menu-page .tab-button {
@@ -3285,7 +3260,7 @@ max-height: 100vh;
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   font-family: 'Forum', serif;
   color: #EFE7D2;
   padding: 20px;
@@ -3370,6 +3345,8 @@ max-height: 100vh;
   padding: 64px 80px 80px;
   border-radius: 16px;
   height: -webkit-fill-available;
+  overflow-y: scroll;
+      scrollbar-width: none;
 }
 
 .reservation-footer{
@@ -3981,6 +3958,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .contact-info-details{
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   gap: 24px;
 }
 .contact-info-heading{
@@ -4001,6 +3979,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   gap: 16px;
   display: flex;
   flex-direction: column;
+  color: #ccc8b4;
+  font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
+  font-size: 12px;
 }
 
 .contact-info p{
@@ -4171,7 +4152,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
 
   .contact-info-title-details {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .contact-footer {
@@ -4180,6 +4161,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
   .contact-footer-text {
     font-size: 12px;
+  }
+
+  .footer-contact{
+
   }
 
   .contact-image-grid{
@@ -4207,7 +4192,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   font-family: "Forum", serif;
   color: #efe7d2;
   padding: 16px;
@@ -4242,7 +4227,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .blog-right{
   width: 50%;
-  height: 100vh;
+  height: auto;
   /* display: flex; */
   /* flex-direction: column; */
   /* align-items: center; */
@@ -4408,6 +4393,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     width: 100%;
     height: auto;
     padding: 28px;
+    overflow-y: visible;
   }
 
   .blog-content-item{
@@ -4439,7 +4425,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   font-family: "Forum", serif;
   color: #efe7d2;
   padding: 16px;
@@ -4451,7 +4437,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   border: 1px solid rgb(51, 51, 48);
   width: 60%;
   position: relative;
-  height: 100vh;
+  height: auto;
   border-radius: 10px;
   /* overflow-y: scroll; */
   display: flex;
@@ -4588,7 +4574,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .bill-container{
     /* border: 1px solid rgb(51, 51, 48); */
   width: 40%;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   /* align-items: center; */
@@ -5249,6 +5235,41 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background: transparent;
 }
 
+.home-page-footer{
+  border: 1px solid #333330;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  display: none;
+}
+
+
+.footer-menu-links h4, .footer-about-us h4, .footer-timings h4, .footer-phone h4{
+  font-size: 18px;
+  text-align: center;
+  color: #EFE7D2;
+  margin-bottom: 5%;
+  font-weight: 300;
+  font-family: "Forum", sans-serif;
+}
+
+.footer-about-us p, .footer-phone p{
+  font-size: 12px;
+  text-align: center;
+  color: #ccc8b4;
+  line-height: 1.6;
+  font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
+}
+
+
+.footer-timings ul{
+  color: #ccc8b4;
+  font-size: 12px;
+}
+
 /* Button Loading States Enhanced */
 button:disabled {
   opacity: 0.7;
@@ -5532,5 +5553,18 @@ button:disabled:hover {
   .btn-delete {
     flex: 1;
     min-width: 100px;
+  }
+}
+
+
+.logo-wrapper img{
+  position: relative;
+  top: -5px;
+  width: 100px;
+}
+
+@media screen and (max-width: 576px) {
+  .home-page-footer{
+    display: flex;
   }
 }

@@ -516,8 +516,9 @@ function Cart() {
                   })
                 }
               />
-              <label>
-                How many Coins do you want to use? (your balance: {localStorage.getItem("coins")})
+                            <label>
+                How many Coins do you want to use? (your balance:{" "}
+                {localStorage.getItem("coins")})
               </label>
               <input
                 placeholder="Enter Number of Coins"
@@ -602,8 +603,9 @@ function Cart() {
                   })
                 }
               />
-              <label>
-                How many Coins do you want to use? (your balance: {localStorage.getItem("coins")})
+                            <label>
+                How many Coins do you want to use? (your balance:{" "}
+                {localStorage.getItem("coins")})
               </label>
               <input
                 placeholder="Enter Number of Coins"
